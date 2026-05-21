@@ -1,6 +1,180 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/inicio.css' %}">
+{% endblock %}
+
 {% block content %}
-<section class="hero"><div class="container hero-grid"><div class="hero-copy"><p class="eyebrow">Restaurante · Pizzería</p><h1>{{ business.name }}</h1><p class="hero-text">{{ business.tagline }}. Disfruta pizzas, pastas y ensaladas con una experiencia cálida, directa y lista para evolucionar a pedidos digitales.</p><div class="hero-actions"><a class="btn primary" href="{% url 'menu:home' %}">Ver menú</a><a class="btn secondary" href="{% url 'productos_home' %}">Productos destacados</a></div></div><div class="hero-card"><span class="dish-icon">🍕</span><h2>Pizza La Cabaña</h2><p>Salsa de tomate, mozzarella, pepperoni, jamón, tocino y chorizo.</p><strong>$155 normal</strong></div></div></section>
-<section class="section container"><div class="section-heading"><p class="eyebrow">Del prototipo a Django</p><h2>Platillos destacados</h2><p>El contenido que antes estaba amarrado al HTML/JS ahora se entrega desde estructuras Python.</p></div><div class="card-grid">{% for dish in featured_dishes %}<article class="feature-card"><span class="dish-icon small">{{ dish.icon }}</span><p class="eyebrow">{{ dish.category }}</p><h3>{{ dish.name }}</h3><p>{{ dish.description }}</p><strong>{{ dish.price }}</strong></article>{% endfor %}</div></section>
-<section class="band"><div class="container band-grid">{% for service in services %}<article><span>{{ service.icon }}</span><h3>{{ service.title }}</h3><p>{{ service.description }}</p></article>{% endfor %}</div></section>
+<div class="inicio-page">
+    <section class="inicio-hero" id="inicio">
+        <div class="container inicio-hero__grid">
+            <div class="inicio-hero__content">
+                <p class="inicio-kicker">Pizzería local · Sabor casero</p>
+                <h1>Pizza artesanal, pasta y ambiente cálido en La Cabaña</h1>
+                <p class="inicio-hero__text">
+                    Un espacio familiar con pizzas, pastas y ensaladas preparadas con sabor de casa.
+                    Consulta el menú, acumula puntos y comparte tu experiencia para ayudarnos a mejorar.
+                </p>
+                <div class="inicio-actions">
+                    <a class="inicio-btn inicio-btn--primary" href="{% url 'menu:home' %}">Ver menú</a>
+                    <a class="inicio-btn inicio-btn--secondary" href="#puntos-preview">Sistema de puntos</a>
+                </div>
+                <div class="inicio-mini-info" aria-label="Información rápida">
+                    <span>🍕 Pizza</span>
+                    <span>🍝 Pasta</span>
+                    <span>⭐ Puntos</span>
+                </div>
+            </div>
+            <div class="inicio-hero__visual" aria-label="Espacio reservado para imagen del local">
+                <div class="inicio-placeholder inicio-placeholder--local">
+                    <span>Imagen del local</span>
+                    <small>Fachada nocturna / luces cálidas</small>
+                </div>
+                <div class="inicio-floating-card">
+                    <strong>La Cabaña</strong>
+                    <span>Pizza · Pasta · Ensaladas</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="inicio-quick container" aria-label="Accesos rápidos">
+        <a class="quick-card" href="{% url 'menu:home' %}">
+            <span class="quick-card__icon">📋</span>
+            <strong>Ver menú</strong>
+            <p>Explora pizzas, pastas, ensaladas y precios.</p>
+        </a>
+        <a class="quick-card" href="#puntos-preview">
+            <span class="quick-card__icon">⭐</span>
+            <strong>Consultar puntos</strong>
+            <p>Revisa cómo funcionará el programa de recompensas.</p>
+        </a>
+        <a class="quick-card" href="#sugerencias">
+            <span class="quick-card__icon">💬</span>
+            <strong>Quejas y sugerencias</strong>
+            <p>Comparte tu experiencia y solicita seguimiento.</p>
+        </a>
+    </section>
+
+    <section class="inicio-section container" id="destacados">
+        <div class="inicio-section__heading">
+            <p class="inicio-kicker">Platillos destacados</p>
+            <h2>Lo más pedido de la casa</h2>
+            <p>Esta sección está pensada para reemplazarse después con fotos reales de los platillos.</p>
+        </div>
+        <div class="featured-grid">
+            <article class="featured-card">
+                <div class="food-placeholder food-placeholder--pizza"><span>Imagen pizza</span></div>
+                <div class="featured-card__body">
+                    <p class="inicio-kicker">Pizza</p>
+                    <h3>Pizza de pepperoni</h3>
+                    <p>Una opción clásica, directa y fácil de identificar para nuevos clientes.</p>
+                </div>
+            </article>
+            <article class="featured-card">
+                <div class="food-placeholder food-placeholder--pasta"><span>Imagen pasta</span></div>
+                <div class="featured-card__body">
+                    <p class="inicio-kicker">Pasta</p>
+                    <h3>Pasta con albóndigas</h3>
+                    <p>Ideal para mostrar el lado casero y cálido del restaurante.</p>
+                </div>
+            </article>
+            <article class="featured-card">
+                <div class="food-placeholder food-placeholder--ensalada"><span>Imagen ensalada</span></div>
+                <div class="featured-card__body">
+                    <p class="inicio-kicker">Fresco</p>
+                    <h3>Ensalada de la casa</h3>
+                    <p>Un complemento visualmente limpio para equilibrar el menú.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="inicio-story">
+        <div class="container story-grid">
+            <div class="story-image-placeholder">
+                <span>Imagen ambiente</span>
+                <small>Terraza, luces, entrada o interior</small>
+            </div>
+            <div class="story-content">
+                <p class="inicio-kicker">Sobre La Cabaña</p>
+                <h2>Un lugar pequeño con ambiente familiar</h2>
+                <p>
+                    La identidad visual de la página debe sentirse cercana al local: madera, tonos cálidos,
+                    rojo cabaña, luces nocturnas y comida reconfortante. Esta sección ayuda a que el cliente
+                    conecte con el lugar antes de revisar el menú.
+                </p>
+                <a class="inicio-link" href="{% url 'menu:home' %}">Conocer el menú</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="inicio-section container" id="puntos-preview">
+        <div class="inicio-section__heading inicio-section__heading--center">
+            <p class="inicio-kicker">Sistema de puntos</p>
+            <h2>Compra, acumula y canjea</h2>
+            <p>Esta será la entrada al sistema de puntos cuando conectemos usuarios, compras y recompensas.</p>
+        </div>
+        <div class="steps-grid">
+            <article class="step-card"><span>1</span><h3>Regístrate</h3><p>Crea tu cuenta para guardar tus datos y seguimiento.</p></article>
+            <article class="step-card"><span>2</span><h3>Compra</h3><p>Registra o valida tus compras en La Cabaña.</p></article>
+            <article class="step-card"><span>3</span><h3>Acumula</h3><p>Obtén puntos por consumo o promociones especiales.</p></article>
+            <article class="step-card"><span>4</span><h3>Canjea</h3><p>Usa tus puntos en recompensas disponibles.</p></article>
+        </div>
+    </section>
+
+    <section class="inicio-faq container" id="faq">
+        <div class="inicio-section__heading">
+            <p class="inicio-kicker">Preguntas frecuentes</p>
+            <h2>Dudas rápidas</h2>
+        </div>
+        <div class="faq-grid">
+            <details open>
+                <summary>¿Cómo acumulo puntos?</summary>
+                <p>La idea es que los puntos se acumulen con compras registradas en tu cuenta. La lógica exacta se definirá cuando construyamos el módulo.</p>
+            </details>
+            <details>
+                <summary>¿Dónde reviso mis puntos?</summary>
+                <p>Habrá un apartado de cuenta para consultar saldo, historial y recompensas disponibles.</p>
+            </details>
+            <details>
+                <summary>¿Puedo enviar una queja o sugerencia?</summary>
+                <p>Sí. La página tendrá un formulario para enviar comentarios y pedir seguimiento por cuenta o correo.</p>
+            </details>
+            <details>
+                <summary>¿El menú se actualizará?</summary>
+                <p>Más adelante conviene administrarlo desde Django Admin para cambiar productos, precios e imágenes sin tocar código.</p>
+            </details>
+        </div>
+    </section>
+
+    <section class="inicio-feedback" id="sugerencias">
+        <div class="container feedback-grid">
+            <div>
+                <p class="inicio-kicker">Quejas y sugerencias</p>
+                <h2>Cuéntanos cómo fue tu experiencia</h2>
+                <p>
+                    Este bloque muestra cómo se verá el formulario. Después lo conectaremos a Django para guardar solicitudes,
+                    enviar correos y dar seguimiento con una cuenta de usuario.
+                </p>
+            </div>
+            <form class="feedback-form" aria-label="Formulario visual de quejas y sugerencias">
+                <div class="form-row">
+                    <label>Nombre<input type="text" placeholder="Tu nombre"></label>
+                    <label>Correo<input type="email" placeholder="correo@ejemplo.com"></label>
+                </div>
+                <label>Tipo de mensaje
+                    <select>
+                        <option>Queja</option>
+                        <option>Sugerencia</option>
+                        <option>Felicitación</option>
+                    </select>
+                </label>
+                <label>Mensaje<textarea rows="4" placeholder="Escribe tu comentario"></textarea></label>
+                <button type="button">Enviar comentario</button>
+            </form>
+        </div>
+    </section>
+</div>
 {% endblock %}
