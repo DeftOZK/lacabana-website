@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero"><div class="container"><p class="eyebrow">Productos</p><h1>Productos destacados</h1><p>Vista equivalente a la página de productos del prototipo, pero generada con contexto Python.</p></div></section>
+<section class="section container"><div class="product-grid">{% for dish in featured_dishes %}<article class="product-card"><div class="product-art">{{ dish.icon }}</div><div class="product-body"><p class="eyebrow">{{ dish.category }}</p><h2>{{ dish.name }}</h2><p>{{ dish.description }}</p><strong>{{ dish.price }}</strong></div></article>{% endfor %}</div></section>
+{% endblock %}

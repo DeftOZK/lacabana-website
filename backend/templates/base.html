@@ -1,23 +1,37 @@
+{% load static %}
 <!doctype html>
-<html lang="es">
+<html lang="es-MX">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>La Cabaña</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page_title|default:"Inicio" }} | {{ business.name|default:"La Cabaña" }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/site.css' %}">
 </head>
 <body>
-  <header>
-    <h1>La Cabaña</h1>
-    <nav>
-      <a href="/">Inicio</a>
-      <a href="/menu/">Menú</a>
-      <a href="/puntos/">Puntos</a>
-      <a href="/feedback/">Feedback</a>
-      <a href="/admin/">Admin</a>
+<header class="site-header">
+    <nav class="nav container" aria-label="Navegación principal">
+        <a class="brand" href="{% url 'home' %}"><span class="brand-mark">LC</span><span>{{ business.name }}</span></a>
+        <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Abrir menú">
+        <label class="nav-toggle-label" for="nav-toggle">☰</label>
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Inicio</a>
+            <a href="{% url 'servicio_home' %}">Servicio</a>
+            <a href="{% url 'productos_home' %}">Productos</a>
+            <a href="{% url 'menu:home' %}">Menú</a>
+            <a class="pill-link" href="{{ business.facebook_url }}" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </div>
     </nav>
-  </header>
-  <main>
-    {% block content %}{% endblock %}
-  </main>
+</header>
+<main>{% block content %}{% endblock %}</main>
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div><strong>{{ business.name }}</strong><p>{{ business.tagline }}</p></div>
+        <div><span>Horario</span><p>{{ business.schedule }}</p></div>
+        <div><span>Contacto</span><p><a href="{{ business.facebook_url }}" target="_blank" rel="noopener noreferrer">Facebook oficial</a></p></div>
+    </div>
+</footer>
 </body>
 </html>

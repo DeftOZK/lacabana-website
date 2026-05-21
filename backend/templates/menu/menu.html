@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero"><div class="container"><p class="eyebrow">Menú digital</p><h1>Menú de {{ business.name }}</h1><p>Esta página reemplaza el menú estático original con datos renderizados desde Python.</p></div></section>
+<section class="section container menu-layout">{% for category in menu_categories %}<article class="menu-section" id="{{ category.slug }}"><div class="menu-section-heading"><h2>{{ category.name }}</h2><a href="#top">Subir</a></div><div class="menu-items">{% for item in category.items %}<div class="menu-item"><div><h3>{{ item.name }}</h3><p>{{ item.description }}</p></div><div class="prices">{% for label, price in item.prices.items %}<span><small>{{ label }}</small>{{ price }}</span>{% endfor %}</div></div>{% endfor %}</div></article>{% endfor %}</section>
+{% endblock %}
