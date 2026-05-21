@@ -1,37 +1,16 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.http import HttpResponse
-from django.urls import path
+from django.urls import include, path
 
-
-def home(request):
-    return HttpResponse('La Cabana Website - inicio')
-
-
-def menu(request):
-    return HttpResponse('Menu digital')
-
-
-def clientes(request):
-    return HttpResponse('Clientes')
-
-
-def puntos(request):
-    return HttpResponse('Sistema de puntos')
-
-
-def feedback(request):
-    return HttpResponse('Feedback')
-
+from menu import views as menu_views
 
 urlpatterns = [
-    path('', home, name='home'),
-    path('admin/', admin.site.urls),
-    path('menu/', menu, name='menu_home'),
-    path('clientes/', clientes, name='clientes_home'),
-    path('puntos/', puntos, name='puntos_home'),
-    path('feedback/', feedback, name='feedback_home'),
+    path("", menu_views.home, name="home"),
+    path("admin/", admin.site.urls),
+    path("menu/", include("menu.urls")),
+    path("productos/", menu_views.products, name="productos_home"),
+    path("servicio/", menu_views.service, name="servicio_home"),
 ]
 
 if settings.DEBUG:

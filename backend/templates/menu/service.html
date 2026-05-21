@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero"><div class="container"><p class="eyebrow">Servicio</p><h1>Servicio de restaurante</h1><p>La estructura queda preparada para crecer hacia reservas, pedidos, clientes y sistema de puntos.</p></div></section>
+<section class="section container"><div class="service-list">{% for service in services %}<article class="service-card"><span>{{ service.icon }}</span><div><h2>{{ service.title }}</h2><p>{{ service.description }}</p></div></article>{% endfor %}</div></section>
+{% endblock %}
