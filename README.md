@@ -48,3 +48,9 @@ lacabana-website/
 ├── railway.json
 └── README.md
 ```
+
+```
+cd C:\Users\Deft\Documents\lacabana-website\backend
+.\venv\Scripts\Activate.ps1
+python manage.py runserver
+```
