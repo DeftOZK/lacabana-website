@@ -19,3 +19,7 @@ def service(request):
 
 def points(request):
     return render(request, "pages/puntos.html")
+
+
+def account(request):
+    return render(request, "pages/cuenta.html")

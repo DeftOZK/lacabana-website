@@ -9,6 +9,7 @@ urlpatterns = [
     path("", menu_views.home, name="home"),
     path("admin/", admin.site.urls),
     path("menu/", include("menu.urls")),
+    path("cuenta/", menu_views.account, name="cuenta_home"),
     path("puntos/", menu_views.points, name="puntos_home"),
     path("productos/", menu_views.products, name="productos_home"),
     path("servicio/", menu_views.service, name="servicio_home"),

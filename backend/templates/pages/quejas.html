@@ -7,6 +7,7 @@
     <title>Quejas y sugerencias | La Cabaña</title>
     <link rel="stylesheet" href="{% static 'css/inicio.css' %}">
     <link rel="stylesheet" href="{% static 'css/header.css' %}?v=header-general">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=footer-general">
 </head>
 <body>
     {% include 'partials/site_header.html' %}
@@ -17,8 +18,8 @@
                 <p class="eyebrow">Atención al cliente</p>
                 <h1>Preguntas frecuentes, quejas y sugerencias</h1>
                 <p>
-                    Antes de enviar un comentario, revisa las dudas más comunes. Para evitar mensajes sin seguimiento,
-                    las quejas y sugerencias solo podrán enviarse desde una cuenta.
+                    Antes de enviar un comentario, revisa las dudas más comunes. Queremos que tus mensajes sean claros,
+                    útiles y fáciles de atender.
                 </p>
             </div>
         </section>
@@ -28,19 +29,19 @@
             <h2>Dudas comunes</h2>
 
             <div class="faq-grid">
-                <details open>
-                    <summary>¿Puedo enviar una queja sin cuenta?</summary>
-                    <p>No. Para enviar una queja o sugerencia necesitas iniciar sesión. Así podemos dar seguimiento real a tu caso y evitar reportes sin información.</p>
+                <details>
+                    <summary>¿Cómo puedo enviar una queja?</summary>
+                    <p>Completa el formulario con tus datos de contacto y describe lo ocurrido con el mayor detalle posible.</p>
                 </details>
 
                 <details>
                     <summary>¿Cómo puedo acumular puntos?</summary>
-                    <p>El sistema de puntos todavía no tiene reglas finales. La idea es que las compras registradas puedan sumar puntos dentro de tu cuenta.</p>
+                    <p>El sistema de puntos todavía no tiene reglas finales. La idea es que las compras registradas puedan sumar puntos para canjear recompensas.</p>
                 </details>
 
                 <details>
                     <summary>¿Dónde consultaré mis puntos?</summary>
-                    <p>Cuando el módulo esté activo, podrás entrar a tu cuenta para revisar saldo, historial y recompensas disponibles.</p>
+                    <p>Cuando el módulo esté activo, habrá una página dedicada para revisar saldo, historial y recompensas disponibles.</p>
                 </details>
 
                 <details>
@@ -50,7 +51,7 @@
 
                 <details>
                     <summary>¿Cómo darán seguimiento a mi comentario?</summary>
-                    <p>El seguimiento se hará por medio de tu cuenta y, cuando aplique, por correo. Esto se conectará en la siguiente fase del sistema.</p>
+                    <p>El equipo revisará el mensaje y usará los datos de contacto que proporciones para responder si hace falta.</p>
                 </details>
 
                 <details>
@@ -63,21 +64,19 @@
         <section class="feedback-form-section container">
             <div class="feedback-grid">
                 <div class="login-card">
-                    <p class="eyebrow">Seguimiento obligatorio</p>
-                    <h2>Inicia sesión antes de enviar tu comentario</h2>
+                    <p class="eyebrow">Tu opinión nos ayuda</p>
+                    <h2>Cuéntanos cómo podemos mejorar</h2>
                     <p>
-                        Para cuidar la calidad del seguimiento, cada comentario quedará relacionado con una cuenta.
-                        En esta fase dejamos lista la interfaz; después conectaremos usuarios, historial y notificaciones.
+                        Comparte una queja, sugerencia o felicitación. Revisaremos tu mensaje con atención para mejorar
+                        la experiencia en La Cabaña.
                     </p>
-                    <a class="btn btn-primary" href="#">Iniciar sesión próximamente</a>
                 </div>
 
-                {% if user.is_authenticated %}
                 <form class="feedback-form" method="post">
                     {% csrf_token %}
                     <div class="form-row">
                         <label>Nombre
-                            <input type="text" name="nombre" value="{{ user.get_username }}" required>
+                            <input type="text" name="nombre" placeholder="Tu nombre" required>
                         </label>
                         <label>Correo
                             <input type="email" name="correo" placeholder="correo@ejemplo.com" required>
@@ -96,67 +95,13 @@
                         <textarea name="mensaje" rows="6" placeholder="Cuéntanos qué ocurrió o qué podemos mejorar." required></textarea>
                     </label>
 
-                    <p class="form-note">El guardado del comentario se conectará cuando construyamos el módulo de feedback.</p>
+                    <p class="form-note">Gracias por compartir tu experiencia. Tu comentario nos ayuda a mejorar el servicio.</p>
                     <button class="btn btn-primary" type="submit">Enviar comentario</button>
                 </form>
-                {% else %}
-                <form class="feedback-form" aria-label="Formulario bloqueado">
-                    <div class="form-row">
-                        <label>Nombre
-                            <input type="text" placeholder="Inicia sesión para continuar" disabled>
-                        </label>
-                        <label>Correo
-                            <input type="email" placeholder="Cuenta requerida" disabled>
-                        </label>
-                    </div>
-
-                    <label>Tipo de comentario
-                        <select disabled>
-                            <option>Queja</option>
-                            <option>Sugerencia</option>
-                            <option>Felicitación</option>
-                        </select>
-                    </label>
-
-                    <label>Mensaje
-                        <textarea rows="6" placeholder="El formulario se habilitará al iniciar sesión." disabled></textarea>
-                    </label>
-
-                    <button class="btn btn-primary" type="button" disabled>Cuenta requerida</button>
-                </form>
-                {% endif %}
             </div>
         </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <img src="{% static 'img/logos/logo-cabana.svg' %}" alt="La Cabaña Pizzería">
-                <p>Pizza, pasta y sabor casero en un ambiente local y familiar.</p>
-            </div>
-
-            <div>
-                <h3>Navegación</h3>
-                <a href="{% url 'menu:home' %}">Menú</a>
-                <a href="{% url 'puntos_home' %}">Puntos</a>
-                <a href="{% url 'feedback:home' %}">Quejas y sugerencias</a>
-            </div>
-
-            <div>
-                <h3>Contacto</h3>
-                <p>C. Andalucía 3526, Riveras del Álamo, Tijuana, B.C.</p>
-                <p>Tel. +52 (664) 591-9524</p>
-                <p>WhatsApp pendiente por confirmar</p>
-            </div>
-
-            <div>
-                <h3>Redes</h3>
-                <a href="https://www.facebook.com/pizzerialacabania/" target="_blank" rel="noopener noreferrer">Facebook</a>
-                <a href="#">TikTok pendiente</a>
-                <p class="footer-small">© 2026 La Cabaña. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
+    {% include 'partials/site_footer.html' %}
 </body>
 </html>

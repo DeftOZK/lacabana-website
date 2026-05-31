@@ -1,0 +1,239 @@
+:root {
+    --primary: #e0a100;
+    --primary-dark: #b47f00;
+    --bg: #fff8ea;
+    --bg-soft: #fffdf8;
+    --card: #ffffff;
+    --text: #312617;
+    --muted: #796954;
+    --border: rgba(43, 27, 23, 0.12);
+    --shadow: 0 18px 40px rgba(43, 27, 23, 0.10);
+    --radius-sm: 10px;
+    --radius-md: 14px;
+    --radius-lg: 18px;
+    --font-main: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: var(--text);
+    background: var(--bg-soft);
+    font-family: var(--font-main);
+}
+
+button,
+input {
+    font: inherit;
+}
+
+.account-page {
+    min-height: calc(100vh - 86px);
+    padding: clamp(54px, 7vw, 92px) 0;
+    display: grid;
+    align-items: start;
+    background:
+        radial-gradient(circle at 12% 12%, rgba(224, 161, 0, .14), transparent 28%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+}
+
+.account-shell {
+    width: min(430px, calc(100% - 32px));
+    margin: 0 auto;
+    align-self: start;
+}
+
+.account-card {
+    width: 100%;
+    padding: clamp(22px, 3vw, 30px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--card);
+    box-shadow: var(--shadow);
+}
+
+.account-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 5px;
+    margin-bottom: 22px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--bg-soft);
+}
+
+.account-tab {
+    min-height: 42px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    font-weight: 900;
+}
+
+.account-tab.is-active {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(224, 161, 0, .20);
+}
+
+.account-form {
+    display: none;
+    gap: 15px;
+}
+
+.account-form.is-active {
+    display: grid;
+}
+
+.account-form h2 {
+    margin: 0 0 6px;
+    color: var(--text);
+    font-size: clamp(1.8rem, 3vw, 2.35rem);
+    line-height: 1.05;
+}
+
+.account-form label {
+    display: grid;
+    gap: 8px;
+    color: var(--text);
+    font-weight: 800;
+}
+
+.account-form input {
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    outline: 0;
+    background: #fff;
+    color: var(--text);
+}
+
+.account-form input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(224, 161, 0, .16);
+}
+
+.account-link {
+    justify-self: end;
+    color: var(--muted);
+    font-size: .9rem;
+    font-weight: 800;
+    text-decoration: underline;
+}
+
+.account-link:hover,
+.account-switch button:hover {
+    color: var(--primary-dark);
+}
+
+.account-btn {
+    min-height: 48px;
+    padding: 12px 16px;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: var(--primary);
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 10px 22px rgba(224, 161, 0, .22);
+    font-weight: 900;
+}
+
+.account-btn:hover {
+    background: var(--primary-dark);
+}
+
+.account-btn:active {
+    box-shadow: none;
+}
+
+.account-switch {
+    margin: 0;
+    color: var(--muted);
+    font-size: .95rem;
+    text-align: center;
+}
+
+.account-switch button {
+    margin-left: 4px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--primary);
+    cursor: pointer;
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+.account-socials {
+    display: grid;
+    gap: 12px;
+    margin-top: 8px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+}
+
+.social-login {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--text);
+    cursor: pointer;
+    font-size: .92rem;
+    font-weight: 800;
+}
+
+.social-icon {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
+}
+
+.social-login--apple {
+    background: var(--text);
+    color: #fff;
+    border-color: var(--text);
+}
+
+.social-login--google {
+    border-color: color-mix(in srgb, var(--text) 48%, #ffffff);
+}
+
+.social-login:hover {
+    border-color: var(--primary);
+}
+
+@media (max-width: 860px) {
+    .account-shell {
+        width: min(520px, calc(100% - 32px));
+    }
+
+    .account-card {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 520px) {
+    .account-page {
+        padding: 34px 0;
+    }
+
+    .account-shell {
+        width: min(100% - 24px, 430px);
+    }
+
+    .account-card {
+        padding: 18px;
+    }
+}
