@@ -1,53 +1,86 @@
 # La Cabaña Website
 
+## Estructura del proyecto
+
 ```text
 lacabana-website/
-├── backend/
-│   ├── manage.py
-│   ├── requirements.txt
-│   ├── core/
-│   │   ├── settings.py
-│   │   ├── urls.py
-│   │   ├── asgi.py
-│   │   └── wsgi.py
-│   ├── menu/
-│   │   ├── admin.py
-│   │   ├── apps.py
-│   │   ├── models.py
-│   │   ├── urls.py
-│   │   └── views.py
-│   ├── clientes/
-│   ├── puntos/
-│   ├── feedback/
-│   ├── templates/
-│   │   └── pages/
-│   │       ├── inicio.html
-│   │       ├── menu.html
-│   │       ├── productos.html
-│   │       ├── servicio.html
-│   │       └── quejas.html
-│   └── static/
-│       ├── css/
-│       │   ├── inicio.css
-│       │   ├── menu.css
-│       │   ├── productos.css
-│       │   └── servicio.css
-│       ├── js/
-│       │   └── inicio.js
-│       └── img/
-│           ├── logos/
-│           ├── iconos/
-│           ├── social/
-│           ├── hero/
-│           ├── productos/
-│           ├── contenido/
-│           └── menu/
-├── docs/
+├── README.md
 ├── .gitignore
 ├── LICENSE
 ├── Procfile
 ├── railway.json
-└── README.md
+│
+└── backend/
+    ├── manage.py
+    │
+    ├── core/
+    │   ├── settings.py
+    │   ├── urls.py
+    │   ├── wsgi.py
+    │   └── asgi.py
+    │
+    ├── menu/
+    │   ├── views.py
+    │   ├── urls.py
+    │   └── migrations/
+    │
+    ├── feedback/
+    │   ├── views.py
+    │   ├── urls.py
+    │   └── migrations/
+    │
+    ├── templates/
+    │   ├── pages/
+    │   │   ├── inicio.html
+    │   │   ├── menu.html
+    │   │   ├── productos.html
+    │   │   ├── servicio.html
+    │   │   ├── puntos.html
+    │   │   └── quejas.html
+    │   │
+    │   └── partials/
+    │       └── header.html
+    │
+    └── static/
+        ├── css/
+        │   ├── header.css
+        │   └── inicio.css
+        │
+        ├── js/
+        │   └── inicio.js
+        │
+        ├── docs/
+        │   ├── Menú.pdf
+        │   ├── menu-pagina-1.png
+        │   ├── menu-pagina-2.png
+        │   ├── Fondo.png
+        │   ├── Local.jpg
+        │   ├── Qr.png
+        │   ├── Qr scan.png
+        │   └── Pizza.png
+        │
+        └── img/
+            ├── logos/
+            │   ├── logo-cabana.svg
+            │   └── logo-principal.svg
+            │
+            ├── hero/
+            │   ├── pizza.png
+            │   ├── pasta.png
+            │   ├── ensalada.png
+            │   └── pizza-carne.jpg
+            │
+            ├── productos/
+            │   ├── pizza-1.png
+            │   ├── pizza-2.png
+            │   ├── pizza-3.png
+            │   ├── pasta-1.png
+            │   └── ensalada-1.png
+            │
+            └── social/
+                ├── facebook.svg
+                ├── instagram.svg
+                └── twitter.svg
 ```
 
 ```
