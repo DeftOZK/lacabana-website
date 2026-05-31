@@ -1,441 +1,363 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="es-MX">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio | La Cabaña</title>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="{% static 'css/inicio.css' %}">
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-    </style>
+    <link rel="stylesheet" href="{% static 'css/inicio.css' %}?v=redeem-callout">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=header-general">
 </head>
-
 <body>
-    <script src="{% static 'js/inicio.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    {% include 'partials/site_header.html' %}
 
-    <header>
+    <main>
+        <section class="promo-hero">
+            <div class="container">
+                <div class="promo-shell" data-carousel>
+                    <div class="promo-topbar">
+                        <div>
+                            <p class="promo-label">Spot de promociones</p>
+                            <strong>Una publicidad por diapositiva · espacio para tus banners</strong>
+                        </div>
+                        <span class="promo-counter" data-carousel-counter>01 / 04</span>
+                    </div>
 
-        <div class="menu container">
+                    <div class="promo-stage promo-stage--wide">
+                        <article class="promo-slide is-active" data-slide>
+                            <div class="promo-banner promo-banner--a">
+                                <div class="promo-banner-content">
+                                    <span class="promo-chip">Promo familiar</span>
+                                    <h2>Pizza para todos</h2>
+                                    <p>Un banner completo para destacar ofertas, combos y novedades de La Cabaña.</p>
+                                </div>
+                            </div>
+                        </article>
 
-            <img class="logo-1" src="{% static 'img/logos/logo-principal.svg' %}" alt="">
-            <input type="checkbox" id="menu" />
-            <label for="menu">
-                <img src="{% static 'img/iconos/menu.png' %}" class="menu-icono" alt="">
-            </label>
-            <nav class="navbar">
-                <div class="menu-1">
-                    <ul>
-                        <li> <a href="{% url 'home' %}">Inicio</a></li>
-                        <li> <a href="{% url 'servicio_home' %}">Servicio</a></li>
-                        <li> <a href="{% url 'productos_home' %}">Productos</a></li>
-                    </ul>
+                        <article class="promo-slide" data-slide>
+                            <div class="promo-banner promo-banner--b">
+                                <div class="promo-banner-content">
+                                    <span class="promo-chip">Especial de pasta</span>
+                                    <h2>Sabor casero</h2>
+                                    <p>Cambia entre publicidades con las flechas laterales sin perder el ancho de pantalla.</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="promo-slide" data-slide>
+                            <div class="promo-banner promo-banner--c">
+                                <div class="promo-banner-content">
+                                    <span class="promo-chip">Combo destacado</span>
+                                    <h2>Ordena hoy</h2>
+                                    <p>El espacio queda listo para reemplazarse por imágenes promocionales reales.</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="promo-slide" data-slide>
+                            <div class="promo-banner promo-banner--d">
+                                <div class="promo-banner-content">
+                                    <span class="promo-chip">Algo fresco</span>
+                                    <h2>Para compartir</h2>
+                                    <p>Promociones horizontales con una presencia parecida a la referencia.</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="promo-controls">
+                        <button type="button" class="promo-btn" data-carousel-prev aria-label="Promoción anterior">❬</button>
+                        <div class="promo-dots" data-carousel-dots></div>
+                        <button type="button" class="promo-btn" data-carousel-next aria-label="Siguiente promoción">❭</button>
+                    </div>
                 </div>
 
-                <img class="logo-2" src="{% static 'img/logos/logo-cabana.svg' %}" alt="">
-                <div class="menu-2">
-                    <ul>
-                        <li><a href="#">Horario</a></li>
-                    </ul>
-                    <div class="socials">
-                        <a href="https://www.facebook.com/pizzerialacabania/" target="_blank" rel="noopener noreferrer">
-                            <div class="social">
-                                <img src="{% static 'img/social/facebook.svg' %}" alt="">
-                            </div>
+                <section class="menu-pdf-viewer" aria-labelledby="menu-pdf-title" data-menu-pdf
+                    data-page-1="{% static 'docs/menu-pagina-1.png' %}"
+                    data-page-2="{% static 'docs/menu-pagina-2.png' %}">
+                    <div class="menu-pdf-heading">
+                        <div>
+                            <p class="eyebrow">Menú oficial</p>
+                            <h2 id="menu-pdf-title">Consulta nuestras pizzas, pastas y especialidades</h2>
+                        </div>
+                        <a class="menu-pdf-open" href="{% static 'docs/Menú.pdf' %}" target="_blank" rel="noopener noreferrer">
+                            Abrir PDF
                         </a>
-                        <a href="#">
-                            <div class="social">
-                                <img src="{% static 'img/social/twitter.svg' %}" alt="">
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="social">
-                                <img src="{% static 'img/social/instagram.svg' %}" alt="">
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </nav>
-        </div>
-
-        <div class="header-content container">
-            <div class="swiper mySwiper-1">
-                <div class="swiper-wrapper">
-
-                    <div class="swiper-slide">
-                        <div class="slider">
-                            <div class="slider-txt">
-                                <h1>Pizza</h1>
-                                <p>
-                                    ¡Deléitate con nuestra irresistible Pizza de Carne!
-                                    Nuestra Pizza de Carne está hecha para satisfacer a los amantes de los sabores
-                                    intensos y jugosos. Perfecta para compartir o disfrutar solo. ¡No te
-                                    resistas a la tentación, pruébala ahora!
-                                </p>
-                                <div class="botones">
-                                    <a href="#" class="btn-1">Comprar</a>
-                                    <a href="{% url 'menu:home' %}" rel="noopener noreferrer"  class="btn-1">Menu</a>
-                                </div>
-                            </div>
-                            <div class="slider-img">
-                                <img src="{% static 'img/hero/pizza.png' %}" alt="">
-                            </div>
-                        </div>
                     </div>
 
-                    <div class="swiper-slide">
-                        <div class="slider">
-                            <div class="slider-txt">
-                                <h1>Pasta</h1>
-                                <p>
-                                    ¡Disfruta nuestra deliciosa Pasta con Albóndigas!
-                                    Déjate conquistar por el clásico sabor de nuestra Pasta con Albóndigas. Una porción
-                                    generosa de pasta al dente se mezcla con una rica salsa de tomate hecha en casa,
-                                    condimentada con hierbas italianas y un toque de ajo. Acompañada de albóndigas
-                                    tiernas y jugosas, preparadas con ingredientes frescos y sazonadas a la perfección.
-                                    ¡Perfecto para una comida inolvidable!
-                                </p>
-                                <div class="botones">
-                                    <a href="#" class="btn-1">Comprar</a>
-                                    <a href="{% url 'menu:home' %}" class="btn-1">Menu</a>
-                                </div>
-                            </div>
-                            <div class="slider-img">
-                                <img src="{% static 'img/hero/pasta.png' %}" alt="">
-                            </div>
-                        </div>
+                    <div class="menu-pdf-toolbar" aria-label="Controles del menú PDF">
+                        <button type="button" class="menu-pdf-btn" data-pdf-prev aria-label="Página anterior">←</button>
+                        <span class="menu-pdf-page" data-pdf-page>1 / 2</span>
+                        <button type="button" class="menu-pdf-btn" data-pdf-next aria-label="Página siguiente">→</button>
+                        <span class="menu-pdf-divider" aria-hidden="true"></span>
+                        <button type="button" class="menu-pdf-btn" data-pdf-zoom-out aria-label="Alejar">−</button>
+                        <span class="menu-pdf-zoom" data-pdf-zoom>100%</span>
+                        <button type="button" class="menu-pdf-btn" data-pdf-zoom-in aria-label="Acercar">+</button>
+                        <button type="button" class="menu-pdf-reset" data-pdf-reset>Restablecer</button>
                     </div>
 
-                    <div class="swiper-slide">
-                        <div class="slider">
-                            <div class="slider-txt">
-                                <h1>Ensaladas</h1>
-                                <p>
-                                    ¡Refresca tu día con nuestra ensalada fresca y nutritiva!
-                                    Nuestra ensalada es el equilibrio perfecto entre sabor y bienestar. Incluye 
-                                    aguacate cremoso, crutones dorados y un toque de queso fresco o rallado para darle un giro
-                                    irresistible. Ideal como acompañamiento o plato principal, esta ensalada es una
-                                    explosión de frescura en cada bocado. 
-                                </p>
-                                <div class="botones">
-                                    <a href="#" class="btn-1">Comprar</a>
-                                    <a href="{% url 'menu:home' %}" class="btn-1">Menu</a>
-                                </div>
-                            </div>
-                            <div class="slider-img">
-                                <img src="{% static 'img/hero/ensalada.png' %}" alt="">
-                            </div>
-                        </div>
+                    <div class="menu-pdf-frame">
+                        <img src="{% static 'docs/menu-pagina-1.png' %}" alt="Página 1 del menú de La Cabaña" data-menu-page-image>
                     </div>
+                </section>
 
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-pagination"></div>
             </div>
+        </section>
 
-        </div>
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Especialidades</p>
+                    <h2>Sabores para compartir</h2>
+                    <p>
+                        La página funcionará como menú informativo. Los textos y precios podrán ajustarse cuando se confirme
+                        la información final del local.
+                    </p>
+                </div>
 
-    </header>
-
-    <main class="products">
-        <div class="tabs container">
-
-            <input type="radio" name="tabs" id="tab1" checked="checked" class="tabInput" value="1">
-            <label for="tab1">Pizza</label>
-            <div class="tab">
-                <div class="swiper mySwiper-2" id="swiper1">
-                    <div class="swiper-wrapper">
-
-                        <div class="swiper-slide">
-                            <div class="product">
-                                <div class="product-img">
-                                    <h4>Nuevo</h4>
-                                    <img src="{% static 'img/productos/pizza-1.png' %}" alt="">
-                                </div>
-                                <div class="product-txt">
-                                    <h4>Producto</h4>
-                                    <p>Calidad Premium</p>
-                                    <span class="price">$80.00</span>
-                                </div>
-                            </div>
+                <div class="featured-grid">
+                    <article class="featured-card">
+                        <img src="{% static 'img/productos/pizza-1.png' %}" alt="Pizza destacada">
+                        <div>
+                            <p class="card-label">Pizza</p>
+                            <h3>Pizza de la casa</h3>
+                            <p>Una opción ideal para compartir mientras ves los partidos.</p>
                         </div>
+                    </article>
 
-                        <div class="swiper-slide">
-                            <div class="product">
-                                <div class="product-img">
-                                    <h4>Nuevo</h4>
-                                    <img src="{% static 'img/productos/pizza-2.png' %}" alt="">
-                                </div>
-                                <div class="product-txt">
-                                    <h4>Producto</h4>
-                                    <p>Calidad Premium</p>
-                                    <span class="price">$80.00</span>
-                                </div>
-                            </div>
+                    <article class="featured-card">
+                        <img src="{% static 'img/hero/pasta.png' %}" alt="Pasta destacada">
+                        <div>
+                            <p class="card-label">Pasta</p>
+                            <h3>Pasta con albóndigas</h3>
+                            <p>Sabor casero para quienes buscan algo completo y reconfortante.</p>
                         </div>
+                    </article>
 
-                        <div class="swiper-slide">
-                            <div class="product">
-                                <div class="product-img">
-                                    <h4>Nuevo</h4>
-                                    <img src="{% static 'img/productos/pizza-3.png' %}" alt="">
-                                </div>
-                                <div class="product-txt">
-                                    <h4>Producto</h4>
-                                    <p>Calidad Premium</p>
-                                    <span class="price">$80.00</span>
-                                </div>
-                            </div>
+                    <article class="featured-card">
+                        <img src="{% static 'img/hero/ensalada.png' %}" alt="Ensalada destacada">
+                        <div>
+                            <p class="card-label">Fresco</p>
+                            <h3>Ensaladas</h3>
+                            <p>Una alternativa ligera para acompañar tu pizza o pasta favorita.</p>
                         </div>
-
-
-                    </div>
-
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
+                    </article>
                 </div>
             </div>
+        </section>
 
-            <input type="radio" name="tabs" id="tab2" checked="checked" class="tabInput" value="2">
-            <label for="tab2">Pastas</label>
-            <div class="tab">
-                <div class="swiper mySwiper-2" id="swiper2">
-                    <div class="swiper-wrapper">
+        <section class="points-section" id="puntos">
+            <div class="container points-layout">
+                <div class="points-copy">
+                    <p class="eyebrow">Programa de puntos</p>
+                    <h2>Acumula puntos escaneando tus tickets</h2>
+                    <p>
+                        Compra en La Cabaña, recibe tu ticket con QR y escanéalo desde tu cuenta para sumar puntos.
+                        Tus puntos se calcularán según el total de tu compra y podrás usarlos para canjear productos
+                        disponibles por temporada.
+                    </p>
+                    <p>
+                        El QR del ticket estará activo durante 2 días. Al canjear una recompensa, recibirás un QR
+                        temporal de 5 minutos para mostrarlo en el local.
+                    </p>
+                    <div class="points-actions">
+                        <a class="btn btn-primary" href="#">Iniciar sesión</a>
+                    </div>
+                </div>
 
-                        <div class="swiper-slide">
-                            <div class="product">
-                                <div class="product-img">
-                                    <h4>Nuevo</h4>
-                                    <img src="{% static 'img/productos/pasta-1.png' %}" alt="">
-                                </div>
-                                <div class="product-txt">
-                                    <h4>Producto</h4>
-                                    <p>Calidad Premium</p>
-                                    <span class="price">$80.00</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="product">
-                                <div class="product-img">
-                                    <h4>Nuevo</h4>
-                                    <img src="{% static 'img/productos/pasta-2.png' %}" alt="">
-                                </div>
-                                <div class="product-txt">
-                                    <h4>Producto</h4>
-                                    <p>Calidad Premium</p>
-                                    <span class="price">$80.00</span>
+                <div class="points-visual">
+                    <div class="ticket-preview" aria-label="Ticket con QR para registrar puntos">
+                        <div class="receipt">
+                            <div class="receipt-header">
+                                <div>
+                                    <strong>La Cabaña</strong><br>
+                                    Ticket de compra
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="swiper-slide">
-                            <div class="product">
-                                <div class="product-img">
-                                    <h4>Nuevo</h4>
-                                    <img src="{% static 'img/productos/pasta-3.png' %}" alt="">
+                            <div class="receipt-subheader">
+                                Orden #1<br>
+                                26/05/2026 · 10:45 AM
+                            </div>
+
+                            <table class="receipt-table">
+                                <tbody>
+                                    <tr>
+                                        <th>Producto</th>
+                                        <th>Cant.</th>
+                                        <th>Total</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Pizza Pepperoni</td>
+                                        <td>1</td>
+                                        <td>$115</td>
+                                    </tr>
+                                    <tr class="receipt-total">
+                                        <td colspan="2">Total</td>
+                                        <td>$115</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="receipt-qr">
+                                <div class="qr-callout-target">
+                                    <img class="qr-box" src="{% static 'docs/Qr.png' %}" alt="QR para registrar puntos">
+                                    <span class="step-callout step-callout--ticket" aria-hidden="true">
+                                        <span class="step-callout-line"></span>
+                                        <span class="step-callout-badge">1</span>
+                                    </span>
                                 </div>
-                                <div class="product-txt">
-                                    <h4>Producto</h4>
-                                    <p>Calidad Premium</p>
-                                    <span class="price">$80.00</span>
-                                </div>
+                                <span>Escanea para registrar tus puntos</span>
+                            </div>
+
+                            <div class="receipt-message">
+                                QR válido por 2 días
                             </div>
                         </div>
-
-
                     </div>
 
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                </div>
-            </div>
-
-            <input type="radio" name="tabs" id="tab3" checked="checked" class="tabInput" value="3">
-            <label for="tab3">Ensaladas</label>
-            <div class="tab">
-                <div class="swiper mySwiper-2" id="swiper3">
-                    <div class="swiper-wrapper">
-
-                        <div class="swiper-slide">
-                            <div class="product">
-                                <div class="product-img">
-                                    <h4>Nuevo</h4>
-                                    <img src="{% static 'img/productos/ensalada-1.png' %}" alt="">
-                                </div>
-                                <div class="product-txt">
-                                    <h4>Producto</h4>
-                                    <p>Calidad Premium</p>
-                                    <span class="price">$80.00</span>
-                                </div>
+                    <div class="phone-area" aria-label="Vista previa del sistema de puntos">
+                        <div class="phone-mockup" data-phone-carousel>
+                            <span class="phone-notch"></span>
+                            <span class="phone-side-button"></span>
+                            <div class="phone-screen">
+                                <article class="phone-slide is-active" data-phone-slide>
+                                    <div class="points-phone-card">
+                                        <h3>Puntos</h3>
+                                        <strong>264</strong>
+                                        <img src="{% static 'docs/Qr scan.png' %}" alt="Marco de escaneo QR">
+                                    </div>
+                                </article>
+                                <article class="phone-slide" data-phone-slide>
+                                    <div class="redeem-phone-card">
+                                        <h3>Pizza de pepperoni</h3>
+                                        <img src="{% static 'docs/Pizza.png' %}" alt="Pizza de pepperoni para canje">
+                                        <button type="button">Canjear</button>
+                                    </div>
+                                </article>
+                            </div>
+                            <span class="step-callout step-callout--phone" data-phone-step-callout aria-hidden="true">
+                                <span class="step-callout-line"></span>
+                                <span class="step-callout-badge">2</span>
+                            </span>
+                            <span class="step-callout step-callout--redeem is-hidden" data-redeem-step-callout aria-hidden="true">
+                                <span class="step-callout-line"></span>
+                                <span class="step-callout-badge">3</span>
+                            </span>
+                            <div class="phone-controls" aria-label="Cambiar pantalla del teléfono">
+                                <button type="button" data-phone-prev aria-label="Pantalla anterior">❬</button>
+                                <div class="phone-dots" data-phone-dots></div>
+                                <button type="button" data-phone-next aria-label="Siguiente pantalla">❭</button>
                             </div>
                         </div>
-
-                        <div class="swiper-slide">
-                            <div class="product">
-                                <div class="product-img">
-                                    <h4>Nuevo</h4>
-                                    <img src="{% static 'img/productos/ensalada-2.png' %}" alt="">
-                                </div>
-                                <div class="product-txt">
-                                    <h4>Producto</h4>
-                                    <p>Calidad Premium</p>
-                                    <span class="price">$80.00</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="product">
-                                <div class="product-img">
-                                    <h4>Nuevo</h4>
-                                    <img src="{% static 'img/productos/ensalada-3.png' %}" alt="">
-                                </div>
-                                <div class="product-txt">
-                                    <h4>Producto</h4>
-                                    <p>Calidad Premium</p>
-                                    <span class="price">$80.00</span>
-                                </div>
-                            </div>
-                        </div>
-
-
                     </div>
+                </div>
 
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
+                <div class="points-steps" id="registro-puntos">
+                    <article>
+                        <span>1</span>
+                        <h3>Compra y recibe tu QR</h3>
+                        <p>Tu ticket tendrá un código único para registrar tus puntos.</p>
+                    </article>
+                    <article>
+                        <span>2</span>
+                        <h3>Escanea desde tu cuenta</h3>
+                        <p>Entra al apartado de puntos y escanea el QR antes de que expire.</p>
+                    </article>
+                    <article>
+                        <span>3</span>
+                        <h3>Canjea productos</h3>
+                        <p>Elige una recompensa disponible y muestra tu QR temporal en el local.</p>
+                    </article>
                 </div>
             </div>
+        </section>
 
-        </div>
+        <section class="info-section section" id="horario">
+            <div class="container info-grid">
+                <figure class="info-image">
+                    <div class="info-badge">Visítanos</div>
+                    <div class="info-photo-frame">
+                        <img src="{% static 'docs/Local.jpg' %}" alt="Fachada del local La Cabaña">
+                    </div>
+                    <figcaption>
+                        <span>La Cabaña</span>
+                        <strong>Pizza, pasta y sabor local</strong>
+                    </figcaption>
+                </figure>
+
+                <aside class="info-content" aria-label="Información del local">
+                    <article class="info-block">
+                        <h3>Ubicación</h3>
+                        <p class="info-main">Calle Andalucía #3526</p>
+                        <p>Infonavit Murua, Tijuana</p>
+                    </article>
+
+                    <article class="info-block">
+                        <h3>Horario</h3>
+                        <div class="info-hours">
+                            <p><span>Dom - Jue</span><strong>12:00 PM - 8:00 PM</strong></p>
+                            <p><span>Viernes</span><strong>12:00 PM - 9:00 PM</strong></p>
+                            <p><span>Sábado</span><strong>10:00 AM - 9:00 PM</strong></p>
+                        </div>
+                    </article>
+
+                    <article class="info-block">
+                        <h3>Teléfono</h3>
+                        <p class="info-phone">664-591-9524</p>
+                        <p class="info-phone">664-886-2700</p>
+                    </article>
+
+                </aside>
+            </div>
+
+            <div class="container local-font-panel" aria-labelledby="local-font-title">
+                <div>
+                    <p class="eyebrow">Tipografía del local</p>
+                    <h3 id="local-font-title">Prueba el estilo de “La Cabaña”</h3>
+                </div>
+                <div class="local-font-grid" id="localFontButtons" aria-label="Tipografías para el texto La Cabaña"></div>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <iframe class="map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3364.5912781034513!2d-116.9422439755555!3d32.510351665864924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d9477412841b2d%3A0x97b09415747687d9!2sLa%20Caba%C3%B1a%20Pizzeria!5e0!3m2!1ses!2smx!4v1780234261258!5m2!1ses!2smx"
+                width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
     </main>
-
-    <section class="info container">
-
-        <div class="info-img">
-            <img src="{% static 'img/contenido/info.png' %}" alt="">
-        </div>
-
-        <div class="info-txt">
-            <h2>Informacion</h2>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. At corrupti, dolor praesentium nostrum rerum
-                perspiciatis? Quaerat ullam cum rem similique animi? Enim mollitia placeat, dolores magnam unde eligendi
-                doloremque id.
-            </p>
-            <a href="#" class="btn-2">Mas Informacion</a>
-        </div>
-
-    </section>
-
-    <section class="horario">
-        <div class="horario-info container">
-            <h2>Horario</h2>
-            <div class="horario-txt">
-                <div class="txt">
-                    <h4>Direccion</h4>
-                    <p>
-                        C. Andalucía 3526, Riveras del Alamo,
-                    </p>
-                    <p>
-                        22465 Tijuana, B.C.
-                    </p>
-                </div>
-                <div class="txt">
-                    <h4>Horario</h4>
-                    <p>
-                        Lunes a Sabado : 12pm - 8pm
-                    </p>
-                    <p>
-                        Domingo : 12pm - 7pm
-                    </p>
-                </div>
-                <div class="txt">
-                    <h4>Telefono</h4>
-                    <p>
-                        +52(664)591-9524
-                    </p>
-
-                </div>
-                <div class="txt">
-                    <h4>Redes Sociales</h4>
-                    <div class="socials">
-                        <a href="https://www.facebook.com/pizzerialacabania/" target="_blank" rel="noopener noreferrer">
-                            <div class="social">
-                                <img src="{% static 'img/social/facebook.svg' %}" alt="">
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="social">
-                                <img src="{% static 'img/social/twitter.svg' %}" alt="">
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="social">
-                                <img src="{% static 'img/social/instagram.svg' %}" alt="">
-                            </div>
-                        </a>
-                    </div>
-                </div>
+        
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <img src="{% static 'img/logos/logo-cabana.svg' %}" alt="La Cabaña Pizzería">
+                <p>Pizza, pasta y sabor casero en un<br>ambiente local y familiar.</p>
             </div>
-        </div>
 
-    </section>
+            <div>
+                <h3>Navegación</h3>
+                <a href="{% url 'menu:home' %}">Menú</a>
+                <a href="{% url 'puntos_home' %}">Puntos</a>
+                <a href="{% url 'feedback:home' %}">Quejas y sugerencias</a>
+            </div>
 
-    <section>
-        <iframe class="map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3364.453292232432!2d-116.95054811795235!3d32.51403840615444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d9478767b4f27b%3A0x4db32a19c9424d15!2sC.%20Andaluc%C3%ADa%203526%2C%20Riveras%20del%20Alamo%2C%2022465%20Tijuana%2C%20B.C.!5e0!3m2!1ses-419!2smx!4v1733893973351!5m2!1ses-419!2smx"
-            width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </section>
+            <div>
+                <h3>Contacto</h3>
+                <p>Calle Andalucía #3526, Infonavit Murua</p>
+                <p>Tel. 664-591-9524</p>
+                <p>Tel. 664-886-2700</p>
+            </div>
 
-    <footer class="footer container">
-        <img class="logo-2" src="{% static 'img/logos/logo-cabana.svg' %}" alt="">
-        <div class="links">
-            <h4>lorem</h4>
-            <ul>
-                <li><a href="#">© 2023-2024</a></li>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-            </ul>
-        </div>
-        <div class="links">
-            <h4>lorem</h4>
-            <ul>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-            </ul>
-        </div>
-        <div class="links">
-            <h4>lorem</h4>
-            <div class="socials">
-                <a href="https://www.facebook.com/pizzerialacabania/" target="_blank" rel="noopener noreferrer">
-                    <div class="social">
-                        <img src="{% static 'img/social/facebook.svg' %}" alt="">
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="social">
-                        <img src="{% static 'img/social/twitter.svg' %}" alt="">
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="social">
-                        <img src="{% static 'img/social/instagram.svg' %}" alt="">
-                    </div>
-                </a>
+            <div>
+                <h3>Redes</h3>
+                <a href="https://www.facebook.com/pizzerialacabania/" target="_blank" rel="noopener noreferrer">Facebook</a>
+                <a href="#" aria-label="TikTok de La Cabaña">TikTok pendiente</a>
+                <p class="footer-small">© 2026 La Cabaña. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
+    <script src="{% static 'js/inicio.js' %}?v=redeem-callout"></script>
 </body>
-
 </html>

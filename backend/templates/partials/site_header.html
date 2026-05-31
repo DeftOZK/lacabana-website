@@ -1,0 +1,25 @@
+{% load static %}
+<header class="site-header">
+    <div class="container nav">
+        <a class="brand" href="{% url 'home' %}" aria-label="Inicio La Cabaña">
+            <img src="{% static 'img/logos/logo-cabana.svg' %}" alt="La Cabaña Pizzería">
+        </a>
+
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">☰</label>
+
+        <div class="nav-panel">
+            <nav class="nav-links" aria-label="Navegación principal">
+                <a href="{% url 'home' %}">Inicio</a>
+                <a href="{% url 'menu:home' %}">Menú</a>
+                <a href="{% url 'puntos_home' %}">Puntos</a>
+                <a href="{% url 'feedback:home' %}">Quejas y sugerencias</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a class="nav-login" href="#">Iniciar sesión</a>
+                <a class="nav-cta" href="{% url 'menu:home' %}">Ver menú</a>
+            </div>
+        </div>
+    </div>
+</header>

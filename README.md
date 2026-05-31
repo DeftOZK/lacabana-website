@@ -24,7 +24,8 @@ lacabana-website/
 │   │       ├── inicio.html
 │   │       ├── menu.html
 │   │       ├── productos.html
-│   │       └── servicio.html
+│   │       ├── servicio.html
+│   │       └── quejas.html
 │   └── static/
 │       ├── css/
 │       │   ├── inicio.css
@@ -47,10 +48,4 @@ lacabana-website/
 ├── Procfile
 ├── railway.json
 └── README.md
-```
-
-```
-cd C:\Users\Deft\Documents\lacabana-website\backend
-.\venv\Scripts\Activate.ps1
-python manage.py runserver
 ```

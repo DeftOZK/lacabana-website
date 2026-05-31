@@ -15,3 +15,7 @@ def products(request):
 
 def service(request):
     return render(request, "pages/servicio.html")
+
+
+def points(request):
+    return render(request, "pages/puntos.html")

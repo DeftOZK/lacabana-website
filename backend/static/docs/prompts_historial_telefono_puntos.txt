@@ -1,0 +1,155 @@
+Historial de prompts - Telefono, carrusel, puntos e indicadores
+================================================================
+
+Periodo cubierto:
+Desde que se empezaron a ajustar los botones/dots inferiores del telefono en la seccion de puntos, hasta la solicitud de este archivo.
+
+
+01. Botones, flechas y dots del telefono
+----------------------------------------
+
+1. tiene que ser con la misma tipografia que llevamos para todo y con el qr mas pequeno y mas arriba, esta demasiado separado, ademas metele algun emeji que quede bonito y la parte de abajo que los circulos sean mas pequenos y que las flechas no tengan circulo y esten hasta los bordes solo con estos iconos ><
+
+2. puedes hacer que los dots sean redondos en vez de ovalados?
+
+3. aun sigue ovalada
+
+4. en donde tienes las flechas de izquierda y derecha dentro del codigo?
+
+5. ❬❭ quiero usar estos simbolos ahora no se donde editarlos
+
+
+02. Ajustes de publicidad y primera pantalla del telefono
+--------------------------------------------------------
+
+6. de la parte de la publicidad del incio puedes centrar el simbolo en el centro?, de ambos lados
+
+7. aun no esta completamente centrada
+
+8. sigue sin estar centrado
+
+9. quita el emoji de la pantalla
+
+
+03. Segunda pantalla del telefono: pizza y canje
+------------------------------------------------
+
+10. ahora para la segunda pantalla quiero que sea asi como en la imagen, neceito que generes una imagen de una pizza que no sea tan llamativa, solo simple
+
+11. puedes reacomodar la imagen?
+
+    C:\Users\Deft\Documents\lacabana-website\backend\static\docs\Pizza.png
+
+12. ocupo que dejes menos espacio entre el texto y la pizza y la pizza y el boton, ademas el boton quiero que sea del color que el boton de ver menu y ademas empareja los tamanos de los textos de ambas pantallas de manera que tengan coherencia
+
+13. puedes juntar un poco mas de nuevo las cosas?
+
+14. asi como esta, esta perfecto ahora solo quiero que hagas todo mas arriba para que este centrado
+
+15. puedes centrar la primera pantalla tambien?
+
+
+04. Transiciones y cooldown
+---------------------------
+
+16. haz una animacion de slide cuando se muevan las pantallas, osea que se vea una transicion de movimiento
+
+17. ahora quiero que de la publicidad y la pantalla metas 5s de cooldown entre cada una
+
+18. lo que pasa con las pantallas es que cuando cambia digamos de la pantalla 1 a la 2 se cambia a la 2 pero la 1 pasa rapidisimo desde donde se fue hasta el otro lado de la pantalla y se veo feo
+
+19. quita el boton de ver como funciona
+
+    haz mas espacio entre el texto de titulo y el texto explicativo y ademas toda esa parte me imagino que esta separado por partes que vendria siendo el fondo osea puntos es una seccion y local tiene otra seccion, quiero que lo separes o le pongas marcas de donde empieza y termina para ver que tan centrado esta
+
+20. separa el titulo del texto de esta parte tambien
+
+21. hay un error con las pantallas, funcionan perfecto si no hago nada pero si presiono los botones aveces no se ve ninguna pantalla o solo una se ve, al cambiar a la otra se ve blanco
+
+22. si le pico muchas veces a la derecha no pasa nada, pero a la izquierda sigue volviendose blanco, ademas me gustaria que mientras este vomiendo con las flechas la publi y la pantalla el cooldown se reinicie
+
+23. rompiste el cookdown de las pantallas, me referia que pongas un cooldown de 5s cada que cambia para que cambie cada 5 pero si se presiona boton de mover entonces reinicia los 5 para que asi siempre cuando se deje de presionar entonces siga cambiando cada 5
+
+
+05. Separadores, tipografias y colores generales
+------------------------------------------------
+
+24. quita los ovalos de secciones solo deja la linea con puntos que creaste en puntos
+
+25. dame 10 opciones extra de tipografia parecida a esta que solo afecten al texto pizzeria la cabana de la seccion de local, ademas ponlo juesto debajo para ver como cambia al presionar
+
+26. intercala el color de puntos de esta manera, colo de fondo de menu igual a puntos, color de platillos destacados, blanco y puntos queda igual
+
+27. en la seccion de menu deja la misma separacion de los 3 puntos de puntos hasta local pero en la parte de arriba de menu y abajo de
+
+28. Tipografias de Google Fonts (Gratuitas y listas para usar en web):
+    Caveat: Muy parecida en ritmo y grosor de trazo. Es irregular y organica.
+    Kalam: Tiene ese aspecto de escritura con marcador escolar, muy legible y amigable.
+    Gloria Hallelujah: Un poco mas "descuidada" pero con la misma energia de marcador permanente.
+    Permanent Marker: Si buscas algo con mas cuerpo y audacia, esta captura perfectamente la textura del trazo grueso.
+    Gochi Hand: Proporciona un trazo redondeado y juvenil que encaja bien en menus de comida rapida o pizzerias.
+    Indie Flower: Aunque es un poco mas delgada, comparte la estructura de letras sueltas y amigables.
+    Tipografias Premium o de Sistema (Para diseno grafico o branding):
+    Amatic SC: Para un look mas estilizado y alto, aunque mantiene el trazo manual.
+    Marker Felt: Un clasico de sistema que replica casi exactamente el angulo y grosor del ejemplo.
+    Comic Neue: Si buscas algo manual pero mucho mas limpio y profesional.
+    Shadows Into Light: Ofrece un trazo elegante pero casual, con una inclinacion muy similar a la de tu imagen.
+
+    mete estas tipografias enn vez de las que dejaste para el texto de cabana de local
+
+29. quita todas las separaciones  de puntos suspensivos de la pagina
+
+30. el resto de textos de categoria ponlos del mismo tamano que el de puntos, ademas quita lo de los colores y tipografias y deja los que te adjuto en las imagenes
+
+31. pon los textos Especialidades y Menu oficial  del mismo tamano que Programa de puntos ademas de la parte de hasta abajo de la info Navegacion, Contacto y Redes de blanco
+
+
+06. Indicadores 1 y 2 para QR de ticket y telefono
+--------------------------------------------------
+
+32. quiero que hagas algo asi, quiero que senales en el ticket el 1 del qr por que seria el paso 1 y el 2 en la pantalla 1, pero cuando sea la pantalla 2 que desaparezca ese indicativo, mira la imagen adjunta para que te des una idea, no lo hagas rojo hazlo de un color coherente
+
+33. no concuerdan, tiene que senalar los qrs y no estan ni unidos ni bien calibrados
+
+34. hazlos mas asi y que el del ticket salga del cuadrado negro que rodea el qr
+
+35. pero que salgan ahora desde donde se ve en la imagen
+
+36. reviertelo
+
+37. puedes cambiar los indicadores al diseno bold circular badge del siguiente codigo? tiene colores rojo y naranja obviamente adaptalos a los colores de la pagina porfavor
+
+    [El usuario adjunto codigo HTML/CSS de referencia titulado "La Cabana Pizzeria - Numbered Callouts Design Board". La variante solicitada fue "02. Bold Circular Badge".]
+
+38. Puedes poner el texto Acumula puntos escaneando tus tickets de negro y anadir el color cafe a los indicadores, el color cafe que ya usamos para otras cosas
+
+39. no queda muy bien de ese color invierte los colores, osea naranja lo cafe y cafe lo naranja
+
+40. se ve un poco mejor, solo ponle un cafe un poco mas claro al borde y dime en que parte del codigo modificas donde esta ubicada los indicadores 1 y 2 para moverlos
+
+41. no encuentro donde se editan no lo veo por nngun lado
+
+42. al buscarlos con ctrl f no aparece
+
+43. sigue sin existir, estas completamente seguro que esta ahi?
+
+44. revierte el cambio y haz este cambio de nuevo pero sin mover nada extra, se rompieron los colores de la pagina y varias cosas, no modifiques nada que no sea solo las variables para cambiar de lugar los indicadores
+
+45. sigue rota la pagina, revierte todos los cambios de las ultimas 2 peticiones
+
+
+07. Intentos de volver a version anterior y estado actual
+--------------------------------------------------------
+
+46. porque ya no vuelves a lanzar el server despues de los cambios?
+
+47. Puedes revolver toda la pagina al estado anterior de este mensaje que te mande?
+
+    no queda muy bien de ese color invierte los colores, osea naranja lo cafe y cafe lo naranja
+
+48. se acaba de joder absolutamente todo, la pagina se arruino, no logras devolverlo de verdad, solo lo dejas incluso peor que antes, hay alguna manera en donde de verdad pueda volver a la version pasada?
+
+49. no existe ningun backup se arruino todo
+
+50. dame una lista completa de todos los promps que te he puesto desde que modificamos los botones de abajo en el telefono hasta ahora, metelos todos en un txt dentro de docs y separalos por secciones osea desde que empezamos hasta que se resolvio
+

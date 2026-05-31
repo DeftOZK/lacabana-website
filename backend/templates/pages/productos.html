@@ -4,54 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos | La Cabaña</title>
+    <title>Menu</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="{% static 'css/productos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=header-general">
 
 </head>
 <body>
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
-<section>
-    <header>
-
-        <div class="menu container">
-
-            <img class="logo-1" src="{% static 'img/logos/logo-principal.svg' %}" alt="">
-            <input type="checkbox" id="menu" />
-            <label for="menu">
-                <img src="{% static 'img/iconos/menu.png' %}" class="menu-icono" alt="">
-            </label>
-            <nav class="navbar">
-                <div class="menu-1">
-                    <ul>
-                        <li> <a href="{% url 'home' %}">Inicio</a></li>
-                        <li> <a href="{% url 'servicio_home' %}">Servicio</a></li>
-                        <li> <a href="{% url 'productos_home' %}">Productos</a></li>
-                    </ul>
-                </div>
-
-                <img class="logo-2" src="{% static 'img/logos/logo-cabana.svg' %}" alt="">
-                <div class="menu-2">
-                    <ul>
-                        <li><a href="#">Horario</a></li>
-                    </ul>
-                    <div class="socials">
-                        <a href="https://www.facebook.com/pizzerialacabania/" target="_blank" rel="noopener noreferrer">
-                            <div class="social">
-                                <img src="{% static 'img/social/facebook.svg' %}" alt="">
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="social">
-                                <img src="{% static 'img/social/twitter.svg' %}" alt="">
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="social">
-                                <img src="{% static 'img/social/instagram.svg' %}" alt="">
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
+{% include 'partials/site_header.html' %}
