@@ -25,16 +25,13 @@
                 </div>
 
                 <form class="account-form is-active" data-account-panel="login" aria-label="Formulario de inicio de sesión">
-                    <h2>Bienvenido de vuelta</h2>
+                    <h2 class="account-title">Nos alegra verte otra vez</h2>
 
                     <label>
-                        Correo electrónico
-                        <input type="email" name="email" autocomplete="email" placeholder="correo@ejemplo.com" required>
+                        <input type="email" name="email" autocomplete="email" placeholder="Correo electrónico" required>
                     </label>
-
-                    <label>
-                        Contraseña
-                        <input type="password" name="password" autocomplete="current-password" placeholder="Tu contraseña" required>
+                    <label>                 
+                        <input type="password" name="password" autocomplete="current-password" placeholder="Contraseña" required>
                     </label>
 
                     <a class="account-link" href="#">¿Olvidaste tu contraseña?</a>
@@ -65,31 +62,22 @@
                 </form>
 
                 <form class="account-form" data-account-panel="signup" aria-label="Formulario para crear cuenta">
-                    <h2>Crea tu cuenta</h2>
+                    <h2 class="account-title">Crea tu cuenta</h2>
 
                     <label>
-                        Nombre completo
-                        <input type="text" name="name" autocomplete="name" placeholder="Tu nombre completo" required>
+                        <input type="text" name="name" autocomplete="name" placeholder="Nombre completo" required>
                     </label>
 
                     <label>
-                        Correo electrónico
-                        <input type="email" name="signup_email" autocomplete="email" placeholder="correo@ejemplo.com" required>
+                        <input type="email" name="signup_email" autocomplete="email" placeholder="Correo electrónico" required>
                     </label>
 
                     <label>
-                        Teléfono opcional
-                        <input type="tel" name="phone" autocomplete="tel" placeholder="664 000 0000">
+                        <input type="password" name="signup_password" autocomplete="new-password" placeholder="Contraseña" required>
                     </label>
 
                     <label>
-                        Contraseña
-                        <input type="password" name="signup_password" autocomplete="new-password" placeholder="Crea una contraseña" required>
-                    </label>
-
-                    <label>
-                        Confirmar contraseña
-                        <input type="password" name="password_confirm" autocomplete="new-password" placeholder="Repite tu contraseña" required>
+                        <input type="password" name="password_confirm" autocomplete="new-password" placeholder="Confirmar contraseña" required>
                     </label>
 
                     <button class="account-btn" type="submit">Crear cuenta</button>

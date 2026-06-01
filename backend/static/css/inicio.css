@@ -2,14 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Caveat:wght@400;700&family=Comic+Neue:wght@400;700&family=Gloria+Hallelujah&family=Gochi+Hand&family=Indie+Flower&family=Kalam:wght@400;700&family=Permanent+Marker&family=Shadows+Into+Light&display=swap');
 
 :root {
-    --primary: #e0a100;
-    --primary-dark: #b47f00;
     --accent: #2d3142;
     --bg: #fff8ea;
     --bg-soft: #fffdf8;
     --bg-alt: #f5e2ad;
     --card: #ffffff;
     --text: #312617;
+    --exterior: #2e0d00;
     --muted: #83653d;
     --border: rgba(43, 27, 23, 0.12);
     --footer: #18120c;
@@ -589,7 +588,7 @@ select {
     background-color: #f8f2e8;
     background-image:
         linear-gradient(rgba(255, 255, 255, .76), rgba(255, 255, 255, .76)),
-        url("../docs/Fondo.png");
+        url("../img/contenido/Fondo.png");
     background-repeat: repeat, repeat;
     background-size: auto, 520px 520px;
     background-position: center top;
@@ -849,7 +848,7 @@ select {
     height: 40px;
     border-radius: 50%;
     background: var(--primary);
-    border: 4px solid color-mix(in srgb, var(--footer) 64%, #ffffff);
+    border: 4px solid color-mix(in srgb, var(--exterior) 64%, #ffffff);
     color: var(--card);
     box-shadow:
         0 10px 22px rgba(49, 38, 23, .28),
