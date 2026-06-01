@@ -7,9 +7,9 @@
     <title>Menu</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}?v=pizza-card-order">
     <link rel="stylesheet" href="{% static 'css/header.css' %}?v=header-general">
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=footer-general">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=footer-logo-jpg">
 
 </head>
 <body>
@@ -17,6 +17,135 @@
 
 {% include 'partials/site_header.html' %}
     <section class="wrapped">
+        <section class="menu-featured-section" aria-labelledby="pizza-featured-title">
+            <h1 id="pizza-featured-title" class="menu-section-title">Pizzas</h1>
+
+            <div class="menu-flip-card-grid" aria-label="Pizzas destacadas">
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pizzas/Pepperoni.jpeg' %}" alt="Pizza de pepperoni">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Pizza Pepperoni</h3>
+                                <p class="flip-card-price">$115</p>
+                            </div>
+
+                            <span class="flip-card-hint">Click para ver m&aacute;s</span>
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Pizza Pepperoni</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Salsa de tomate</li>
+                                    <li>Queso mozzarella</li>
+                                    <li>Pepperoni</li>
+                                </ul>
+                                <span class="flip-card-hint">Click para volver</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pizzas/Mexicana.png' %}" alt="Pizza mexicana">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Pizza Mexicana</h3>
+                                <p class="flip-card-price">$150</p>
+                            </div>
+
+                            <span class="flip-card-hint">Click para ver m&aacute;s</span>
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Pizza Mexicana</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Salsa de frijol</li>
+                                    <li>Queso mozzarella</li>
+                                    <li>Chorizo</li>
+                                    <li>Tocino</li>
+                                    <li>Cebolla</li>
+                                    <li>Chile jalape&ntilde;o</li>
+                                </ul>
+                                <span class="flip-card-hint">Click para volver</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pizzas/Cabaña.png' %}" alt="Pizza La Cabaña">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Pizza La Caba&ntilde;a</h3>
+                                <p class="flip-card-price">$165</p>
+                            </div>
+
+                            <span class="flip-card-hint">Click para ver m&aacute;s</span>
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Pizza La Caba&ntilde;a</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Salsa de tomate</li>
+                                    <li>Queso mozzarella extra</li>
+                                    <li>Pepperoni</li>
+                                    <li>Jam&oacute;n</li>
+                                    <li>Tocino</li>
+                                    <li>Chorizo</li>
+                                </ul>
+                                <span class="flip-card-hint">Click para volver</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pizzas/Hawaina.png' %}" alt="Pizza hawaiana">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Pizza Hawaiana</h3>
+                                <p class="flip-card-price">$140</p>
+                            </div>
+
+                            <span class="flip-card-hint">Click para ver m&aacute;s</span>
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Pizza Hawaiana</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Salsa de tomate</li>
+                                    <li>Queso mozzarella</li>
+                                    <li>Pi&ntilde;a</li>
+                                    <li>Jam&oacute;n</li>
+                                </ul>
+                                <span class="flip-card-hint">Click para volver</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <div class="column-3 columns">
             <div class="menu-restaurante">
                 <h3>Pizzas</h3>
@@ -237,5 +366,6 @@
         </div>
     </section>
     {% include 'partials/site_footer.html' %}
+    <script src="{% static 'js/menu.js' %}?v=pizza-card-order"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-﻿const CAROUSEL_COOLDOWN_MS = 5000;
+﻿const CAROUSEL_COOLDOWN_MS = 10000;
 const PHONE_SLIDE_ANIMATION_MS = 380;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -256,26 +256,36 @@ function initLocalLogoFontSwitcher() {
     if (!host) return;
 
     const fonts = [
-        { name: '01 · Caveat', family: "'Caveat', cursive", note: 'Irregular y orgánica' },
-        { name: '02 · Kalam', family: "'Kalam', cursive", note: 'Marcador escolar legible' },
-        { name: '03 · Gloria Hallelujah', family: "'Gloria Hallelujah', cursive", note: 'Descuidada y expresiva' },
-        { name: '04 · Permanent Marker', family: "'Permanent Marker', cursive", note: 'Trazo grueso y audaz' },
-        { name: '05 · Gochi Hand', family: "'Gochi Hand', cursive", note: 'Redondeada y juvenil' },
-        { name: '06 · Indie Flower', family: "'Indie Flower', cursive", note: 'Delgada y amigable' },
-        { name: '07 · Amatic SC', family: "'Amatic SC', cursive", note: 'Alta y manual' },
-        { name: '08 · Marker Felt', family: "'Marker Felt', 'Comic Sans MS', cursive", note: 'Clásica de marcador' },
-        { name: '09 · Comic Neue', family: "'Comic Neue', cursive", note: 'Manual y limpia' },
-        { name: '10 · Shadows Into Light', family: "'Shadows Into Light', cursive", note: 'Casual con inclinación' },
+        { name: '01 · Amatic SC', family: "'Amatic SC', cursive", note: 'Alta, estrecha y manual' },
+        { name: '02 · Patrick Hand SC', family: "'Patrick Hand SC', cursive", note: 'Mayúsculas manuales limpias' },
+        { name: '03 · Cabin Sketch', family: "'Cabin Sketch', cursive", note: 'Rótulo dibujado y alto' },
+        { name: '04 · Londrina Sketch', family: "'Londrina Sketch', cursive", note: 'Boceto ancho tipo cartel' },
+        { name: '05 · Fredericka the Great', family: "'Fredericka the Great', cursive", note: 'Vintage con trazo fino' },
+        { name: '06 · Bigelow Rules', family: "'Bigelow Rules', cursive", note: 'Alta y decorativa' },
+        { name: '07 · Amarante', family: "'Amarante', cursive", note: 'Rústica con personalidad' },
+        { name: '08 · Coming Soon', family: "'Coming Soon', cursive", note: 'Manual sencilla y legible' },
+        { name: '09 · Handlee', family: "'Handlee', cursive", note: 'Casual escrita a mano' },
+        { name: '10 · Bonbon', family: "'Bonbon', cursive", note: 'Manual suave y ornamental' },
+        { name: '11 · Just Another Hand', family: "'Just Another Hand', cursive", note: 'Alta, angosta y rápida' },
+        { name: '12 · Loved by the King', family: "'Loved by the King', cursive", note: 'Delgada y vertical' },
+        { name: '13 · Sue Ellen Francisco', family: "'Sue Ellen Francisco', cursive", note: 'Ligera y expresiva' },
+        { name: '14 · Annie Use Your Telescope', family: "'Annie Use Your Telescope', cursive", note: 'Irregular y cercana' },
+        { name: '15 · Reenie Beanie', family: "'Reenie Beanie', cursive", note: 'Suelta y artesanal' },
+        { name: '16 · Schoolbell', family: "'Schoolbell', cursive", note: 'Manual redondeada' },
+        { name: '17 · Walter Turncoat', family: "'Walter Turncoat', cursive", note: 'Cartel dibujado a mano' },
+        { name: '18 · Waiting for the Sunrise', family: "'Waiting for the Sunrise', cursive", note: 'Fina y alargada' },
+        { name: '19 · Shadows Into Light Two', family: "'Shadows Into Light Two', cursive", note: 'Limpia con altura' },
+        { name: '20 · Gaegu', family: "'Gaegu', cursive", note: 'Informal y juguetona' },
     ];
 
     const root = document.documentElement;
-    const stored = window.localStorage.getItem('lacabana_local_font');
+    const stored = window.localStorage.getItem('lacabana_local_font_v2');
     let activeIndex = stored ? Number(stored) : 0;
     if (Number.isNaN(activeIndex) || activeIndex < 0 || activeIndex >= fonts.length) activeIndex = 0;
 
     function applyFont(index) {
         root.style.setProperty('--local-title-font', fonts[index].family);
-        window.localStorage.setItem('lacabana_local_font', String(index));
+        window.localStorage.setItem('lacabana_local_font_v2', String(index));
     }
 
     fonts.forEach((font, index) => {

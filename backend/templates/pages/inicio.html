@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio | La Cabaña</title>
-    <link rel="stylesheet" href="{% static 'css/inicio.css' %}?v=redeem-callout">
+    <link rel="stylesheet" href="{% static 'css/inicio.css' %}?v=banner2-added">
     <link rel="stylesheet" href="{% static 'css/header.css' %}?v=header-general">
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=footer-general">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=footer-logo-jpg">
 </head>
 <body>
     {% include 'partials/site_header.html' %}
@@ -26,27 +26,27 @@
 
                     <div class="promo-stage promo-stage--wide">
                         <article class="promo-slide is-active" data-slide>
-                            <div class="promo-banner promo-banner--a">
+                            <div class="promo-banner promo-banner--image promo-banner--content-left">
                                 <div class="promo-banner-content">
-                                    <span class="promo-chip">Promo familiar</span>
-                                    <h2>Pizza para todos</h2>
-                                    <p>Un banner completo para destacar ofertas, combos y novedades de La Cabaña.</p>
+                                    <span class="promo-chip">ESPECIAL DE LA CASA</span>
+                                    <h2>Panecillos Luciana</h2>
+                                    <p>Perfectos para abrir el antojo.</p>
                                 </div>
                             </div>
                         </article>
 
                         <article class="promo-slide" data-slide>
-                            <div class="promo-banner promo-banner--b">
+                            <div class="promo-banner promo-banner--image-two promo-banner--content-right">
                                 <div class="promo-banner-content">
-                                    <span class="promo-chip">Especial de pasta</span>
-                                    <h2>Sabor casero</h2>
-                                    <p>Cambia entre publicidades con las flechas laterales sin perder el ancho de pantalla.</p>
+                                    <span class="promo-chip">POR TIEMPO LIMITADO</span>
+                                    <h2>Miércoles de pepperoni</h2>
+                                    <p>Disfruta 2 pizzas grandes de pepperoni por $200. Perfectas para compartir.</p>
                                 </div>
                             </div>
                         </article>
 
                         <article class="promo-slide" data-slide>
-                            <div class="promo-banner promo-banner--c">
+                            <div class="promo-banner promo-banner--c promo-banner--content-left">
                                 <div class="promo-banner-content">
                                     <span class="promo-chip">Combo destacado</span>
                                     <h2>Ordena hoy</h2>
@@ -56,7 +56,7 @@
                         </article>
 
                         <article class="promo-slide" data-slide>
-                            <div class="promo-banner promo-banner--d">
+                            <div class="promo-banner promo-banner--d promo-banner--content-right">
                                 <div class="promo-banner-content">
                                     <span class="promo-chip">Algo fresco</span>
                                     <h2>Para compartir</h2>
@@ -331,6 +331,6 @@
         
     {% include 'partials/site_footer.html' %}
 
-    <script src="{% static 'js/inicio.js' %}?v=redeem-callout"></script>
+    <script src="{% static 'js/inicio.js' %}?v=carousel-10s"></script>
 </body>
 </html>

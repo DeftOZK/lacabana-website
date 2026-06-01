@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Josefin+Sans:wght@400;500;600;700&family=Lato:wght@400;700;900&family=Lexend:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&family=Mulish:wght@400;500;600;700;800;900&family=Nunito+Sans:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&family=Quicksand:wght@400;500;600;700&family=Raleway:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&family=Rubik:wght@400;500;600;700;800;900&family=Source+Sans+3:wght@400;500;600;700;800;900&family=Urbanist:wght@400;500;600;700;800;900&family=Work+Sans:wght@400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Caveat:wght@400;700&family=Comic+Neue:wght@400;700&family=Gloria+Hallelujah&family=Gochi+Hand&family=Indie+Flower&family=Kalam:wght@400;700&family=Permanent+Marker&family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Amarante&family=Annie+Use+Your+Telescope&family=Bigelow+Rules&family=Bonbon&family=Cabin+Sketch:wght@400;700&family=Coming+Soon&family=Fredericka+the+Great&family=Gaegu:wght@400;700&family=Handlee&family=Just+Another+Hand&family=Londrina+Sketch&family=Loved+by+the+King&family=Patrick+Hand+SC&family=Reenie+Beanie&family=Schoolbell&family=Shadows+Into+Light+Two&family=Sue+Ellen+Francisco&family=Waiting+for+the+Sunrise&family=Walter+Turncoat&display=swap');
 
 :root {
     --accent: #2d3142;
@@ -204,8 +204,9 @@ select {
 
 /* Promo hero */
 .promo-hero {
-    padding: 0 0 24px;
-    background: var(--bg);
+    padding: 28px 0 24px;
+    background:
+        linear-gradient(rgba(251, 247, 242, 0.97) 0 28px, var(--bg) 28px 100%);
     overflow: hidden;
 }
 
@@ -260,7 +261,7 @@ select {
 }
 
 .promo-stage--wide {
-    min-height: clamp(330px, 34vw, 520px);
+    min-height: clamp(330px, 33.333vw, 620px);
 }
 
 .promo-slide {
@@ -278,7 +279,7 @@ select {
 
 .promo-banner {
     position: relative;
-    height: clamp(330px, 34vw, 520px);
+    height: clamp(330px, 33.333vw, 620px);
     width: 100%;
     border-radius: 0;
     overflow: hidden;
@@ -293,8 +294,8 @@ select {
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(90deg, rgba(0, 0, 0, .55), rgba(0, 0, 0, .08) 48%, rgba(0, 0, 0, .62)),
-        radial-gradient(circle at 78% 26%, rgba(255, 255, 255, .38), transparent 20%);
+        linear-gradient(90deg, rgba(0, 0, 0, .26), rgba(0, 0, 0, .05) 48%, rgba(0, 0, 0, .32)),
+        radial-gradient(circle at 78% 26%, rgba(255, 255, 255, .24), transparent 20%);
     z-index: -1;
 }
 
@@ -304,6 +305,27 @@ select {
     inset: 0;
     z-index: -2;
     opacity: .95;
+}
+
+.promo-banner--image {
+    background: url("../img/banners/Banner1.png") center / cover no-repeat;
+}
+
+.promo-banner--image-two {
+    background: url("../img/banners/Banner2.png") center / cover no-repeat;
+}
+
+.promo-banner--image::after {
+    display: none;
+}
+
+.promo-banner--image::before,
+.promo-banner--image-two::before {
+    z-index: -1;
+}
+
+.promo-banner--image-two::after {
+    display: none;
 }
 
 .promo-banner--a {
@@ -361,14 +383,14 @@ select {
     box-shadow: 0 24px 60px rgba(0, 0, 0, .18);
 }
 
-.promo-banner--b .promo-banner-content,
-.promo-banner--d .promo-banner-content {
+.promo-banner--content-left .promo-banner-content {
     margin-right: auto;
     margin-left: 9vw;
 }
 
-.promo-banner--c .promo-banner-content {
-    margin-right: 7vw;
+.promo-banner--content-right .promo-banner-content {
+    margin-right: 9vw;
+    margin-left: auto;
 }
 
 .promo-banner-content,
@@ -394,10 +416,11 @@ select {
 
 .promo-banner h2 {
     color: #14100f;
-    font-size: clamp(2rem, 4.6vw, 4.9rem);
+    font-size: clamp(1.6rem, 4.2vw, 4.5rem);
     line-height: 1;
     letter-spacing: 0;
     text-transform: uppercase;
+    margin-top: 8px;
 }
 
 .promo-banner p {
