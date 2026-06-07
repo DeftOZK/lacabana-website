@@ -557,7 +557,6 @@ select {
     border-left: 5px solid var(--primary);
     color: var(--text);
     box-shadow: 0 18px 42px rgba(43, 27, 23, .12);
-    animation: cravingNoticeExit .48s ease 5s forwards;
 }
 
 .craving-notice strong {
@@ -617,14 +616,6 @@ select {
 
     100% {
         top: 0;
-    }
-}
-
-@keyframes cravingNoticeExit {
-    to {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateX(calc(-100% - 40px));
     }
 }
 

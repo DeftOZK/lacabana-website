@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio | La Cabaña</title>
-    <link rel="stylesheet" href="{% static 'css/inicio.css' %}?v=craving-notice-brown">
+    <link rel="stylesheet" href="{% static 'css/inicio.css' %}?v=craving-static">
     <link rel="stylesheet" href="{% static 'css/header.css' %}?v=header-general">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=footer-logo-jpg">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=responsive-17">
 </head>
 <body>
     {% include 'partials/site_header.html' %}
@@ -137,22 +138,6 @@
                     </article>
 
                     <article class="featured-card">
-                        <img src="{% static 'img/productos/Pastas/Cabaña.png' %}" alt="Espagueti La Caba&ntilde;a">
-                        <div>
-                            <h3>Espagueti La Caba&ntilde;a</h3>
-                            <p>Sabor casero para quienes buscan algo completo y reconfortante.</p>
-                        </div>
-                    </article>
-
-                    <article class="featured-card">
-                        <img src="{% static 'img/productos/Ensaladas/Cabaña.png' %}" alt="Ensalada La Cabaña">
-                        <div>
-                            <h3>Ensalada La Caba&ntilde;a</h3>
-                            <p>Fresca, completa y perfecta para acompa&ntilde;ar tu comida favorita.</p>
-                        </div>
-                    </article>
-
-                    <article class="featured-card">
                         <img src="{% static 'img/productos/Pizzas/Mexicana.png' %}" alt="Pizza mexicana">
                         <div>
                             <h3>Pizza Mexicana</h3>
@@ -161,10 +146,26 @@
                     </article>
 
                     <article class="featured-card">
+                        <img src="{% static 'img/productos/Pastas/Cabaña.png' %}" alt="Espagueti La Caba&ntilde;a">
+                        <div>
+                            <h3>Espagueti La Caba&ntilde;a</h3>
+                            <p>Sabor casero para quienes buscan algo completo y reconfortante.</p>
+                        </div>
+                    </article>
+
+                    <article class="featured-card">
                         <img src="{% static 'img/productos/Pastas/Valle.png' %}" alt="Espagueti del Valle">
                         <div>
                             <h3>Espagueti del Valle</h3>
                             <p>Crema de la casa con tocino, jam&oacute;n, parmesano y albahaca.</p>
+                        </div>
+                    </article>
+
+                    <article class="featured-card">
+                        <img src="{% static 'img/productos/Ensaladas/Cabaña.png' %}" alt="Ensalada La Cabaña">
+                        <div>
+                            <h3>Ensalada La Caba&ntilde;a</h3>
+                            <p>Fresca, completa y perfecta para acompa&ntilde;ar tu comida favorita.</p>
                         </div>
                     </article>
 
@@ -384,6 +385,6 @@
         
     {% include 'partials/site_footer.html' %}
 
-    <script src="{% static 'js/inicio.js' %}?v=local-fixed-tone-carousel-5"></script>
+    <script src="{% static 'js/inicio.js' %}?v=craving-static"></script>
 </body>
 </html>
