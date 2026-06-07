@@ -119,14 +119,124 @@ body {
 
 /* Columnas del menú */
 .wrapped {
-    padding: 74px 20px 40px;
-    background-color: #FFFFFF;
+    --menu-bg-brown-rgb: 94, 56, 28;
+    --menu-bg-brown-opacity: .20;
+    --menu-bg-image-opacity: .40;
+    position: relative;
+    padding: 74px 20px 140px;
+    background-color: #f8f2e8;
+    isolation: isolate;
+}
+
+.wrapped::before,
+.wrapped::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.wrapped::before {
+    z-index: -2;
+    background-image: url("../img/contenido/Fondo.png");
+    background-repeat: repeat;
+    background-size: 520px 520px;
+    background-position: center top;
+    opacity: var(--menu-bg-image-opacity);
+}
+
+.wrapped::after {
+    z-index: -1;
+    background: rgba(var(--menu-bg-brown-rgb), var(--menu-bg-brown-opacity));
+}
+
+.menu-flip-notice {
+    --menu-notice-bg: #6e5237;
+    position: fixed;
+    top: 112px;
+    right: 24px;
+    z-index: 60;
+    display: flex;
+    align-items: flex-start;
+    width: min(340px, calc(100vw - 32px));
+    padding: 18px 16px 16px;
+    border-radius: 8px;
+    background: var(--menu-notice-bg);
+    color: var(--text, #312617);
+    box-shadow: 0 14px 34px rgba(43, 27, 23, .16);
+    transform: translateY(0);
+    opacity: 1;
+    transition: opacity .28s ease, transform .28s ease, visibility .28s ease;
+    overflow: hidden;
+}
+
+.menu-flip-notice::after,
+.menu-flip-notice::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 999px;
+}
+
+.menu-flip-notice::after {
+    background: rgba(255, 255, 255, .24);
+}
+
+.menu-flip-notice::before {
+    z-index: 1;
+    background: #fff;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: menuNoticeBarFill 5s linear forwards;
+}
+
+.menu-flip-notice.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(calc(100% + 32px));
+}
+
+.menu-flip-notice__icon {
+    flex-shrink: 0;
+}
+
+.menu-flip-notice__svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #ffb700;
+    opacity: 1;
+}
+
+.menu-flip-notice p {
+    margin: 0 0 0 12px;
+    color: #fff;
+    font-size: .9rem;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+@keyframes menuNoticeBarFill {
+    to {
+        transform: scaleX(1);
+    }
 }
 
 .menu-featured-section {
     width: min(1660px, calc(100% - 32px));
     margin: 0 auto 64px;
     font-family: var(--font-main, 'Plus Jakarta Sans', sans-serif);
+}
+
+.menu-featured-section--pastas,
+.menu-featured-section--ensaladas,
+.menu-featured-section--cafe,
+.menu-featured-section--sodas,
+.menu-featured-section--frappes {
+    margin-top: 96px;
+    margin-bottom: 0;
 }
 
 .menu-section-title {
@@ -147,10 +257,22 @@ body {
 
 .flip-card {
     width: 100%;
-    height: 520px;
+    height: 540px;
     perspective: 1000px;
     cursor: pointer;
     outline: none;
+}
+
+.flip-card--compact {
+    height: 480px;
+}
+
+.flip-card:not(:has(.flip-card-size-label)) {
+    height: 480px;
+}
+
+.flip-card--static {
+    cursor: default;
 }
 
 .flip-card-inner {
@@ -174,7 +296,7 @@ body {
     -webkit-backface-visibility: hidden;
     overflow: hidden;
     border-radius: 6px;
-    background: rgb(236, 236, 236);
+    background: #fff;
     border: 1px solid rgba(49, 38, 23, .12);
     box-shadow:
         rgba(0, 0, 0, 0.4) 0px 2px 4px,
@@ -183,8 +305,8 @@ body {
 }
 
 .flip-card-front {
-    padding: 24px;
-    justify-content: space-between;
+    padding: 26px;
+    justify-content: flex-start;
 }
 
 .flip-card-back {
@@ -196,6 +318,10 @@ body {
 }
 
 .flip-card:hover .flip-card-inner {
+    transform: translateY(-4px) scale(1.015);
+}
+
+.flip-card--static:hover .flip-card-inner {
     transform: translateY(-4px) scale(1.015);
 }
 
@@ -229,8 +355,8 @@ body {
     display: grid;
     place-items: center;
     width: 100%;
-    height: 300px;
-    margin: 0 auto 14px;
+    height: 350px;
+    margin: 0 auto 18px;
     overflow: hidden;
     border-radius: 5px;
     background: #fff;
@@ -244,10 +370,10 @@ body {
 }
 
 .flip-card-info {
-    padding: 20px;
+    padding: 0;
     border-radius: 5px;
-    background: #fff;
-    border: 1px solid rgba(49, 38, 23, .10);
+    background: transparent;
+    border: 0;
 }
 
 .flip-card-info h3,
@@ -256,6 +382,20 @@ body {
     font-size: 1.5rem;
     line-height: 1.05;
     margin-bottom: 6px;
+}
+
+.flip-card-title-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.flip-card-title-row span {
+    flex-shrink: 0;
+    color: var(--muted, #796954);
+    font-size: 1.2rem;
+    font-weight: 900;
 }
 
 .flip-card-info p,
@@ -271,6 +411,17 @@ body {
     font-weight: 900;
 }
 
+.flip-card-size-label {
+    margin-top: 12px;
+    color: var(--muted, #796954) !important;
+    font-size: 1.2rem !important;
+    font-weight: 800;
+}
+
+.flip-card-price--secondary {
+    margin-top: 2px;
+}
+
 .flip-card-back-content {
     display: grid;
     justify-items: center;
@@ -279,7 +430,9 @@ body {
 }
 
 .flip-card-back-content--ingredients {
-    align-content: start;
+    display: flex;
+    flex-direction: column;
+    align-content: initial;
     justify-items: stretch;
     width: 100%;
     height: 100%;
@@ -306,6 +459,37 @@ body {
     list-style: disc;
 }
 
+.flip-card-back-note {
+    margin-top: auto !important;
+    padding-top: 18px;
+    color: var(--primary-dark, #b47f00) !important;
+    font-size: .92rem !important;
+    font-weight: 900;
+    line-height: 1.35;
+    text-align: center;
+}
+
+.menu-featured-section--pastas .flip-card-back-content--ingredients::after,
+.menu-featured-section--ensaladas .flip-card-back-content--ingredients::after {
+    display: block;
+    margin-top: auto;
+    padding-top: 18px;
+    color: var(--primary-dark, #b47f00);
+    font-size: .92rem;
+    font-weight: 900;
+    line-height: 1.35;
+    text-align: center;
+    white-space: pre-line;
+}
+
+.menu-featured-section--pastas .flip-card-back-content--ingredients::after {
+    content: "Puedes agregarle a tu pasta\A pollo $40 o camar\00F3 n $60";
+}
+
+.menu-featured-section--ensaladas .flip-card-back-content--ingredients::after {
+    content: "Puedes agregarle a tu ensalada\A pollo $40 o camar\00F3 n $60";
+}
+
 .flip-card-icon {
     font-size: 3.6rem;
 }
@@ -316,18 +500,63 @@ body {
     font-weight: 900;
 }
 
-.flip-card-hint {
-    display: block;
-    margin-top: auto;
-    color: var(--muted, #796954);
-    font-size: .78rem;
-    font-weight: 800;
-    opacity: .72;
+.menu-extra-note,
+.menu-salad-note {
+    grid-column: span 3;
+    align-self: center;
+    justify-self: center;
+    display: grid;
+    width: 72%;
+    min-height: 220px;
+    padding: clamp(28px, 4vw, 46px);
+    border-radius: 6px;
+    background: #fff;
+    border: 1px solid rgba(49, 38, 23, .12);
+    box-shadow:
+        rgba(0, 0, 0, 0.22) 0px 2px 4px,
+        rgba(0, 0, 0, 0.18) 0px 7px 13px -3px,
+        rgba(180, 127, 0, 0.18) 0px -3px 0px inset;
 }
 
-.flip-card:hover .flip-card-hint {
-    opacity: 1;
+.menu-salad-note {
+    place-items: center;
+}
+
+.menu-extra-note {
+    align-content: center;
+    justify-items: center;
+    gap: 28px;
+}
+
+.menu-extra-note p,
+.menu-salad-note p {
+    max-width: 760px;
+    color: var(--text, #312617);
+    font-size: clamp(1.35rem, 2.6vw, 2.35rem);
+    font-weight: 900;
+    line-height: 1.12;
+    text-align: center;
+}
+
+.menu-extra-note p::after,
+.menu-salad-note p::after {
+    content: "";
+    display: block;
+    width: min(180px, 46%);
+    height: 5px;
+    margin: 22px auto 0;
+    border-radius: 999px;
+    background: var(--primary, #e0a100);
+}
+
+.menu-extra-note span {
+    align-self: end;
+    margin-top: 8px;
     color: var(--primary-dark, #b47f00);
+    font-size: clamp(.82rem, 1.1vw, .98rem);
+    font-weight: 900;
+    line-height: 1.25;
+    text-align: center;
 }
 
 h2 {
@@ -337,70 +566,37 @@ h2 {
     color: #000000;
 }
 
-.column-3 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-
-.menu-restaurante {
-    background-color: #FFFFFF;
-    padding: 20px;
-    border: 1px solid #DDD;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.menu-restaurante h3 {
-    font-size: 24px;
-    margin-bottom: 15px;
-    color: #000000;
-}
-
-.menu-restaurante h4 {
-    font-size: 18px;
-    margin: 15px 0 10px;
-    color: #555555;
-}
-
-.menu-restaurante p {
-    font-size: 14px;
-    color: #666666;
-    margin-bottom: 10px;
-    text-align: justify;
-}
-
-.menu-restaurante .precio-menu {
-    font-size: 16px;
-    margin-top: 20px;
-    font-weight: 600;
-    color: #000000;
-
-}
-
-.menu-restaurante .precio-menu span {
-    color: #f6a700;
-}
-
 /* Responsivo */
 @media (max-width: 1380px) {
     .menu-flip-card-grid {
         grid-template-columns: repeat(2, minmax(300px, 350px));
     }
+
+    .menu-extra-note,
+    .menu-salad-note {
+        grid-column: span 1;
+        width: 100%;
+        min-height: 480px;
+    }
 }
 
 @media (max-width: 768px) {
+    .menu-flip-notice {
+        top: 88px;
+        right: 16px;
+    }
+
     .menu-flip-card-grid {
         grid-template-columns: repeat(2, minmax(280px, 320px));
     }
 
-    .column-3 {
-        grid-template-columns: repeat(2, 1fr);
-    }
 }
 
 @media (max-width: 480px) {
+    .menu-flip-notice {
+        top: 76px;
+    }
+
     .wrapped {
         padding: 34px 14px;
     }
@@ -414,8 +610,9 @@ h2 {
         gap: 24px;
     }
 
-    .column-3 {
-        grid-template-columns: 1fr;
+    .menu-extra-note,
+    .menu-salad-note {
+        min-height: 240px;
     }
 
     .menu {

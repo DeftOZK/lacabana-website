@@ -1,13 +1,12 @@
-{% load static %}
+﻿{% load static %}
 <!DOCTYPE html>
 <html lang="es-MX">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
-
+    <title>Menú | La Cabaña</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="{% static 'css/menu.css' %}?v=pizza-card-order">
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}?v=extra-note-two-lines">
     <link rel="stylesheet" href="{% static 'css/header.css' %}?v=header-general">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=footer-logo-jpg">
 
@@ -16,6 +15,15 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
 {% include 'partials/site_header.html' %}
+    <aside class="menu-flip-notice" data-menu-flip-notice role="status" aria-live="polite">
+        <div class="menu-flip-notice__icon" aria-hidden="true">
+            <svg class="menu-flip-notice__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+            </svg>
+        </div>
+        <p>Haz click en una tarjeta para ver sus ingredientes.</p>
+    </aside>
+
     <section class="wrapped">
         <section class="menu-featured-section" aria-labelledby="pizza-featured-title">
             <h1 id="pizza-featured-title" class="menu-section-title">Pizzas</h1>
@@ -25,15 +33,16 @@
                     <div class="flip-card-inner">
                         <div class="flip-card-face flip-card-front">
                             <div class="flip-card-photo">
-                                <img src="{% static 'img/productos/Pizzas/Pepperoni.jpeg' %}" alt="Pizza de pepperoni">
+                                <img src="{% static 'img/productos/Pizzas/Pepperoni.png' %}" alt="Pizza de pepperoni">
                             </div>
 
                             <div class="flip-card-info">
                                 <h3>Pizza Pepperoni</h3>
                                 <p class="flip-card-price">$115</p>
+                                <p class="flip-card-size-label">Personal</p>
+                                <p class="flip-card-price flip-card-price--secondary">$85</p>
                             </div>
 
-                            <span class="flip-card-hint">Click para ver m&aacute;s</span>
                         </div>
 
                         <div class="flip-card-face flip-card-back">
@@ -44,7 +53,7 @@
                                     <li>Queso mozzarella</li>
                                     <li>Pepperoni</li>
                                 </ul>
-                                <span class="flip-card-hint">Click para volver</span>
+                                <p class="flip-card-back-note">Puedes pedir tu pizza<br>delgada o extra delgada</p>
                             </div>
                         </div>
                     </div>
@@ -60,9 +69,10 @@
                             <div class="flip-card-info">
                                 <h3>Pizza Mexicana</h3>
                                 <p class="flip-card-price">$150</p>
+                                <p class="flip-card-size-label">Personal</p>
+                                <p class="flip-card-price flip-card-price--secondary">$95</p>
                             </div>
 
-                            <span class="flip-card-hint">Click para ver m&aacute;s</span>
                         </div>
 
                         <div class="flip-card-face flip-card-back">
@@ -76,7 +86,7 @@
                                     <li>Cebolla</li>
                                     <li>Chile jalape&ntilde;o</li>
                                 </ul>
-                                <span class="flip-card-hint">Click para volver</span>
+                                <p class="flip-card-back-note">Puedes pedir tu pizza<br>delgada o extra delgada</p>
                             </div>
                         </div>
                     </div>
@@ -92,9 +102,10 @@
                             <div class="flip-card-info">
                                 <h3>Pizza La Caba&ntilde;a</h3>
                                 <p class="flip-card-price">$165</p>
+                                <p class="flip-card-size-label">Personal</p>
+                                <p class="flip-card-price flip-card-price--secondary">$95</p>
                             </div>
 
-                            <span class="flip-card-hint">Click para ver m&aacute;s</span>
                         </div>
 
                         <div class="flip-card-face flip-card-back">
@@ -108,7 +119,7 @@
                                     <li>Tocino</li>
                                     <li>Chorizo</li>
                                 </ul>
-                                <span class="flip-card-hint">Click para volver</span>
+                                <p class="flip-card-back-note">Puedes pedir tu pizza<br>delgada o extra delgada</p>
                             </div>
                         </div>
                     </div>
@@ -124,9 +135,10 @@
                             <div class="flip-card-info">
                                 <h3>Pizza Hawaiana</h3>
                                 <p class="flip-card-price">$140</p>
+                                <p class="flip-card-size-label">Personal</p>
+                                <p class="flip-card-price flip-card-price--secondary">$95</p>
                             </div>
 
-                            <span class="flip-card-hint">Click para ver m&aacute;s</span>
                         </div>
 
                         <div class="flip-card-face flip-card-back">
@@ -138,7 +150,652 @@
                                     <li>Pi&ntilde;a</li>
                                     <li>Jam&oacute;n</li>
                                 </ul>
-                                <span class="flip-card-hint">Click para volver</span>
+                                <p class="flip-card-back-note">Puedes pedir tu pizza<br>delgada o extra delgada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pizzas/Campirana.png' %}" alt="Pizza campirana">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Pizza Campirana</h3>
+                                <p class="flip-card-price">$145</p>
+                                <p class="flip-card-size-label">Personal</p>
+                                <p class="flip-card-price flip-card-price--secondary">$95</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Pizza Campirana</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Salsa de tomate</li>
+                                    <li>Queso mozzarella</li>
+                                    <li>Pepperoni</li>
+                                    <li>Salchicha italiana</li>
+                                    <li>Morr&oacute;n</li>
+                                    <li>Cebolla</li>
+                                </ul>
+                                <p class="flip-card-back-note">Puedes pedir tu pizza<br>delgada o extra delgada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pizzas/Vegetariana.png' %}" alt="Pizza vegetariana">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Pizza Vegetariana</h3>
+                                <p class="flip-card-price">$145</p>
+                                <p class="flip-card-size-label">Personal</p>
+                                <p class="flip-card-price flip-card-price--secondary">$95</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Pizza Vegetariana</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Salsa de tomate</li>
+                                    <li>Queso mozzarella</li>
+                                    <li>Champi&ntilde;&oacute;n</li>
+                                    <li>Morr&oacute;n</li>
+                                    <li>Cebolla</li>
+                                    <li>Aceituna negra</li>
+                                </ul>
+                                <p class="flip-card-back-note">Puedes pedir tu pizza<br>delgada o extra delgada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pizzas/Margarita.png' %}" alt="Pizza margarita">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Pizza Margarita</h3>
+                                <p class="flip-card-price">$140</p>
+                                <p class="flip-card-size-label">Personal</p>
+                                <p class="flip-card-price flip-card-price--secondary">$95</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Pizza Margarita</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Salsa de tomate</li>
+                                    <li>Queso mozzarella</li>
+                                    <li>Tomate</li>
+                                    <li>Albahaca</li>
+                                    <li>Aceite de oliva</li>
+                                </ul>
+                                <p class="flip-card-back-note">Puedes pedir tu pizza<br>delgada o extra delgada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pizzas/Rustica.png' %}" alt="Pizza r&uacute;stica">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Pizza R&uacute;stica</h3>
+                                <p class="flip-card-price">$150</p>
+                                <p class="flip-card-size-label">Personal</p>
+                                <p class="flip-card-price flip-card-price--secondary">$95</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Pizza R&uacute;stica</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Salsa de tomate</li>
+                                    <li>Queso mozzarella</li>
+                                    <li>Pepperoni</li>
+                                    <li>Jam&oacute;n</li>
+                                    <li>Aceituna negra</li>
+                                    <li>Cebolla</li>
+                                    <li>Champi&ntilde;&oacute;n</li>
+                                </ul>
+                                <p class="flip-card-back-note">Puedes pedir tu pizza<br>delgada o extra delgada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pizzas/Albahaca.png' %}" alt="Pizza pepperoni con albahaca">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Pizza Pepperoni &amp; Albahaca</h3>
+                                <p class="flip-card-price">$120</p>
+                                <p class="flip-card-size-label">Personal</p>
+                                <p class="flip-card-price flip-card-price--secondary">$85</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Pizza Pepperoni &amp; Albahaca</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Salsa de tomate</li>
+                                    <li>Queso mozzarella</li>
+                                    <li>Pepperoni</li>
+                                    <li>Albahaca</li>
+                                </ul>
+                                <p class="flip-card-back-note">Puedes pedir tu pizza<br>delgada o extra delgada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pizzas/Carnes.png' %}" alt="Pizza tres carnes">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Pizza Tres Carnes</h3>
+                                <p class="flip-card-price">$145</p>
+                                <p class="flip-card-size-label">Personal</p>
+                                <p class="flip-card-price flip-card-price--secondary">$95</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Pizza Tres Carnes</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Salsa de tomate</li>
+                                    <li>Queso mozzarella</li>
+                                    <li>Pepperoni</li>
+                                    <li>Tocino</li>
+                                    <li>Salchicha italiana</li>
+                                </ul>
+                                <p class="flip-card-back-note">Puedes pedir tu pizza<br>delgada o extra delgada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pizzas/Salchicha.png' %}" alt="Pizza salchicha italiana">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Pizza Salchicha Italiana</h3>
+                                <p class="flip-card-price">$120</p>
+                                <p class="flip-card-size-label">Personal</p>
+                                <p class="flip-card-price flip-card-price--secondary">$85</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Pizza Salchicha Italiana</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Salsa de tomate</li>
+                                    <li>Queso mozzarella</li>
+                                    <li>Salchicha italiana</li>
+                                </ul>
+                                <p class="flip-card-back-note">Puedes pedir tu pizza<br>delgada o extra delgada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pizzas/Mediterranea.png' %}" alt="Pizza mediterr&aacute;nea">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Pizza Mediterr&aacute;nea</h3>
+                                <p class="flip-card-price">$145</p>
+                                <p class="flip-card-size-label">Personal</p>
+                                <p class="flip-card-price flip-card-price--secondary">$95</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Pizza Mediterr&aacute;nea</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Salsa de tomate</li>
+                                    <li>Queso mozzarella</li>
+                                    <li>Champi&ntilde;&oacute;n</li>
+                                    <li>Cebolla morada</li>
+                                    <li>Espinaca</li>
+                                    <li>Tomate</li>
+                                    <li>Albahaca</li>
+                                    <li>Aceite de oliva</li>
+                                </ul>
+                                <p class="flip-card-back-note">Puedes pedir tu pizza<br>delgada o extra delgada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo flip-card--compact" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pizzas/Campestre.png' %}" alt="Pizza campestre">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Pizza Campestre</h3>
+                                <p class="flip-card-price">$170</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Pizza Campestre</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Crema de la casa</li>
+                                    <li>Pollo</li>
+                                    <li>Queso mozzarella</li>
+                                    <li>Cebolla morada</li>
+                                    <li>Albahaca</li>
+                                </ul>
+                                <p class="flip-card-back-note">Puedes pedir tu pizza<br>delgada o extra delgada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo flip-card--compact" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pizzas/Marina.png' %}" alt="Pizza marina">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Pizza Marina</h3>
+                                <p class="flip-card-price">$180</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Pizza Marina</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Crema de la casa</li>
+                                    <li>Camar&oacute;n picosito</li>
+                                    <li>Queso mozzarella</li>
+                                    <li>Cebolla morada</li>
+                                    <li>Cilantro</li>
+                                </ul>
+                                <p class="flip-card-back-note">Puedes pedir tu pizza<br>delgada o extra delgada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo flip-card--compact" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pizzas/Vaquera.png' %}" alt="Pizza vaquera">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Pizza Vaquera</h3>
+                                <p class="flip-card-price">$170</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Pizza Vaquera</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Salsa BBQ de la casa</li>
+                                    <li>Pollo</li>
+                                    <li>Queso mozzarella</li>
+                                    <li>Cebolla morada</li>
+                                    <li>Cilantro</li>
+                                </ul>
+                                <p class="flip-card-back-note">Puedes pedir tu pizza<br>delgada o extra delgada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo flip-card--compact" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pizzas/Pan.png' %}" alt="Pan de queso">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Pan de Queso</h3>
+                                <p class="flip-card-price">$85</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Pan de Queso</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Mantequilla preparada</li>
+                                    <li>Queso mozzarella</li>
+                                    <li>Ajo</li>
+                                    <li>Or&eacute;gano</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo flip-card--compact" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pizzas/Panecillos.png' %}" alt="Panecillos Luciana">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Panecillos Luciana</h3>
+                                <p class="flip-card-price">$115</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Panecillos Luciana</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Salsa de tomate</li>
+                                    <li>Queso mozzarella</li>
+                                    <li>Pepperoni</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <article class="menu-extra-note menu-pizza-note" aria-label="Nota sobre extras">
+                    <p>Puedes pedir tu pizza con extra queso por tan solo $30, o algún ingrediente extra de tu agrado por solo $20</p>
+                    <span>Tambi&eacute;n aplica para pizzas o ensaladas</span>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="menu-featured-section menu-featured-section--pastas" aria-labelledby="pasta-featured-title">
+            <h1 id="pasta-featured-title" class="menu-section-title">Pastas</h1>
+
+            <div class="menu-flip-card-grid" aria-label="Pastas destacadas">
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pastas/Cabaña.png' %}" alt="Espagueti La Caba&ntilde;a">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Espagueti La Caba&ntilde;a</h3>
+                                <p class="flip-card-price">$90</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Espagueti La Caba&ntilde;a</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Crema de la casa</li>
+                                    <li>Chipotle</li>
+                                    <li>Queso parmesano</li>
+                                    <li>Albahaca</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pastas/Mantequilla.png' %}" alt="Espagueti mantequilla">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Espagueti Mantequilla</h3>
+                                <p class="flip-card-price">$75</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Espagueti Mantequilla</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Mantequilla</li>
+                                    <li>Queso parmesano</li>
+                                    <li>Albahaca</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pastas/Tomate.png' %}" alt="Espagueti con salsa de tomate">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Espagueti con Salsa de Tomate</h3>
+                                <p class="flip-card-price">$80</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Espagueti con Salsa de Tomate</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Salsa de tomate</li>
+                                    <li>Queso parmesano</li>
+                                    <li>Albahaca</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pastas/Ajillo.png' %}" alt="Espagueti al ajillo">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Espagueti al Ajillo</h3>
+                                <p class="flip-card-price">$75</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Espagueti al Ajillo</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Mantequilla</li>
+                                    <li>Ajo</li>
+                                    <li>Pimienta negra</li>
+                                    <li>Queso parmesano</li>
+                                    <li>Albahaca</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pastas/Casa.png' %}" alt="Espagueti de la casa">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Espagueti de la Casa</h3>
+                                <p class="flip-card-price">$90</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Espagueti de la Casa</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Crema de la casa</li>
+                                    <li>Albahaca</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pastas/Fundido.png' %}" alt="Espagueti fundido">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Espagueti Fundido</h3>
+                                <p class="flip-card-price">$115</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Espagueti Fundido</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Salsa de tomate</li>
+                                    <li>Salchicha italiana</li>
+                                    <li>Queso fundido</li>
+                                    <li>Queso parmesano</li>
+                                    <li>Albahaca</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pastas/Valle.png' %}" alt="Espagueti del valle">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Espagueti del Valle</h3>
+                                <p class="flip-card-price">$110</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Espagueti del Valle</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Crema de la casa</li>
+                                    <li>Tocino</li>
+                                    <li>Jam&oacute;n</li>
+                                    <li>Queso parmesano</li>
+                                    <li>Albahaca</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pastas/Lasana.png' %}" alt="Lasa&ntilde;a de la casa">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Lasa&ntilde;a de la Casa</h3>
+                                <p class="flip-card-price">$120</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Lasa&ntilde;a de la Casa</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Carne de res</li>
+                                    <li>Zanahoria</li>
+                                    <li>Cebolla</li>
+                                    <li>Ajo</li>
+                                    <li>Salsa de tomate</li>
+                                    <li>Espinaca</li>
+                                    <li>Quesos</li>
+                                    <li>Especias</li>
+                                    <li>Albahaca</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -146,226 +803,489 @@
             </div>
         </section>
 
-        <div class="column-3 columns">
-            <div class="menu-restaurante">
-                <h3>Pizzas</h3>
-                <hr>
-                <h4>PIZZA LA CABAÑA</h4>
-                <p>Salsa de tomate, queso mozzarella extra,
-                    pepperoni, jamón, tocino y chorizo.</p>
+        <section class="menu-featured-section menu-featured-section--ensaladas" aria-labelledby="salad-featured-title">
+            <h1 id="salad-featured-title" class="menu-section-title">Ensaladas</h1>
 
-                    <p class="precio-menu">
-                        Normal:
-                        <span>155$</span>
-                        Personal:
-                        <span>95$</span>
-                    </p>
-                
-                <h4>PIZZA MEXICANA </h4>
-                <p>Salsa de frijol, queso mozzarella, chorizo, tocino,
-                    cebolla y chile jalapeño.</p>
+            <div class="menu-flip-card-grid" aria-label="Ensaladas destacadas">
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Ensaladas/Cabaña.png' %}" alt="Ensalada La Caba&ntilde;a">
+                            </div>
 
-                    <p class="precio-menu">
-                        Normal:
-                        <span>140$</span>
-                        Personal:
-                        <span>95$</span>
-                    </p>
-                
-                <h4>PIZZA DE PEPPERONI</h4>
-                <p>Salsa de tomate, queso mozzarella y pepperoni.</p>
+                            <div class="flip-card-info">
+                                <h3>Ensalada La Caba&ntilde;a</h3>
+                                <p class="flip-card-price">$90</p>
+                            </div>
 
-                <p class="precio-menu">
-                    Normal:
-                    <span>105$</span>
-                    Personal:
-                    <span>85$</span>
-                </p>
-                
-                <h4>PIZZA CAMPIRANA </h4>
-                <p>Salsa de tomate, queso mozzarella, pepperoni
-                    salchicha italiana, morrón y cebolla.</p>
+                        </div>
 
-                    <p class="precio-menu">
-                        Normal:
-                        <span>135$</span>
-                        Personal:
-                        <span>95$</span>
-                    </p>
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Ensalada La Caba&ntilde;a</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Lechuga romana</li>
+                                    <li>Tomate</li>
+                                    <li>Elote</li>
+                                    <li>Almendra</li>
+                                    <li>Queso parmesano</li>
+                                    <li>Queso mozzarella</li>
+                                    <li>Crotones</li>
+                                    <li>Aderezo La Caba&ntilde;a</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <h4>PIZZA VEGETARIANA</h4>
-                <p>Salsa de tomate, queso mozzarella, champiñón,
-                    morrón, cebolla y aceituna negra.</p>
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Ensaladas/Campestre.png' %}" alt="Ensalada campestre">
+                            </div>
 
-                    <p class="precio-menu">
-                        Normal:
-                        <span>135$</span>
-                        Personal:
-                        <span>95$</span>
-                    </p>
+                            <div class="flip-card-info">
+                                <h3>Ensalada Campestre</h3>
+                                <p class="flip-card-price">$90</p>
+                            </div>
 
-                <h4>PIZZA MARGARITA</h4>
-                <p>Salsa de tomate, queso mozzarella, tomate,
-                    albahaca y aceite de oliva.</p>
+                        </div>
 
-                    <p class="precio-menu">
-                        Normal:
-                        <span>130$</span>
-                        Personal:
-                        <span>95$</span>
-                    </p>
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Ensalada Campestre</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Lechuga romana</li>
+                                    <li>Tomate</li>
+                                    <li>Zanahoria</li>
+                                    <li>Pepino</li>
+                                    <li>Crotones</li>
+                                    <li>Queso parmesano</li>
+                                    <li>Aderezo La Caba&ntilde;a</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <h4>PIZZA HAWAIANA</h4>
-                <p>Salsa de tomate, queso mozzarella, piña y jamón.</p>
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Ensaladas/Campirana.png' %}" alt="Ensalada campirana">
+                            </div>
 
-                <p class="precio-menu">
-                    Normal:
-                    <span>130$</span>
-                    Personal:
-                    <span>95$</span>
-                </p>
-                
-                <h4>PIZZA RÚSTICA</h4>
-                <p>Salsa de tomate, queso mozzarella, pepperoni
-                    jamon, aceituna negra, cebolla y champiñón.</p>
+                            <div class="flip-card-info">
+                                <h3>Ensalada Campirana</h3>
+                                <p class="flip-card-price">$90</p>
+                            </div>
 
-                    <p class="precio-menu">
-                        Normal:
-                        <span>140$</span>
-                        Personal:
-                        <span>95$</span>
-                    </p>
+                        </div>
 
-                <h4>PIZZA PEPPERONI CON ALBAHACA</h4>
-                <p>Salsa de tomate, queso mozzarella, pepperoni y
-                    albahaca.</p>
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Ensalada Campirana</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Lechuga romana</li>
+                                    <li>Espinaca</li>
+                                    <li>Tomate</li>
+                                    <li>Pepino</li>
+                                    <li>Elote</li>
+                                    <li>Crotones</li>
+                                    <li>Cebolla morada</li>
+                                    <li>Vinagreta</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                    <p class="precio-menu">
-                        Normal:
-                        <span>110$</span>
-                        Personal:
-                        <span>85$</span>
-                    </p>
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Ensaladas/Rustica.png' %}" alt="Ensalada r&uacute;stica">
+                            </div>
 
-                <h4>PIZZA TRES CARNES</h4>
-                <p>Salsa de tomate, queso mozzarella, pepperoni,
-                    tocino y salchicha italiana.</p>
+                            <div class="flip-card-info">
+                                <h3>Ensalada R&uacute;stica</h3>
+                                <p class="flip-card-price">$90</p>
+                            </div>
 
-                    <p class="precio-menu">
-                        Normal:
-                        <span>135$</span>
-                        Personal:
-                        <span>95$</span>
-                    </p>
+                        </div>
 
-                <h4>PIZZA SALCHICHA ITALIANA</h4>
-                <p>Salsa de tomate, queso mozzarella, salchicha
-                    italiana.</p>
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Ensalada R&uacute;stica</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Espinaca</li>
+                                    <li>Pasas</li>
+                                    <li>Almendra</li>
+                                    <li>Naranja</li>
+                                    <li>Pi&ntilde;a</li>
+                                    <li>Aderezo de mango</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                    <p class="precio-menu">
-                        Normal:
-                        <span>110$</span>
-                        Personal:
-                        <span>85$</span>
-                    </p>
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Ensaladas/Bosque.png' %}" alt="Ensalada del bosque">
+                            </div>
 
-                <h4>PIZZA CAMPESTRE</h4>
-                <p>Crema de la casa, pollo, queso mozzarella,
-                    cebolla morada, albahaca.</p>
+                            <div class="flip-card-info">
+                                <h3>Ensalada del Bosque</h3>
+                                <p class="flip-card-price">$90</p>
+                            </div>
 
-                    <p class="precio-menu">
-                        Normal:
-                        <span>165$</span>
-                    </p>
+                        </div>
 
-                <h4>PIZZA MARINA</h4>
-                <p>Crema de la casa, camarón picosito, queso
-                    mozzarella, cebolla morada, cilantro.</p>
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Ensalada del Bosque</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Espinaca</li>
+                                    <li>Fresa o manzana</li>
+                                    <li>Ar&aacute;ndanos</li>
+                                    <li>Uva</li>
+                                    <li>Nuez</li>
+                                    <li>Aderezo de frambuesa</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                    <p class="precio-menu">
-                        Normal:
-                        <span>180$</span>
-                    </p>
-
-                <h4>PIZZA VAQUERA</h4>
-                <p>Salsa BBQ de lo casa, pollo, queso mozzarella,
-                    cebolla morada, cilantro.</p>
-
-                <p class="precio-menu">
-                    Normal:
-                    <span>170$</span>
-                </p>
-                
+                <article class="menu-salad-note" aria-label="Nota sobre aderezos">
+                    <p>Puedes cambiar el aderezo de tu ensalada por otro distinto<br>sin costo adicional</p>
+                </article>
             </div>
+        </section>
 
-            <div class="menu-restaurante">
-                <h3>Pastas</h3>
-                <hr>
-                <h4>Primeros platos</h4>
-                <p>Lorem ipsum dolor.</p>
-                <p>Lorem ipsum dolor sit amet.</p>
-                <p>Lorem, ipsum dolor.</p>
-                <p>Lorem ipsum dolor sit.</p>
-                <br>
-                <h4>Segundos platos</h4>
-                <p>Lorem ipsum dolor.</p>
-                <p>Lorem ipsum dolor sit amet.</p>
-                <p>Lorem, ipsum dolor.</p>
-                <p>Lorem ipsum dolor sit.</p>
-                <br>
-                <p class="precio-menu">
-                    Precio:
-                    <span>17$</span>
-                </p>
-                
-            </div>
+        <section class="menu-featured-section menu-featured-section--cafe" aria-labelledby="coffee-featured-title">
+            <h1 id="coffee-featured-title" class="menu-section-title">Caf&eacute;</h1>
 
-            <div class="menu-restaurante">
-                <h3>Ensaladas</h3>
-                <hr>
-                <h4>Primeros platos</h4>
-                <p>Lorem ipsum dolor.</p>
-                <p>Lorem ipsum dolor sit amet.</p>
-                <p>Lorem, ipsum dolor.</p>
-                <p>Lorem ipsum dolor sit.</p>
-                <br>
-                <h4>Segundos platos</h4>
-                <p>Lorem ipsum dolor.</p>
-                <p>Lorem ipsum dolor sit amet.</p>
-                <p>Lorem, ipsum dolor.</p>
-                <p>Lorem ipsum dolor sit.</p>
-                <br>
-                <p class="precio-menu">
-                    Precio:
-                    <span>17$</span>
-                </p>
-                
-            </div>
+            <div class="menu-flip-card-grid" aria-label="Caf&eacute;s destacados">
+                <div class="flip-card flip-card--photo flip-card--static" aria-label="Americano 12 oz">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Café/Americano12.png' %}" alt="Caf&eacute; americano 12 oz">
+                            </div>
 
-            <div class="menu-restaurante">
-                <h3>Extras</h3>
-                <hr>
-                <h4>Primeros platos</h4>
-                <p>Lorem ipsum dolor.</p>
-                <p>Lorem ipsum dolor sit amet.</p>
-                <p>Lorem, ipsum dolor.</p>
-                <p>Lorem ipsum dolor sit.</p>
-                <br>
-                <h4>Segundos platos</h4>
-                <p>Lorem ipsum dolor.</p>
-                <p>Lorem ipsum dolor sit amet.</p>
-                <p>Lorem, ipsum dolor.</p>
-                <p>Lorem ipsum dolor sit.</p>
-                <br>
-                <p class="precio-menu">
-                    Precio:
-                    <span>17$</span>
-                </p>
-                
+                            <div class="flip-card-info">
+                                <h3 class="flip-card-title-row">Americano <span>12 oz</span></h3>
+                                <p class="flip-card-price">$35</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo flip-card--static" aria-label="Americano 16 oz">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Café/Americano16.png' %}" alt="Caf&eacute; americano 16 oz">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3 class="flip-card-title-row">Americano <span>16 oz</span></h3>
+                                <p class="flip-card-price">$45</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Café/Americano12.png' %}" alt="Latte 12 oz">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3 class="flip-card-title-row">Latte <span>12 oz</span></h3>
+                                <p class="flip-card-price">$70</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Sabores de latte</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Caramelo</li>
+                                    <li>Crema irlandesa</li>
+                                    <li>Vainilla</li>
+                                    <li>Moka oscuro</li>
+                                    <li>Lavanda</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Café/Americano16.png' %}" alt="Latte 16 oz">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3 class="flip-card-title-row">Latte <span>16 oz</span></h3>
+                                <p class="flip-card-price">$80</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Sabores de latte</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Caramelo</li>
+                                    <li>Crema irlandesa</li>
+                                    <li>Vainilla</li>
+                                    <li>Moka oscuro</li>
+                                    <li>Lavanda</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <section class="menu-featured-section menu-featured-section--sodas" aria-labelledby="soda-featured-title">
+            <h1 id="soda-featured-title" class="menu-section-title">Soda artesanal</h1>
+
+            <div class="menu-flip-card-grid" aria-label="Sodas artesanales">
+                <div class="flip-card flip-card--photo flip-card--static" aria-label="Soda artesanal de fresa 16 oz">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Soda artesanal/Fresa.png' %}" alt="Soda artesanal de fresa">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3 class="flip-card-title-row">Fresa <span>16 oz</span></h3>
+                                <p class="flip-card-price">$50</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo flip-card--static" aria-label="Soda artesanal de frambuesa 16 oz">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Soda artesanal/Frambuesa.png' %}" alt="Soda artesanal de frambuesa">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3 class="flip-card-title-row">Frambuesa <span>16 oz</span></h3>
+                                <p class="flip-card-price">$50</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo flip-card--static" aria-label="Soda artesanal de mora azul 16 oz">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Soda artesanal/Mora.png' %}" alt="Soda artesanal de mora azul">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3 class="flip-card-title-row">Mora azul <span>16 oz</span></h3>
+                                <p class="flip-card-price">$50</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo flip-card--static" aria-label="Soda artesanal de manzana verde 16 oz">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Soda artesanal/Manzana.png' %}" alt="Soda artesanal de manzana verde">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3 class="flip-card-title-row">Manzana verde <span>16 oz</span></h3>
+                                <p class="flip-card-price">$50</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo flip-card--static" aria-label="Soda artesanal de durazno 16 oz">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Soda artesanal/Durazno.png' %}" alt="Soda artesanal de durazno">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3 class="flip-card-title-row">Durazno <span>16 oz</span></h3>
+                                <p class="flip-card-price">$50</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-featured-section menu-featured-section--frappes" aria-labelledby="frappe-featured-title">
+            <h1 id="frappe-featured-title" class="menu-section-title">Frapp&eacute;</h1>
+
+            <div class="menu-flip-card-grid" aria-label="Frapp&eacute;s destacados">
+                <div class="flip-card flip-card--photo flip-card--static" aria-label="Frapp&eacute; Oreo 16 oz">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Frappé/Oreo.png' %}" alt="Frapp&eacute; Oreo">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3 class="flip-card-title-row">Oreo <span>16 oz</span></h3>
+                                <p class="flip-card-price">$85</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo flip-card--static" aria-label="Frapp&eacute; caramelo 16 oz">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Frappé/Caramelo.png' %}" alt="Frapp&eacute; caramelo">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3 class="flip-card-title-row">Caramelo <span>16 oz</span></h3>
+                                <p class="flip-card-price">$80</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo flip-card--static" aria-label="Frapp&eacute; mazap&aacute;n 16 oz">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Frappé/Mazapan.png' %}" alt="Frapp&eacute; mazap&aacute;n">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3 class="flip-card-title-row">Mazap&aacute;n <span>16 oz</span></h3>
+                                <p class="flip-card-price">$85</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo flip-card--static" aria-label="Frapp&eacute; cajeta 16 oz">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Frappé/Cajeta.png' %}" alt="Frapp&eacute; cajeta">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3 class="flip-card-title-row">Cajeta <span>16 oz</span></h3>
+                                <p class="flip-card-price">$80</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo flip-card--static" aria-label="Frapp&eacute; moka oscuro 16 oz">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Frappé/Moka.png' %}" alt="Frapp&eacute; moka oscuro">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3 class="flip-card-title-row">Moka oscuro <span>16 oz</span></h3>
+                                <p class="flip-card-price">$80</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo flip-card--static" aria-label="Frapp&eacute; chocoroles 16 oz">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Frappé/Chocoroles.png' %}" alt="Frapp&eacute; chocoroles">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3 class="flip-card-title-row">Chocoroles <span>16 oz</span></h3>
+                                <p class="flip-card-price">$85</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo flip-card--static" aria-label="Frapp&eacute; gansito 16 oz">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Frappé/Gansito.png' %}" alt="Frapp&eacute; gansito">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3 class="flip-card-title-row">Gansito <span>16 oz</span></h3>
+                                <p class="flip-card-price">$85</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo flip-card--static" aria-label="Frapp&eacute; fresas con crema 16 oz">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Frappé/Fresas.png' %}" alt="Frapp&eacute; fresas con crema">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3 class="flip-card-title-row">Fresas con crema <span>16 oz</span></h3>
+                                <p class="flip-card-price">$85</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </section>
     {% include 'partials/site_footer.html' %}
-    <script src="{% static 'js/menu.js' %}?v=pizza-card-order"></script>
+    <script src="{% static 'js/menu.js' %}?v=flip-notice"></script>
 </body>
 </html>

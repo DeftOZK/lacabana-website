@@ -86,5 +86,11 @@ lacabana-website/
 ```
 cd C:\Users\Deft\Documents\lacabana-website\backend
 .\venv\Scripts\Activate.ps1
-python manage.py runserver
+$env:ALLOWED_HOSTS="*"
+python manage.py runserver 127.0.0.1:8000
+```
+
+```
+& "C:\Program Files (x86)\cloudflared\cloudflared.exe" tunnel --protocol http2 --url http://127.0.0.1:8000
+
 ```

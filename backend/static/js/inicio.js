@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initPromoCarousel();
     initPhoneCarousel();
     initMenuPdfViewer();
-    initLocalLogoFontSwitcher();
+    initLocalImageCarousel();
 });
 
 function initPromoCarousel() {
@@ -251,67 +251,38 @@ function initMenuPdfViewer() {
     render();
 }
 
-function initLocalLogoFontSwitcher() {
-    const host = document.getElementById('localFontButtons');
-    if (!host) return;
+function initLocalImageCarousel() {
+    const carousel = document.querySelector('[data-local-carousel]');
+    if (!carousel) return;
 
-    const fonts = [
-        { name: '01 · Amatic SC', family: "'Amatic SC', cursive", note: 'Alta, estrecha y manual' },
-        { name: '02 · Patrick Hand SC', family: "'Patrick Hand SC', cursive", note: 'Mayúsculas manuales limpias' },
-        { name: '03 · Cabin Sketch', family: "'Cabin Sketch', cursive", note: 'Rótulo dibujado y alto' },
-        { name: '04 · Londrina Sketch', family: "'Londrina Sketch', cursive", note: 'Boceto ancho tipo cartel' },
-        { name: '05 · Fredericka the Great', family: "'Fredericka the Great', cursive", note: 'Vintage con trazo fino' },
-        { name: '06 · Bigelow Rules', family: "'Bigelow Rules', cursive", note: 'Alta y decorativa' },
-        { name: '07 · Amarante', family: "'Amarante', cursive", note: 'Rústica con personalidad' },
-        { name: '08 · Coming Soon', family: "'Coming Soon', cursive", note: 'Manual sencilla y legible' },
-        { name: '09 · Handlee', family: "'Handlee', cursive", note: 'Casual escrita a mano' },
-        { name: '10 · Bonbon', family: "'Bonbon', cursive", note: 'Manual suave y ornamental' },
-        { name: '11 · Just Another Hand', family: "'Just Another Hand', cursive", note: 'Alta, angosta y rápida' },
-        { name: '12 · Loved by the King', family: "'Loved by the King', cursive", note: 'Delgada y vertical' },
-        { name: '13 · Sue Ellen Francisco', family: "'Sue Ellen Francisco', cursive", note: 'Ligera y expresiva' },
-        { name: '14 · Annie Use Your Telescope', family: "'Annie Use Your Telescope', cursive", note: 'Irregular y cercana' },
-        { name: '15 · Reenie Beanie', family: "'Reenie Beanie', cursive", note: 'Suelta y artesanal' },
-        { name: '16 · Schoolbell', family: "'Schoolbell', cursive", note: 'Manual redondeada' },
-        { name: '17 · Walter Turncoat', family: "'Walter Turncoat', cursive", note: 'Cartel dibujado a mano' },
-        { name: '18 · Waiting for the Sunrise', family: "'Waiting for the Sunrise', cursive", note: 'Fina y alargada' },
-        { name: '19 · Shadows Into Light Two', family: "'Shadows Into Light Two', cursive", note: 'Limpia con altura' },
-        { name: '20 · Gaegu', family: "'Gaegu', cursive", note: 'Informal y juguetona' },
-    ];
+    const slides = Array.from(carousel.querySelectorAll('[data-local-slide]'));
+    const prevBtn = carousel.querySelector('[data-local-prev]');
+    const nextBtn = carousel.querySelector('[data-local-next]');
+    if (slides.length <= 1 || !prevBtn || !nextBtn) return;
 
-    const root = document.documentElement;
-    const stored = window.localStorage.getItem('lacabana_local_font_v2');
-    let activeIndex = stored ? Number(stored) : 0;
-    if (Number.isNaN(activeIndex) || activeIndex < 0 || activeIndex >= fonts.length) activeIndex = 0;
+    let activeIndex = slides.findIndex((slide) => slide.classList.contains('is-active'));
+    let autoplayTimer;
+    if (activeIndex < 0) activeIndex = 0;
 
-    function applyFont(index) {
-        root.style.setProperty('--local-title-font', fonts[index].family);
-        window.localStorage.setItem('lacabana_local_font_v2', String(index));
-    }
-
-    fonts.forEach((font, index) => {
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.className = 'local-font-btn';
-        button.style.fontFamily = font.family;
-        button.innerHTML = `
-            <span class="local-font-preview">La Cabaña</span>
-            <span class="local-font-name">${font.name}</span>
-            <span class="local-font-note">${font.note}</span>
-        `;
-        button.addEventListener('click', () => {
-            activeIndex = index;
-            applyFont(activeIndex);
-            updateActive();
+    function showSlide(nextIndex) {
+        activeIndex = (nextIndex + slides.length) % slides.length;
+        slides.forEach((slide, index) => {
+            slide.classList.toggle('is-active', index === activeIndex);
         });
-        host.appendChild(button);
-    });
-
-    const buttons = Array.from(host.querySelectorAll('.local-font-btn'));
-
-    function updateActive() {
-        buttons.forEach((button, idx) => button.classList.toggle('is-active', idx === activeIndex));
     }
 
-    applyFont(activeIndex);
-    updateActive();
+    function startAutoplay() {
+        window.clearInterval(autoplayTimer);
+        autoplayTimer = window.setInterval(() => showSlide(activeIndex + 1), CAROUSEL_COOLDOWN_MS);
+    }
+
+    function goToSlide(nextIndex) {
+        showSlide(nextIndex);
+        startAutoplay();
+    }
+
+    prevBtn.addEventListener('click', () => goToSlide(activeIndex - 1));
+    nextBtn.addEventListener('click', () => goToSlide(activeIndex + 1));
+    showSlide(activeIndex);
+    startAutoplay();
 }

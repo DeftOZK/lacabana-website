@@ -13,3 +13,11 @@ document.querySelectorAll("[data-flip-card]").forEach((card) => {
         }
     });
 });
+
+const menuFlipNotice = document.querySelector("[data-menu-flip-notice]");
+
+if (menuFlipNotice) {
+    window.setTimeout(() => {
+        menuFlipNotice.classList.add("is-hidden");
+    }, 5000);
+}

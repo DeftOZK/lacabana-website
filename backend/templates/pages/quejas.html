@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quejas y sugerencias | La Cabaña</title>
-    <link rel="stylesheet" href="{% static 'css/inicio.css' %}">
+    <title>Comentarios | La Cabaña</title>
+    <link rel="stylesheet" href="{% static 'css/inicio.css' %}?v=feedback-attach-plus-bars">
     <link rel="stylesheet" href="{% static 'css/header.css' %}?v=header-general">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=footer-logo-jpg">
 </head>
@@ -16,7 +16,7 @@
         <section class="feedback-hero">
             <div class="container">
                 <p class="eyebrow">Atención al cliente</p>
-                <h1>Preguntas frecuentes, quejas y sugerencias</h1>
+                <h1>Preguntas frecuentes, comentarios y sugerencias</h1>
                 <p>
                     Antes de enviar un comentario, revisa las dudas más comunes. Queremos que tus mensajes sean claros,
                     útiles y fáciles de atender.
@@ -30,33 +30,33 @@
 
             <div class="faq-grid">
                 <details>
-                    <summary>¿Cómo puedo enviar una queja?</summary>
-                    <p>Completa el formulario con tus datos de contacto y describe lo ocurrido con el mayor detalle posible.</p>
+                    <summary>¿Cuál es la pizza más pedida?</summary>
+                    <p>Las pizzas que más vendemos son la pizza La Cabaña y la pizza mexicana.</p>
                 </details>
 
                 <details>
-                    <summary>¿Cómo puedo acumular puntos?</summary>
-                    <p>El sistema de puntos todavía no tiene reglas finales. La idea es que las compras registradas puedan sumar puntos para canjear recompensas.</p>
+                    <summary>¿Tienen servicio a domicilio?</summary>
+                    <p>De momento no contamos con servicio a domicilio.</p>
                 </details>
 
                 <details>
-                    <summary>¿Dónde consultaré mis puntos?</summary>
-                    <p>Cuando el módulo esté activo, habrá una página dedicada para revisar saldo, historial y recompensas disponibles.</p>
+                    <summary>¿Puedo personalizar mi pizza?</summary>
+                    <p>Sí, puedes personalizar tu pizza agregando ingredientes extra por un costo adicional o pidiéndola más delgada.</p>
                 </details>
 
                 <details>
-                    <summary>¿El menú de la página sirve para comprar?</summary>
-                    <p>No por ahora. El menú es informativo: te ayudará a consultar productos y precios. No habrá pago o carrito en línea en esta etapa.</p>
+                    <summary>¿Qué formas de pago aceptan?</summary>
+                    <p>Aceptamos efectivo o tarjeta. Cualquier duda adicional puede consultarla en el mostrador.</p>
                 </details>
 
                 <details>
-                    <summary>¿Cómo darán seguimiento a mi comentario?</summary>
-                    <p>El equipo revisará el mensaje y usará los datos de contacto que proporciones para responder si hace falta.</p>
+                    <summary>¿Puedo comer en el restaurante?</summary>
+                    <p>Sí, contamos con una barra y banquillos afuera del local para que pueda disfrutar su comida al aire libre.</p>
                 </details>
 
                 <details>
-                    <summary>¿Puedo mandar una sugerencia o felicitación?</summary>
-                    <p>Sí. El formulario aceptará quejas, sugerencias y felicitaciones para mejorar la experiencia del restaurante.</p>
+                    <summary>¿Tienen estacionamiento?</summary>
+                    <p>Sí, contamos con estacionamiento temporal para clientes.</p>
                 </details>
             </div>
         </section>
@@ -67,12 +67,12 @@
                     <p class="eyebrow">Tu opinión nos ayuda</p>
                     <h2>Cuéntanos cómo podemos mejorar</h2>
                     <p>
-                        Comparte una queja, sugerencia o felicitación. Revisaremos tu mensaje con atención para mejorar
+                        Comparte un comentario, sugerencia, duda o felicitación. Revisaremos tu mensaje con atención para mejorar
                         la experiencia en La Cabaña.
                     </p>
                 </div>
 
-                <form class="feedback-form" method="post">
+                <form class="feedback-form" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="form-row">
                         <label>Nombre
@@ -84,16 +84,31 @@
                     </div>
 
                     <label>Tipo de comentario
-                        <select name="tipo" required>
-                            <option value="queja">Queja</option>
+                        <select name="tipo" data-feedback-type required>
+                            <option value="comentario">Comentario</option>
                             <option value="sugerencia">Sugerencia</option>
+                            <option value="duda">Duda</option>
                             <option value="felicitacion">Felicitación</option>
                         </select>
                     </label>
 
                     <label>Mensaje
-                        <textarea name="mensaje" rows="6" placeholder="Cuéntanos qué ocurrió o qué podemos mejorar." required></textarea>
+                        <textarea name="mensaje" rows="6" data-feedback-message placeholder="Cuéntanos qué ocurrió o qué podemos mejorar." required></textarea>
                     </label>
+
+                    <div class="feedback-attachments" data-feedback-attachments>
+                        <div class="feedback-attachments-row">
+                            <div>
+                                <span>Adjuntar imágenes</span>
+                                <small data-feedback-images-status>Máximo 5 imágenes</small>
+                            </div>
+                            <label class="feedback-attach-button" aria-label="Adjuntar imágenes">
+                                <span>+</span>
+                                <input type="file" name="imagenes" accept="image/*" multiple data-feedback-images>
+                            </label>
+                        </div>
+                        <div class="feedback-attachments-list" data-feedback-images-list aria-live="polite"></div>
+                    </div>
 
                     <p class="form-note">Gracias por compartir tu experiencia. Tu comentario nos ayuda a mejorar el servicio.</p>
                     <button class="btn btn-primary" type="submit">Enviar comentario</button>
@@ -103,5 +118,86 @@
     </main>
 
     {% include 'partials/site_footer.html' %}
+    <script>
+        (() => {
+            const typeSelect = document.querySelector("[data-feedback-type]");
+            const messageInput = document.querySelector("[data-feedback-message]");
+            const fileInput = document.querySelector("[data-feedback-images]");
+            const fileList = document.querySelector("[data-feedback-images-list]");
+            const fileStatus = document.querySelector("[data-feedback-images-status]");
+            const maxFiles = 5;
+            let selectedFiles = [];
+
+            if (!typeSelect || !messageInput) {
+                return;
+            }
+
+            const placeholders = {
+                comentario: "Cuéntanos qué ocurrió o qué podemos mejorar.",
+                sugerencia: "Cuéntanos tu sugerencia para mejorar la experiencia.",
+                duda: "Escribe tu duda y con gusto te orientamos.",
+                felicitacion: "Cuéntanos qué te gustó de tu visita."
+            };
+
+            const updatePlaceholder = () => {
+                messageInput.placeholder = placeholders[typeSelect.value] || placeholders.comentario;
+            };
+
+            typeSelect.addEventListener("change", updatePlaceholder);
+            updatePlaceholder();
+
+            if (!fileInput || !fileList || !fileStatus) {
+                return;
+            }
+
+            const updateFileInput = () => {
+                const transfer = new DataTransfer();
+                selectedFiles.forEach((file) => transfer.items.add(file));
+                fileInput.files = transfer.files;
+            };
+
+            const renderFiles = () => {
+                fileList.innerHTML = "";
+                fileStatus.textContent = selectedFiles.length
+                    ? `${selectedFiles.length} de ${maxFiles} imágenes`
+                    : `Máximo ${maxFiles} imágenes`;
+
+                selectedFiles.forEach((file, index) => {
+                    const item = document.createElement("span");
+                    item.className = "feedback-attachment-chip";
+
+                    const name = document.createElement("span");
+                    name.textContent = file.name;
+
+                    const removeButton = document.createElement("button");
+                    removeButton.type = "button";
+                    removeButton.textContent = "×";
+                    removeButton.setAttribute("aria-label", `Quitar ${file.name}`);
+                    removeButton.addEventListener("click", () => {
+                        selectedFiles.splice(index, 1);
+                        updateFileInput();
+                        renderFiles();
+                    });
+
+                    item.append(name, removeButton);
+                    fileList.appendChild(item);
+                });
+            };
+
+            fileInput.addEventListener("change", () => {
+                const incomingFiles = Array.from(fileInput.files || []).filter((file) => file.type.startsWith("image/"));
+                const remainingSlots = maxFiles - selectedFiles.length;
+
+                if (remainingSlots <= 0) {
+                    updateFileInput();
+                    return;
+                }
+
+                selectedFiles = selectedFiles.concat(incomingFiles.slice(0, remainingSlots));
+                updateFileInput();
+                renderFiles();
+            });
+        })();
+    </script>
 </body>
 </html>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio | La Cabaña</title>
-    <link rel="stylesheet" href="{% static 'css/inicio.css' %}?v=banner2-added">
+    <link rel="stylesheet" href="{% static 'css/inicio.css' %}?v=craving-notice-brown">
     <link rel="stylesheet" href="{% static 'css/header.css' %}?v=header-general">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=footer-logo-jpg">
 </head>
@@ -21,7 +21,7 @@
                             <p class="promo-label">Spot de promociones</p>
                             <strong>Una publicidad por diapositiva · espacio para tus banners</strong>
                         </div>
-                        <span class="promo-counter" data-carousel-counter>01 / 04</span>
+                        <span class="promo-counter" data-carousel-counter>01 / 05</span>
                     </div>
 
                     <div class="promo-stage promo-stage--wide">
@@ -30,7 +30,7 @@
                                 <div class="promo-banner-content">
                                     <span class="promo-chip">ESPECIAL DE LA CASA</span>
                                     <h2>Panecillos Luciana</h2>
-                                    <p>Perfectos para abrir el antojo.</p>
+                                    <p>Dorados por fuera, suave por dentro y recién horneados. Un pequeño gusto que vale la pena probar.</p>
                                 </div>
                             </div>
                         </article>
@@ -40,27 +40,37 @@
                                 <div class="promo-banner-content">
                                     <span class="promo-chip">POR TIEMPO LIMITADO</span>
                                     <h2>Miércoles de pepperoni</h2>
-                                    <p>Disfruta 2 pizzas grandes de pepperoni por $200. Perfectas para compartir.</p>
+                                    <p>2 pizzas de pepperoni por solo $200 Porque los miércoles también merecen saber a pizza.</p>
                                 </div>
                             </div>
                         </article>
 
                         <article class="promo-slide" data-slide>
-                            <div class="promo-banner promo-banner--c promo-banner--content-left">
+                            <div class="promo-banner promo-banner--image-three promo-banner--content-left">
                                 <div class="promo-banner-content">
-                                    <span class="promo-chip">Combo destacado</span>
-                                    <h2>Ordena hoy</h2>
-                                    <p>El espacio queda listo para reemplazarse por imágenes promocionales reales.</p>
+                                    <span class="promo-chip">ANTOJO FR&Iacute;O</span>
+                                    <h2>Frapp&eacute;s de la casa</h2>
+                                    <p>Cremoso, dulce y delicioso. Pru&eacute;balos todos.</p>
                                 </div>
                             </div>
                         </article>
 
                         <article class="promo-slide" data-slide>
-                            <div class="promo-banner promo-banner--d promo-banner--content-right">
+                            <div class="promo-banner promo-banner--image-four promo-banner--content-right">
                                 <div class="promo-banner-content">
-                                    <span class="promo-chip">Algo fresco</span>
-                                    <h2>Para compartir</h2>
-                                    <p>Promociones horizontales con una presencia parecida a la referencia.</p>
+                                    <span class="promo-chip">SABORES DE LA CASA</span>
+                                    <h2>Prueba algo diferente</h2>
+                                    <p>Marina con camarón picosito y Vaquera con BBQ de la casa.</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="promo-slide" data-slide>
+                            <div class="promo-banner promo-banner--image-five promo-banner--content-left">
+                                <div class="promo-banner-content">
+                                    <span class="promo-chip">PIZZAS ESPECIALES</span>
+                                    <h2>Frescas y llenas de sabor</h2>
+                                    <p>Mediterránea y campestre, dos opciones diferentes para compartir en casa.</p>
                                 </div>
                             </div>
                         </article>
@@ -73,13 +83,18 @@
                     </div>
                 </div>
 
+                <aside class="craving-notice" role="status" aria-live="polite">
+                    <span class="craving-loader" aria-hidden="true"></span>
+                    <strong>Aqu&iacute; empieza el antojo</strong>
+                </aside>
+
                 <section class="menu-pdf-viewer" aria-labelledby="menu-pdf-title" data-menu-pdf
-                    data-page-1="{% static 'img/menu/menu-pagina-1.png' %}"
-                    data-page-2="{% static 'img/menu/menu-pagina-2.png' %}">
+                    data-page-1="{% static 'img/menu/menu-pagina-1.jpeg' %}"
+                    data-page-2="{% static 'img/menu/menu-pagina-2.jpeg' %}">
                     <div class="menu-pdf-heading">
                         <div>
                             <p class="eyebrow">Menú oficial</p>
-                            <h2 id="menu-pdf-title">Consulta nuestras pizzas, pastas y especialidades</h2>
+                            <h2 id="menu-pdf-title">Pizzas recién horneadas, <br>pastas, ensaladas, café y mucho más.</h2>
                         </div>
                         <a class="menu-pdf-open" href="{% static 'img/menu/Menú.pdf' %}" target="_blank" rel="noopener noreferrer">
                             Abrir PDF
@@ -107,40 +122,57 @@
 
         <section class="section section-alt">
             <div class="container">
-                <div class="section-heading">
-                    <p class="eyebrow">Especialidades</p>
-                    <h2>Sabores para compartir</h2>
-                    <p>
-                        La página funcionará como menú informativo. Los textos y precios podrán ajustarse cuando se confirme
-                        la información final del local.
-                    </p>
+                <div class="section-heading section-heading--featured">
+                    <p class="eyebrow">Especialidades de la casa</p>
+                    <h2>Si no sabes que pedir, empieza aqu&iacute;.</h2>
                 </div>
 
                 <div class="featured-grid">
                     <article class="featured-card">
-                        <img src="{% static 'img/productos/pizza-1.png' %}" alt="Pizza destacada">
+                        <img src="{% static 'img/productos/Pizzas/Cabaña.png' %}" alt="Pizza La Caba&ntilde;a">
                         <div>
-                            <p class="card-label">Pizza</p>
-                            <h3>Pizza de la casa</h3>
-                            <p>Una opción ideal para compartir mientras ves los partidos.</p>
+                            <h3>Pizza La Caba&ntilde;a</h3>
+                            <p>Una opci&oacute;n ideal para compartir con sabor de la casa.</p>
                         </div>
                     </article>
 
                     <article class="featured-card">
-                        <img src="{% static 'img/hero/pasta.png' %}" alt="Pasta destacada">
+                        <img src="{% static 'img/productos/Pastas/Cabaña.png' %}" alt="Espagueti La Caba&ntilde;a">
                         <div>
-                            <p class="card-label">Pasta</p>
-                            <h3>Pasta con albóndigas</h3>
+                            <h3>Espagueti La Caba&ntilde;a</h3>
                             <p>Sabor casero para quienes buscan algo completo y reconfortante.</p>
                         </div>
                     </article>
 
                     <article class="featured-card">
-                        <img src="{% static 'img/hero/ensalada.png' %}" alt="Ensalada destacada">
+                        <img src="{% static 'img/productos/Ensaladas/Cabaña.png' %}" alt="Ensalada La Cabaña">
                         <div>
-                            <p class="card-label">Fresco</p>
-                            <h3>Ensaladas</h3>
-                            <p>Una alternativa ligera para acompañar tu pizza o pasta favorita.</p>
+                            <h3>Ensalada La Caba&ntilde;a</h3>
+                            <p>Fresca, completa y perfecta para acompa&ntilde;ar tu comida favorita.</p>
+                        </div>
+                    </article>
+
+                    <article class="featured-card">
+                        <img src="{% static 'img/productos/Pizzas/Mexicana.png' %}" alt="Pizza mexicana">
+                        <div>
+                            <h3>Pizza Mexicana</h3>
+                            <p>Chorizo, tocino, cebolla y jalape&ntilde;o sobre salsa de frijol.</p>
+                        </div>
+                    </article>
+
+                    <article class="featured-card">
+                        <img src="{% static 'img/productos/Pastas/Valle.png' %}" alt="Espagueti del Valle">
+                        <div>
+                            <h3>Espagueti del Valle</h3>
+                            <p>Crema de la casa con tocino, jam&oacute;n, parmesano y albahaca.</p>
+                        </div>
+                    </article>
+
+                    <article class="featured-card">
+                        <img src="{% static 'img/productos/Ensaladas/Bosque.png' %}" alt="Ensalada del bosque">
+                        <div>
+                            <h3>Ensalada del bosque</h3>
+                            <p>Una alternativa ligera con fruta, nuez y aderezo de frambuesa.</p>
                         </div>
                     </article>
                 </div>
@@ -150,7 +182,7 @@
         <section class="points-section" id="puntos">
             <div class="container points-layout">
                 <div class="points-copy">
-                    <p class="eyebrow">Programa de puntos</p>
+                    <p class="eyebrow">Programa de puntos (esperalo muy pronto)</p>
                     <h2>Acumula puntos escaneando tus tickets</h2>
                     <p>
                         Compra en La Cabaña, recibe tu ticket con QR y escanéalo desde tu cuenta para sumar puntos.
@@ -278,12 +310,40 @@
             <div class="container info-grid">
                 <figure class="info-image">
                     <div class="info-badge">Visítanos</div>
-                    <div class="info-photo-frame">
-                        <img src="{% static 'img/contenido/Local.jpg' %}" alt="Fachada del local La Cabaña">
+                    <div class="info-photo-frame" data-local-carousel>
+                        <div class="info-local-slide is-active" data-local-slide>
+                            <img src="{% static 'img/contenido/Local (6).jpeg' %}" alt="Fachada del local La Cabaña">
+                        </div>
+                        <div class="info-local-slide" data-local-slide>
+                            <img src="{% static 'img/contenido/Local (1).jpeg' %}" alt="Foto del local La Cabaña 2">
+                        </div>
+                        <div class="info-local-slide" data-local-slide>
+                            <img src="{% static 'img/contenido/Local (2).jpeg' %}" alt="Foto del local La Cabaña 3">
+                        </div>
+                        <div class="info-local-slide" data-local-slide>
+                            <img src="{% static 'img/contenido/Local (3).jpeg' %}" alt="Foto del local La Cabaña 4">
+                        </div>
+                        <div class="info-local-slide" data-local-slide>
+                            <img src="{% static 'img/contenido/Local (4).jpeg' %}" alt="Foto del local La Cabaña 5">
+                        </div>
+                        <div class="info-local-slide" data-local-slide>
+                            <img src="{% static 'img/contenido/Local (5).jpeg' %}" alt="Foto del local La Cabaña 6">
+                        </div>
+                        <div class="info-local-slide" data-local-slide>
+                            <img src="{% static 'img/contenido/Local (7).jpeg' %}" alt="Foto del local La Cabaña 7">
+                        </div>
+                        <div class="info-local-slide" data-local-slide>
+                            <img src="{% static 'img/contenido/Local (8).jpeg' %}" alt="Foto del local La Cabaña 8">
+                        </div>
+
+                        <div class="info-local-controls" aria-label="Fotos del local">
+                            <button type="button" class="info-local-btn" data-local-prev aria-label="Foto anterior">❬</button>
+                            <button type="button" class="info-local-btn" data-local-next aria-label="Siguiente foto">❭</button>
+                        </div>
                     </div>
                     <figcaption>
                         <span>La Cabaña</span>
-                        <strong>Pizza, pasta y sabor local</strong>
+                        <strong>Un sabor y experiencia inolvidable.</strong>
                     </figcaption>
                 </figure>
 
@@ -312,13 +372,6 @@
                 </aside>
             </div>
 
-            <div class="container local-font-panel" aria-labelledby="local-font-title">
-                <div>
-                    <p class="eyebrow">Tipografía del local</p>
-                    <h3 id="local-font-title">Prueba el estilo de “La Cabaña”</h3>
-                </div>
-                <div class="local-font-grid" id="localFontButtons" aria-label="Tipografías para el texto La Cabaña"></div>
-            </div>
         </section>
 
         <section class="map-section">
@@ -331,6 +384,6 @@
         
     {% include 'partials/site_footer.html' %}
 
-    <script src="{% static 'js/inicio.js' %}?v=carousel-10s"></script>
+    <script src="{% static 'js/inicio.js' %}?v=local-fixed-tone-carousel-5"></script>
 </body>
 </html>
