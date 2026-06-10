@@ -45,6 +45,14 @@ body {
     overflow: visible;
 }
 
+@media (min-width: 861px) {
+    body > .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 1200;
+    }
+}
+
 .site-header a {
     color: inherit;
     text-decoration: none;
@@ -58,22 +66,23 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 34px;
-    padding: 0;
+    gap: clamp(14px, 1.6vw, 24px);
+    /* Desktop reserves room for the hanging sign and Mundial trigger without pushing either outside the viewport. */
+    padding: 0 0 0 clamp(312px, 26vw, 382px);
     position: relative;
 }
 
 .site-header .brand {
     position: absolute;
     top: 0;
-    left: clamp(-180px, -8vw, -96px);
+    left: 0;
     z-index: 2;
     display: grid;
     place-items: center;
-    width: 158px;
-    height: 158px;
+    width: clamp(132px, 10.6vw, 158px);
+    height: clamp(132px, 10.6vw, 158px);
     margin: 0;
-    padding: 18px;
+    padding: clamp(15px, 1.2vw, 18px);
     overflow: visible;
     isolation: isolate;
     background:
@@ -86,7 +95,7 @@ body {
         0 12px 24px rgba(43, 27, 23, .15),
         inset 0 1px 0 rgba(255, 255, 255, .20),
         inset 0 -3px 0 rgba(50, 24, 10, .08);
-    transform: translate(-50px, 12px);
+    transform: translateY(12px);
 }
 
 .site-header .brand::before {
@@ -129,23 +138,312 @@ body {
     box-shadow: 0 8px 18px rgba(43, 27, 23, .16);
 }
 
+.site-header .world-cup-widget {
+    position: absolute;
+    top: 50%;
+    left: clamp(148px, 12.4vw, 190px);
+    z-index: 30;
+    transform: translateY(-50%);
+    font-family: var(--font-main);
+}
+
+.site-header .world-cup-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    min-height: 44px;
+    padding: 6px 8px;
+    border: 0;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    line-height: 1;
+}
+
+.site-header .world-cup-title,
+.site-header .world-cup-year {
+    font-family: var(--font-main);
+    font-size: clamp(1.22rem, 1.55vw, 1.9rem);
+    font-weight: 900;
+    letter-spacing: -.035em;
+    color: #bdbdbd;
+    -webkit-text-stroke: 0;
+    text-shadow: none;
+}
+
+.site-header .world-cup-title {
+    color: #7ed957;
+    text-transform: uppercase;
+}
+
+.site-header .world-cup-year {
+    display: inline-flex;
+    align-items: center;
+    gap: 1px;
+}
+
+.site-header .world-cup-green {
+    color: #1b6852;
+}
+
+.site-header .world-cup-red {
+    color: #c3132d;
+}
+
+.site-header .world-cup-ball {
+    display: inline-grid;
+    place-items: center;
+    width: .86em;
+    height: .86em;
+    color: transparent;
+    line-height: 1;
+    -webkit-text-stroke: 0;
+    text-shadow: none;
+    transform-origin: center;
+    will-change: transform;
+    animation: worldCupBallSpin 5s linear infinite;
+    overflow: visible;
+}
+
+.site-header .world-cup-ball img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    transform-origin: center;
+    pointer-events: none;
+}
+
+.site-header .world-cup-trigger:hover .world-cup-ball,
+.site-header .world-cup-trigger:focus-visible .world-cup-ball {
+    animation-duration: .8s;
+}
+
+.site-header .world-cup-trigger:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--primary) 70%, white);
+    outline-offset: 4px;
+    border-radius: var(--radius-sm);
+}
+
+.world-cup-root {
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    z-index: 2000;
+    pointer-events: none;
+}
+
+.world-cup-root .world-cup-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgb(0, 0, 0);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .22s ease;
+}
+
+.world-cup-root.is-open .world-cup-backdrop {
+    opacity: 0.8;
+    pointer-events: auto;
+}
+
+.world-cup-root .world-cup-player {
+    position: absolute;
+    top: clamp(118px, 14vh, 150px);
+    left: 50%;
+    z-index: 2010;
+    width: 80vw;
+    max-width: 1080px;
+    padding: clamp(10px, 1.4vw, 16px);
+    border: 1px solid rgba(43, 27, 23, .14);
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--bg-soft) 94%, white);
+    box-shadow: 0 18px 42px rgba(43, 27, 23, .16);
+    opacity: 0;
+    overflow: visible;
+    pointer-events: none;
+    transform: translate(-50%, -8px);
+    transition: opacity .2s ease, transform .2s ease;
+}
+
+.world-cup-root.is-open .world-cup-player {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+}
+
+.world-cup-root .world-cup-slides {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    height: auto;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    background: #111;
+}
+
+.world-cup-root .world-cup-player[data-world-cup-layout="flyer"] {
+    max-width: 860px;
+}
+
+.world-cup-root .world-cup-player[data-world-cup-layout="flyer"] .world-cup-slides {
+    aspect-ratio: 1035 / 1600;
+}
+
+.world-cup-root .world-cup-slide {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    opacity: 0;
+    color: var(--muted);
+    font-weight: 900;
+    transition: opacity .35s ease;
+}
+
+.world-cup-root .world-cup-slide.is-active {
+    opacity: 1;
+}
+
+.world-cup-root .world-cup-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.world-cup-root .world-cup-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    display: block;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid rgba(43, 27, 23, .14);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .92);
+    color: var(--text);
+    box-shadow: 0 10px 24px rgba(43, 27, 23, .18);
+    cursor: pointer;
+    font-size: 0;
+    font-weight: 900;
+    line-height: 1;
+    transform: translateY(-50%);
+}
+
+.world-cup-root .world-cup-arrow::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 11px;
+    height: 11px;
+    border-top: 3px solid currentColor;
+    border-right: 3px solid currentColor;
+}
+
+.world-cup-root .world-cup-arrow--prev {
+    left: clamp(18px, 2vw, 28px);
+}
+
+.world-cup-root .world-cup-arrow--prev::before {
+    transform: translate(-42%, -50%) rotate(-135deg);
+}
+
+.world-cup-root .world-cup-arrow--next {
+    right: clamp(18px, 2vw, 28px);
+}
+
+.world-cup-root .world-cup-arrow--next::before {
+    transform: translate(-58%, -50%) rotate(45deg);
+}
+
+.world-cup-root .world-cup-arrow:hover,
+.world-cup-root .world-cup-arrow:focus-visible {
+    background: var(--primary);
+    color: #fff;
+}
+
+.world-cup-root .world-cup-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.world-cup-root .world-cup-dots span {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: rgba(49, 38, 23, .22);
+    cursor: pointer;
+}
+
+.world-cup-root .world-cup-dots span.is-active {
+    width: 18px;
+    background: var(--primary);
+}
+
+@keyframes worldCupBallSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 900px) {
+    .site-header .world-cup-widget {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin-left: auto;
+    }
+
+    .site-header .world-cup-trigger {
+        gap: 4px;
+        min-height: 38px;
+        padding: 4px 6px;
+    }
+
+    .site-header .world-cup-title,
+    .site-header .world-cup-year {
+        font-size: clamp(1.08rem, 5.2vw, 1.45rem);
+    }
+
+    .world-cup-root .world-cup-player {
+        top: 106px;
+        left: 50%;
+        right: auto;
+        width: 88vw;
+        max-width: 620px;
+    }
+
+    .world-cup-root .world-cup-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 1.7rem;
+    }
+}
+
 .site-header .nav-panel {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     gap: 18px;
     flex: 1;
+    min-width: 0;
     min-height: 82px;
 }
 
 .site-header .nav-links {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: clamp(14px, 1.55vw, 24px);
     color: var(--text);
     font-size: 1rem;
     font-weight: 700;
     line-height: 1.2;
+    min-width: 0;
 }
 
 .site-header .nav-links a:hover {
@@ -156,6 +454,7 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
+    flex-shrink: 0;
 }
 
 .site-header .nav-login,
@@ -198,25 +497,29 @@ body {
     display: none;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1199px) {
     .site-header {
         margin-bottom: 0;
     }
 
     .site-header .nav {
+        width: min(100% - 28px, 1280px);
         min-height: 64px;
+        padding-left: 0;
+        gap: clamp(8px, 2vw, 16px);
     }
 
     .site-header .brand {
         position: relative;
         top: auto;
         left: auto;
-        width: 96px;
-        height: 96px;
-        margin: 0 0 -16px 0;
-        padding: 11px;
+        flex: 0 0 auto;
+        width: clamp(82px, 10vw, 96px);
+        height: clamp(82px, 10vw, 96px);
+        margin: 0 0 -10px 0;
+        padding: clamp(9px, 1.4vw, 11px);
         border-radius: 6px;
-        transform: translateY(10px);
+        transform: translateY(6px);
     }
 
     .site-header .brand::before {
@@ -235,13 +538,36 @@ body {
         padding: 6px;
     }
 
+    .site-header .world-cup-widget {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin-left: clamp(8px, 2vw, 16px);
+        margin-right: auto;
+        min-width: 0;
+    }
+
+    .site-header .world-cup-trigger {
+        gap: 4px;
+        min-height: 38px;
+        padding: 4px 6px;
+    }
+
+    .site-header .world-cup-title,
+    .site-header .world-cup-year {
+        font-size: clamp(.9rem, 3vw, 1.35rem);
+        letter-spacing: 0;
+    }
+
     .site-header .nav-toggle-label {
         display: inline-flex;
+        flex: 0 0 auto;
         width: 42px;
         height: 42px;
         align-items: center;
         justify-content: center;
-        border-radius: var(--radius-sm);
+        border-radius: 6px;
         border: 1px solid var(--border);
         color: var(--text);
         cursor: pointer;
@@ -252,17 +578,22 @@ body {
     .site-header .nav-panel {
         position: absolute;
         top: calc(100% + 10px);
-        left: 16px;
-        right: 16px;
+        right: 0;
+        left: auto;
+        width: max-content;
+        min-width: 224px;
+        max-width: calc(100vw - 36px);
         display: none;
         flex-direction: column;
         align-items: stretch;
-        padding: 20px;
-        border-radius: var(--radius-lg);
+        padding: 14px;
+        border-radius: 8px;
         background: var(--card);
         border: 1px solid var(--border);
         box-shadow: var(--shadow);
         min-height: 0;
+        max-height: calc(100vh - 96px);
+        overflow: auto;
     }
 
     .site-header .nav-links,
@@ -272,10 +603,58 @@ body {
     }
 
     .site-header .nav-links {
-        gap: 14px;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .site-header .nav-links a,
+    .site-header .nav-login,
+    .site-header .nav-cta {
+        width: 100%;
+        text-align: center;
+    }
+
+    .site-header .nav-login,
+    .site-header .nav-cta {
+        min-height: 40px;
+        padding: 10px 16px;
+        border-radius: 7px;
     }
 
     .site-header #nav-toggle:checked ~ .nav-panel {
         display: flex;
+    }
+}
+
+@media (max-width: 374px) {
+    .site-header .nav {
+        width: min(100% - 20px, 1280px);
+        gap: 6px;
+    }
+
+    .site-header .brand {
+        width: 72px;
+        height: 72px;
+        padding: 8px;
+    }
+
+    .site-header .brand::before {
+        top: -22px;
+        left: 16px;
+        right: 16px;
+        height: 28px;
+        background:
+            repeating-linear-gradient(180deg, #4f4a43 0 5px, #b8afa2 5px 7px, #5d5750 7px 12px) left top / 6px 28px no-repeat,
+            repeating-linear-gradient(180deg, #4f4a43 0 5px, #b8afa2 5px 7px, #5d5750 7px 12px) right top / 6px 28px no-repeat;
+    }
+
+    .site-header .brand img {
+        max-width: 56px;
+        padding: 5px;
+    }
+
+    .site-header .world-cup-title,
+    .site-header .world-cup-year {
+        font-size: clamp(.78rem, 4.2vw, 1rem);
     }
 }

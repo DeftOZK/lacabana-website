@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú | La Cabaña</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="{% static 'css/menu.css' %}?v=extra-note-two-lines">
-    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=header-general">
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=footer-logo-jpg">
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=responsive-17">
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}?v=menu-photo-ratio">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=header-world-cup-flyer-layout">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=footer-gutter">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=responsive-23">
 
 </head>
 <body>
@@ -60,7 +60,7 @@
                     </div>
                 </div>
 
-                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                <div class="flip-card flip-card--photo" data-flip-card data-menu-product="pizza-mexicana" role="button" tabindex="0" aria-pressed="false">
                     <div class="flip-card-inner">
                         <div class="flip-card-face flip-card-front">
                             <div class="flip-card-photo">
@@ -93,7 +93,7 @@
                     </div>
                 </div>
 
-                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                <div class="flip-card flip-card--photo" data-flip-card data-menu-product="pizza-cabana" role="button" tabindex="0" aria-pressed="false">
                     <div class="flip-card-inner">
                         <div class="flip-card-face flip-card-front">
                             <div class="flip-card-photo">
@@ -150,6 +150,7 @@
                                     <li>Queso mozzarella</li>
                                     <li>Pi&ntilde;a</li>
                                     <li>Jam&oacute;n</li>
+                                    <li>Cherry</li>
                                 </ul>
                                 <p class="flip-card-back-note">Puedes pedir tu pizza<br>delgada o extra delgada</p>
                             </div>
@@ -511,6 +512,36 @@
                     <div class="flip-card-inner">
                         <div class="flip-card-face flip-card-front">
                             <div class="flip-card-photo">
+                                <img src="{% static 'img/productos/Pizzas/Piña.png' %}" alt="Pizza pi&ntilde;a habanero">
+                            </div>
+
+                            <div class="flip-card-info">
+                                <h3>Pizza Pi&ntilde;a Habanero</h3>
+                                <p class="flip-card-price">$155</p>
+                            </div>
+
+                        </div>
+
+                        <div class="flip-card-face flip-card-back">
+                            <div class="flip-card-back-content flip-card-back-content--ingredients">
+                                <h3>Pizza Pi&ntilde;a Habanero</h3>
+                                <ul class="flip-card-ingredients">
+                                    <li>Salsa de tomate habanero</li>
+                                    <li>Queso mozzarella</li>
+                                    <li>Tocino</li>
+                                    <li>Pi&ntilde;a</li>
+                                    <li>Cebolla</li>
+                                </ul>
+                                <p class="flip-card-back-note">Puedes pedir tu pizza<br>delgada o extra delgada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card flip-card--photo flip-card--compact" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <div class="flip-card-photo">
                                 <img src="{% static 'img/productos/Pizzas/Pan.png' %}" alt="Pan de queso">
                             </div>
 
@@ -544,7 +575,7 @@
 
                             <div class="flip-card-info">
                                 <h3>Panecillos Luciana</h3>
-                                <p class="flip-card-price">$115</p>
+                                <p class="flip-card-price">$50</p>
                             </div>
 
                         </div>
@@ -553,9 +584,10 @@
                             <div class="flip-card-back-content flip-card-back-content--ingredients">
                                 <h3>Panecillos Luciana</h3>
                                 <ul class="flip-card-ingredients">
-                                    <li>Salsa de tomate</li>
                                     <li>Queso mozzarella</li>
-                                    <li>Pepperoni</li>
+                                    <li>Mantequilla preparada</li>
+                                    <li>Queso parmesano</li>
+                                    <li>Acompa&ntilde;ados de salsa de tomate</li>
                                 </ul>
                             </div>
                         </div>
@@ -563,8 +595,7 @@
                 </div>
 
                 <article class="menu-extra-note menu-pizza-note" aria-label="Nota sobre extras">
-                    <p>Puedes pedir tu pizza con extra queso por tan solo $30, o algún ingrediente extra de tu agrado por solo $20</p>
-                    <span>Tambi&eacute;n aplica para pizzas o ensaladas</span>
+                    <p>Puedes pedir tu pizza con orilla de queso por tan solo $70, o algún ingrediente extra <br> de tu agrado por solo $30</p>
                 </article>
 
             </div>
@@ -574,7 +605,7 @@
             <h1 id="pasta-featured-title" class="menu-section-title">Pastas</h1>
 
             <div class="menu-flip-card-grid" aria-label="Pastas destacadas">
-                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                <div class="flip-card flip-card--photo" data-flip-card data-menu-product="espagueti-cabana" role="button" tabindex="0" aria-pressed="false">
                     <div class="flip-card-inner">
                         <div class="flip-card-face flip-card-front">
                             <div class="flip-card-photo">
@@ -740,7 +771,7 @@
                     </div>
                 </div>
 
-                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                <div class="flip-card flip-card--photo" data-flip-card data-menu-product="espagueti-valle" role="button" tabindex="0" aria-pressed="false">
                     <div class="flip-card-inner">
                         <div class="flip-card-face flip-card-front">
                             <div class="flip-card-photo">
@@ -808,7 +839,7 @@
             <h1 id="salad-featured-title" class="menu-section-title">Ensaladas</h1>
 
             <div class="menu-flip-card-grid" aria-label="Ensaladas destacadas">
-                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                <div class="flip-card flip-card--photo" data-flip-card data-menu-product="ensalada-cabana" role="button" tabindex="0" aria-pressed="false">
                     <div class="flip-card-inner">
                         <div class="flip-card-face flip-card-front">
                             <div class="flip-card-photo">
@@ -933,7 +964,7 @@
                     </div>
                 </div>
 
-                <div class="flip-card flip-card--photo" data-flip-card role="button" tabindex="0" aria-pressed="false">
+                <div class="flip-card flip-card--photo" data-flip-card data-menu-product="ensalada-bosque" role="button" tabindex="0" aria-pressed="false">
                     <div class="flip-card-inner">
                         <div class="flip-card-face flip-card-front">
                             <div class="flip-card-photo">
@@ -1287,6 +1318,6 @@
 
     </section>
     {% include 'partials/site_footer.html' %}
-    <script src="{% static 'js/menu.js' %}?v=flip-notice"></script>
+    <script src="{% static 'js/menu.js' %}?v=featured-target-outline"></script>
 </body>
 </html>

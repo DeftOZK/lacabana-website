@@ -94,3 +94,13 @@ python manage.py runserver 127.0.0.1:8000
 & "C:\Program Files (x86)\cloudflared\cloudflared.exe" tunnel --protocol http2 --url http://127.0.0.1:8000
 
 ```
+
+```
+git branch
+```
+
+```
+git status
+git add .
+```
+

@@ -5,6 +5,15 @@
             <img src="{% static 'img/logos/Logo.jpg' %}" alt="La Cabaña Pizzería">
         </a>
 
+        <div class="world-cup-widget" data-world-cup>
+            <button class="world-cup-trigger" type="button" aria-expanded="false" aria-controls="world-cup-player" data-world-cup-toggle data-world-cup-home-url="{% url 'home' %}">
+                <span class="world-cup-title">Mundial</span>
+                <span class="world-cup-year" aria-label="2026">
+                    <span class="world-cup-green">2</span><span class="world-cup-ball" aria-hidden="true"><img src="{% static 'img/contenido/Balon.png' %}" alt=""></span><span>2</span><span class="world-cup-red">6</span>
+                </span>
+            </button>
+        </div>
+
         <input type="checkbox" id="nav-toggle" class="nav-toggle">
         <label for="nav-toggle" class="nav-toggle-label">☰</label>
 
@@ -13,7 +22,7 @@
                 <a href="{% url 'home' %}">Inicio</a>
                 <a href="{% url 'menu:home' %}">Menú</a>
                 <a href="{% url 'puntos_home' %}">Puntos</a>
-                <a href="{% url 'feedback:home' %}">Comentarios y sugerencias</a>
+                <a href="{% url 'feedback:home' %}">Comentarios</a>
             </nav>
 
             <div class="nav-actions">
@@ -23,3 +32,4 @@
         </div>
     </div>
 </header>
+<script src="{% static 'js/header.js' %}?v=world-cup-flyer-layout" defer></script>
