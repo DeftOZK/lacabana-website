@@ -99,8 +99,17 @@ python manage.py runserver 127.0.0.1:8000
 git branch
 ```
 
+Rama Test
+
 ```
 git status
 git add .
+git commit -m ""
+git push -u origin feature/Test       
 ```
 
+Rama principal
+
+```
+git checkout main
+```
