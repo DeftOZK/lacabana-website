@@ -1,5 +1,6 @@
 :root {
     --footer: #18120c;
+    --page-gutter-total: clamp(40px, 10vw, 160px);
 }
 
 .site-footer,
@@ -15,7 +16,7 @@
 }
 
 .site-footer .container {
-    width: min(1480px, calc(100% - 80px));
+    width: min(1280px, calc(100% - var(--page-gutter-total)));
     max-width: none;
     margin: 0 auto;
 }

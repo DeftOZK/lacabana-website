@@ -3,10 +3,37 @@ const PHONE_SLIDE_ANIMATION_MS = 380;
 
 document.addEventListener('DOMContentLoaded', () => {
     initPromoCarousel();
+    initPromoInfoToggle();
     initPhoneCarousel();
     initMenuPdfViewer();
     initLocalImageCarousel();
+    initFeaturedMenuLinks();
 });
+
+function initFeaturedMenuLinks() {
+    const grid = document.querySelector('[data-featured-menu-url]');
+    if (!grid) return;
+
+    const menuUrl = grid.dataset.featuredMenuUrl || '/menu/';
+    const cards = Array.from(grid.querySelectorAll('[data-featured-target]'));
+
+    cards.forEach((card) => {
+        const goToProduct = () => {
+            const target = card.dataset.featuredTarget;
+            if (!target) return;
+
+            window.location.href = `${menuUrl}?producto=${encodeURIComponent(target)}`;
+        };
+
+        card.addEventListener('click', goToProduct);
+        card.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                goToProduct();
+            }
+        });
+    });
+}
 
 function initPromoCarousel() {
     const carousel = document.querySelector('[data-carousel]');
@@ -81,6 +108,29 @@ function initPromoCarousel() {
 
     render();
     schedule();
+}
+
+function initPromoInfoToggle() {
+    const carousel = document.querySelector('[data-carousel]');
+    const toggle = carousel?.querySelector('[data-promo-info-toggle]');
+    if (!carousel || !toggle) return;
+
+    function render() {
+        const isHidden = carousel.classList.contains('is-info-hidden');
+        toggle.setAttribute('aria-pressed', String(isHidden));
+        toggle.setAttribute(
+            'aria-label',
+            isHidden ? 'Mostrar informacion de promociones' : 'Ocultar informacion de promociones'
+        );
+        toggle.title = isHidden ? 'Mostrar informacion' : 'Ocultar informacion';
+    }
+
+    toggle.addEventListener('click', () => {
+        carousel.classList.toggle('is-info-hidden');
+        render();
+    });
+
+    render();
 }
 
 function initPhoneCarousel() {

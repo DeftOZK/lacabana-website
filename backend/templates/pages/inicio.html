@@ -5,15 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio | La Cabaña</title>
-    <link rel="stylesheet" href="{% static 'css/inicio.css' %}?v=craving-static">
-    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=header-general">
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=footer-logo-jpg">
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=responsive-17">
+    <link rel="stylesheet" href="{% static 'css/inicio.css' %}?v=home-type-sync">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=header-world-cup-flyer-layout">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=footer-gutter">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=responsive-25">
 </head>
 <body>
     {% include 'partials/site_header.html' %}
 
     <main>
+        <div class="world-cup-root" data-world-cup-root>
+            <div class="world-cup-backdrop" data-world-cup-close></div>
+            <div class="world-cup-player" id="world-cup-player" aria-hidden="true" data-world-cup-player>
+                <button class="world-cup-arrow world-cup-arrow--prev" type="button" aria-label="Imagen anterior" data-world-cup-prev>‹</button>
+                <div class="world-cup-slides">
+                    <div class="world-cup-slide is-active" data-world-cup-slide data-world-cup-layout="flyer">
+                        <img src="{% static 'img/contenido/Mundial1.jpeg' %}" alt="Promoción Mundial 2026">
+                    </div>
+                    <div class="world-cup-slide" data-world-cup-slide>
+                        <img src="{% static 'img/contenido/Mundial2.png' %}" alt="Promoción Mundial 2026">
+                    </div>
+                    <div class="world-cup-slide" data-world-cup-slide>
+                        <img src="{% static 'img/contenido/Mundial3.png' %}" alt="Promoción Mundial 2026">
+                    </div>
+                </div>
+                <button class="world-cup-arrow world-cup-arrow--next" type="button" aria-label="Imagen siguiente" data-world-cup-next>›</button>
+                <div class="world-cup-dots" aria-hidden="true">
+                    <span class="is-active" data-world-cup-dot></span>
+                    <span data-world-cup-dot></span>
+                    <span data-world-cup-dot></span>
+                </div>
+            </div>
+        </div>
+
         <section class="promo-hero">
             <div class="container">
                 <div class="promo-shell" data-carousel>
@@ -25,12 +49,17 @@
                         <span class="promo-counter" data-carousel-counter>01 / 05</span>
                     </div>
 
+                    <button class="promo-info-toggle" type="button" data-promo-info-toggle aria-pressed="false" aria-label="Ocultar informacion de promociones">
+                        <img class="promo-info-toggle__icon promo-info-toggle__icon--visible" src="{% static 'img/iconos/Ojo.png' %}" alt="">
+                        <img class="promo-info-toggle__icon promo-info-toggle__icon--hidden" src="{% static 'img/iconos/Ojo cerrado.png' %}" alt="">
+                    </button>
+
                     <div class="promo-stage promo-stage--wide">
                         <article class="promo-slide is-active" data-slide>
                             <div class="promo-banner promo-banner--image promo-banner--content-left">
-                                <div class="promo-banner-content">
+                                <div class="promo-banner-content promo-banner-content--panecillos">
                                     <span class="promo-chip">ESPECIAL DE LA CASA</span>
-                                    <h2>Panecillos Luciana</h2>
+                                    <h2>Panecillos<br>Luciana</h2>
                                     <p>Dorados por fuera, suave por dentro y recién horneados. Un pequeño gusto que vale la pena probar.</p>
                                 </div>
                             </div>
@@ -59,7 +88,7 @@
                         <article class="promo-slide" data-slide>
                             <div class="promo-banner promo-banner--image-four promo-banner--content-right">
                                 <div class="promo-banner-content">
-                                    <span class="promo-chip">SABORES DE LA CASA</span>
+                                    <span class="promo-chip">SABORES DE LA BAJA</span>
                                     <h2>Prueba algo diferente</h2>
                                     <p>Marina con camarón picosito y Vaquera con BBQ de la casa.</p>
                                 </div>
@@ -90,7 +119,7 @@
                 </aside>
 
                 <section class="menu-pdf-viewer" aria-labelledby="menu-pdf-title" data-menu-pdf
-                    data-page-1="{% static 'img/menu/menu-pagina-1.jpeg' %}"
+                    data-page-1="{% static 'img/menu/menu-pagina-1.jpg' %}"
                     data-page-2="{% static 'img/menu/menu-pagina-2.jpeg' %}">
                     <div class="menu-pdf-heading">
                         <div>
@@ -114,7 +143,7 @@
                     </div>
 
                     <div class="menu-pdf-frame">
-                        <img src="{% static 'img/menu/menu-pagina-1.png' %}" alt="Página 1 del menú de La Cabaña" data-menu-page-image>
+                        <img src="{% static 'img/menu/menu-pagina-1.jpg' %}" alt="Página 1 del menú de La Cabaña" data-menu-page-image>
                     </div>
                 </section>
 
@@ -128,8 +157,8 @@
                     <h2>Si no sabes que pedir, empieza aqu&iacute;.</h2>
                 </div>
 
-                <div class="featured-grid">
-                    <article class="featured-card">
+                <div class="featured-grid" data-featured-menu-url="{% url 'menu:home' %}">
+                    <article class="featured-card featured-card--pizza" data-featured-target="pizza-cabana" role="link" tabindex="0">
                         <img src="{% static 'img/productos/Pizzas/Cabaña.png' %}" alt="Pizza La Caba&ntilde;a">
                         <div>
                             <h3>Pizza La Caba&ntilde;a</h3>
@@ -137,7 +166,7 @@
                         </div>
                     </article>
 
-                    <article class="featured-card">
+                    <article class="featured-card featured-card--pizza" data-featured-target="pizza-mexicana" role="link" tabindex="0">
                         <img src="{% static 'img/productos/Pizzas/Mexicana.png' %}" alt="Pizza mexicana">
                         <div>
                             <h3>Pizza Mexicana</h3>
@@ -145,7 +174,7 @@
                         </div>
                     </article>
 
-                    <article class="featured-card">
+                    <article class="featured-card" data-featured-target="espagueti-cabana" role="link" tabindex="0">
                         <img src="{% static 'img/productos/Pastas/Cabaña.png' %}" alt="Espagueti La Caba&ntilde;a">
                         <div>
                             <h3>Espagueti La Caba&ntilde;a</h3>
@@ -153,7 +182,7 @@
                         </div>
                     </article>
 
-                    <article class="featured-card">
+                    <article class="featured-card" data-featured-target="espagueti-valle" role="link" tabindex="0">
                         <img src="{% static 'img/productos/Pastas/Valle.png' %}" alt="Espagueti del Valle">
                         <div>
                             <h3>Espagueti del Valle</h3>
@@ -161,7 +190,7 @@
                         </div>
                     </article>
 
-                    <article class="featured-card">
+                    <article class="featured-card" data-featured-target="ensalada-cabana" role="link" tabindex="0">
                         <img src="{% static 'img/productos/Ensaladas/Cabaña.png' %}" alt="Ensalada La Cabaña">
                         <div>
                             <h3>Ensalada La Caba&ntilde;a</h3>
@@ -169,7 +198,7 @@
                         </div>
                     </article>
 
-                    <article class="featured-card">
+                    <article class="featured-card" data-featured-target="ensalada-bosque" role="link" tabindex="0">
                         <img src="{% static 'img/productos/Ensaladas/Bosque.png' %}" alt="Ensalada del bosque">
                         <div>
                             <h3>Ensalada del bosque</h3>
@@ -195,11 +224,17 @@
                         temporal de 5 minutos para mostrarlo en el local.
                     </p>
                     <div class="points-actions">
-                        <a class="btn btn-primary" href="{% url 'cuenta_home' %}">Iniciar sesión</a>
+                        <button class="btn btn-primary" type="button">Iniciar sesi&oacute;n</button>
                     </div>
                 </div>
 
                 <div class="points-visual">
+                    <article class="points-mobile-step points-mobile-step--one">
+                        <span>1</span>
+                        <h3>Compra y recibe tu QR</h3>
+                        <p>Tu ticket tendr&aacute; un c&oacute;digo &uacute;nico para registrar tus puntos.</p>
+                    </article>
+
                     <div class="ticket-preview" aria-label="Ticket con QR para registrar puntos">
                         <div class="receipt">
                             <div class="receipt-header">
@@ -236,10 +271,6 @@
                             <div class="receipt-qr">
                                 <div class="qr-callout-target">
                                     <img class="qr-box" src="{% static 'img/puntos/Qr.png' %}" alt="QR para registrar puntos">
-                                    <span class="step-callout step-callout--ticket" aria-hidden="true">
-                                        <span class="step-callout-line"></span>
-                                        <span class="step-callout-badge">1</span>
-                                    </span>
                                 </div>
                                 <span>Escanea para registrar tus puntos</span>
                             </div>
@@ -249,6 +280,12 @@
                             </div>
                         </div>
                     </div>
+
+                    <article class="points-mobile-step points-mobile-step--two">
+                        <span>2</span>
+                        <h3>Escanea desde tu cuenta</h3>
+                        <p>Entra al apartado de puntos y escanea el QR antes de que expire.</p>
+                    </article>
 
                     <div class="phone-area" aria-label="Vista previa del sistema de puntos">
                         <div class="phone-mockup" data-phone-carousel>
@@ -270,14 +307,6 @@
                                     </div>
                                 </article>
                             </div>
-                            <span class="step-callout step-callout--phone" data-phone-step-callout aria-hidden="true">
-                                <span class="step-callout-line"></span>
-                                <span class="step-callout-badge">2</span>
-                            </span>
-                            <span class="step-callout step-callout--redeem is-hidden" data-redeem-step-callout aria-hidden="true">
-                                <span class="step-callout-line"></span>
-                                <span class="step-callout-badge">3</span>
-                            </span>
                             <div class="phone-controls" aria-label="Cambiar pantalla del teléfono">
                                 <button type="button" data-phone-prev aria-label="Pantalla anterior">❬</button>
                                 <div class="phone-dots" data-phone-dots></div>
@@ -285,6 +314,12 @@
                             </div>
                         </div>
                     </div>
+
+                    <article class="points-mobile-step points-mobile-step--three">
+                        <span>3</span>
+                        <h3>Canjea productos</h3>
+                        <p>Elige una recompensa disponible y muestra tu QR temporal en el local.</p>
+                    </article>
                 </div>
 
                 <div class="points-steps" id="registro-puntos">
@@ -385,6 +420,6 @@
         
     {% include 'partials/site_footer.html' %}
 
-    <script src="{% static 'js/inicio.js' %}?v=craving-static"></script>
+    <script src="{% static 'js/inicio.js' %}?v=promo-info-toggle"></script>
 </body>
 </html>

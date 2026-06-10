@@ -1,0 +1,241 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comentarios | La Caba&ntilde;a</title>
+    <link rel="stylesheet" href="{% static 'css/inicio.css' %}?v=comentarios-email-form">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=header-world-cup-flyer-layout">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=footer-gutter">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=responsive-25">
+</head>
+<body>
+    {% include 'partials/site_header.html' %}
+
+    <main>
+        <section class="feedback-hero">
+            <div class="container">
+                <p class="eyebrow">Atenci&oacute;n al cliente</p>
+                <h1>Preguntas frecuentes, comentarios y sugerencias</h1>
+                <p>
+                    Antes de enviar un comentario, revisa las dudas m&aacute;s comunes. Queremos que tus mensajes sean claros,
+                    &uacute;tiles y f&aacute;ciles de atender.
+                </p>
+            </div>
+        </section>
+
+        <section class="faq-section container">
+            <p class="eyebrow">Preguntas frecuentes</p>
+            <h2>Dudas comunes</h2>
+
+            <div class="faq-grid">
+                <details>
+                    <summary>&iquest;Cu&aacute;l es la pizza m&aacute;s pedida?</summary>
+                    <p>Las pizzas que m&aacute;s vendemos son la pizza La Caba&ntilde;a y la pizza mexicana.</p>
+                </details>
+
+                <details>
+                    <summary>&iquest;Tienen servicio a domicilio?</summary>
+                    <p>De momento no contamos con servicio a domicilio.</p>
+                </details>
+
+                <details>
+                    <summary>&iquest;Puedo personalizar mi pizza?</summary>
+                    <p>S&iacute;, puedes personalizar tu pizza agregando ingredientes extra por un costo adicional o pidi&eacute;ndola m&aacute;s delgada.</p>
+                </details>
+
+                <details>
+                    <summary>&iquest;Qu&eacute; formas de pago aceptan?</summary>
+                    <p>Aceptamos efectivo o tarjeta. Cualquier duda adicional puede consultarla en el mostrador.</p>
+                </details>
+
+                <details>
+                    <summary>&iquest;Puedo comer en el local?</summary>
+                    <p>S&iacute;, contamos con una barra y banquillos afuera del local para que pueda disfrutar su comida al aire libre.</p>
+                </details>
+
+                <details>
+                    <summary>&iquest;Tienen estacionamiento?</summary>
+                    <p>S&iacute;, contamos con estacionamiento temporal para clientes.</p>
+                </details>
+            </div>
+        </section>
+
+        <section class="feedback-form-section container">
+            <div class="feedback-grid">
+                <div class="login-card">
+                    <p class="eyebrow">Tu opini&oacute;n nos ayuda</p>
+                    <h2>Cu&eacute;ntanos c&oacute;mo podemos mejorar</h2>
+                    <p>
+                        Comparte un comentario, sugerencia, duda o felicitaci&oacute;n. Revisaremos tu mensaje con atenci&oacute;n para mejorar
+                        la experiencia en La Caba&ntilde;a.
+                    </p>
+                </div>
+
+                <form class="feedback-form" method="post" enctype="multipart/form-data" data-feedback-form novalidate>
+                    {% csrf_token %}
+
+                    {% if messages %}
+                        <div class="feedback-alerts" aria-live="polite">
+                            {% for message in messages %}
+                                <p class="feedback-alert feedback-alert--{{ message.tags }}">{{ message }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                    {% if form.non_field_errors %}
+                        <div class="feedback-alert feedback-alert--error">
+                            {% for error in form.non_field_errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                    <div class="form-row">
+                        <label>Nombre
+                            <input type="text" name="nombre" placeholder="Tu nombre" value="{{ form.nombre.value|default_if_none:'' }}" required>
+                            {% for error in form.nombre.errors %}<span class="feedback-field-error">{{ error }}</span>{% endfor %}
+                        </label>
+                        <label>Correo electr&oacute;nico
+                            <input type="email" name="correo" placeholder="correo@ejemplo.com" value="{{ form.correo.value|default_if_none:'' }}" required>
+                            {% for error in form.correo.errors %}<span class="feedback-field-error">{{ error }}</span>{% endfor %}
+                        </label>
+                    </div>
+
+                    <label>Tipo de comentario
+                        <select name="tipo" data-feedback-type required>
+                            <option value="comentario" {% if form.tipo.value == "comentario" or not form.tipo.value %}selected{% endif %}>Comentario</option>
+                            <option value="sugerencia" {% if form.tipo.value == "sugerencia" %}selected{% endif %}>Sugerencia</option>
+                            <option value="duda" {% if form.tipo.value == "duda" %}selected{% endif %}>Duda</option>
+                            <option value="felicitacion" {% if form.tipo.value == "felicitacion" %}selected{% endif %}>Felicitaci&oacute;n</option>
+                        </select>
+                        {% for error in form.tipo.errors %}<span class="feedback-field-error">{{ error }}</span>{% endfor %}
+                    </label>
+
+                    <label>Mensaje
+                        <textarea name="mensaje" rows="6" data-feedback-message placeholder="Cu&eacute;ntanos qu&eacute; ocurri&oacute; o qu&eacute; podemos mejorar." required>{{ form.mensaje.value|default_if_none:'' }}</textarea>
+                        {% for error in form.mensaje.errors %}<span class="feedback-field-error">{{ error }}</span>{% endfor %}
+                    </label>
+
+                    <div class="feedback-attachments" data-feedback-attachments>
+                        <div class="feedback-attachments-row">
+                            <div>
+                                <span>Adjuntar im&aacute;genes</span>
+                                <small data-feedback-images-status>M&aacute;ximo 5 im&aacute;genes, 5MB cada una</small>
+                            </div>
+                            <label class="feedback-attach-button" aria-label="Adjuntar im&aacute;genes">
+                                <span>+</span>
+                                <input type="file" name="imagenes" accept="image/*" multiple data-feedback-images>
+                            </label>
+                        </div>
+                        <div class="feedback-attachments-list" data-feedback-images-list aria-live="polite"></div>
+                    </div>
+
+                    <p class="form-note">Gracias por compartir tu experiencia. Tu comentario nos ayuda a mejorar el servicio.</p>
+                    <button class="btn btn-primary" type="submit" data-feedback-submit>Enviar comentario</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    {% include 'partials/site_footer.html' %}
+    <script>
+        (() => {
+            const typeSelect = document.querySelector("[data-feedback-type]");
+            const messageInput = document.querySelector("[data-feedback-message]");
+            const fileInput = document.querySelector("[data-feedback-images]");
+            const fileList = document.querySelector("[data-feedback-images-list]");
+            const fileStatus = document.querySelector("[data-feedback-images-status]");
+            const form = document.querySelector("[data-feedback-form]");
+            const submitButton = document.querySelector("[data-feedback-submit]");
+            const maxFiles = 5;
+            const maxFileSize = 5 * 1024 * 1024;
+            let selectedFiles = [];
+
+            if (!typeSelect || !messageInput) {
+                return;
+            }
+
+            const placeholders = {
+                comentario: "Cuentanos que ocurrio o que podemos mejorar.",
+                sugerencia: "Cuentanos tu sugerencia para mejorar la experiencia.",
+                duda: "Escribe tu duda y con gusto te orientamos.",
+                felicitacion: "Cuentanos que te gusto de tu visita."
+            };
+
+            const updatePlaceholder = () => {
+                messageInput.placeholder = placeholders[typeSelect.value] || placeholders.comentario;
+            };
+
+            typeSelect.addEventListener("change", updatePlaceholder);
+            updatePlaceholder();
+
+            if (!fileInput || !fileList || !fileStatus) {
+                return;
+            }
+
+            const updateFileInput = () => {
+                const transfer = new DataTransfer();
+                selectedFiles.forEach((file) => transfer.items.add(file));
+                fileInput.files = transfer.files;
+            };
+
+            const renderFiles = () => {
+                fileList.innerHTML = "";
+                fileStatus.textContent = selectedFiles.length
+                    ? `${selectedFiles.length} de ${maxFiles} imagenes`
+                    : `Maximo ${maxFiles} imagenes, 5MB cada una`;
+
+                selectedFiles.forEach((file, index) => {
+                    const item = document.createElement("span");
+                    item.className = "feedback-attachment-chip";
+
+                    const name = document.createElement("span");
+                    name.textContent = file.name;
+
+                    const removeButton = document.createElement("button");
+                    removeButton.type = "button";
+                    removeButton.textContent = "x";
+                    removeButton.setAttribute("aria-label", `Quitar ${file.name}`);
+                    removeButton.addEventListener("click", () => {
+                        selectedFiles.splice(index, 1);
+                        updateFileInput();
+                        renderFiles();
+                    });
+
+                    item.append(name, removeButton);
+                    fileList.appendChild(item);
+                });
+            };
+
+            fileInput.addEventListener("change", () => {
+                const incomingFiles = Array.from(fileInput.files || []).filter((file) => {
+                    if (!file.type.startsWith("image/")) return false;
+                    if (file.size > maxFileSize) {
+                        fileStatus.textContent = `${file.name} supera el limite de 5MB.`;
+                        return false;
+                    }
+                    return true;
+                });
+                const remainingSlots = maxFiles - selectedFiles.length;
+
+                if (remainingSlots <= 0) {
+                    updateFileInput();
+                    return;
+                }
+
+                selectedFiles = selectedFiles.concat(incomingFiles.slice(0, remainingSlots));
+                updateFileInput();
+                renderFiles();
+            });
+
+            form?.addEventListener("submit", () => {
+                if (!submitButton) return;
+                submitButton.disabled = true;
+                submitButton.textContent = "Enviando...";
+            });
+        })();
+    </script>
+</body>
+</html>
