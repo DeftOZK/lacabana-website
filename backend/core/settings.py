@@ -98,3 +98,7 @@ EMAIL_USE_SSL = config('EMAIL_USE_SSL', default=False, cast=bool)
 EMAIL_TIMEOUT = config('EMAIL_TIMEOUT', default=10, cast=int)
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default=EMAIL_HOST_USER or 'no-reply@lacabana.com')
 FEEDBACK_RECIPIENT_EMAIL = config('FEEDBACK_RECIPIENT_EMAIL', default='soporte@lacabana.com')
+
+BREVO_API_KEY = config('BREVO_API_KEY', default='')
+BREVO_SENDER_EMAIL = config('BREVO_SENDER_EMAIL', default=DEFAULT_FROM_EMAIL)
+BREVO_SENDER_NAME = config('BREVO_SENDER_NAME', default='La Cabana')
