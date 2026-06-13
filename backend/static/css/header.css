@@ -34,6 +34,7 @@ body {
 }
 
 .site-header {
+    --header-inline-gutter: clamp(80px, 6.8vw, 116px);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -59,7 +60,7 @@ body {
 }
 
 .site-header .nav {
-    width: min(1280px, calc(100% - 32px));
+    width: calc(100% - var(--header-inline-gutter) - var(--header-inline-gutter));
     max-width: none;
     min-height: 82px;
     margin: 0 auto;
@@ -68,7 +69,7 @@ body {
     justify-content: space-between;
     gap: clamp(14px, 1.6vw, 24px);
     /* Desktop reserves room for the hanging sign and Mundial trigger without pushing either outside the viewport. */
-    padding: 0 0 0 clamp(312px, 26vw, 382px);
+    padding: 0 0 0 clamp(258px, 22vw, 312px);
     position: relative;
 }
 
@@ -79,10 +80,10 @@ body {
     z-index: 2;
     display: grid;
     place-items: center;
-    width: clamp(132px, 10.6vw, 158px);
-    height: clamp(132px, 10.6vw, 158px);
+    width: clamp(122px, 9.8vw, 146px);
+    height: clamp(122px, 9.8vw, 146px);
     margin: 0;
-    padding: clamp(15px, 1.2vw, 18px);
+    padding: clamp(13px, 1.05vw, 16px);
     overflow: visible;
     isolation: isolate;
     background:
@@ -95,20 +96,20 @@ body {
         0 12px 24px rgba(43, 27, 23, .15),
         inset 0 1px 0 rgba(255, 255, 255, .20),
         inset 0 -3px 0 rgba(50, 24, 10, .08);
-    transform: translateY(12px);
+    transform: translateY(10px);
 }
 
 .site-header .brand::before {
     content: "";
     position: absolute;
-    top: -42px;
-    left: 28px;
-    right: 28px;
-    height: 54px;
+    top: -38px;
+    left: 25px;
+    right: 25px;
+    height: 49px;
     z-index: -1;
     background:
-        repeating-linear-gradient(180deg, #4f4a43 0 5px, #b8afa2 5px 7px, #5d5750 7px 12px) left top / 8px 54px no-repeat,
-        repeating-linear-gradient(180deg, #4f4a43 0 5px, #b8afa2 5px 7px, #5d5750 7px 12px) right top / 8px 54px no-repeat;
+        repeating-linear-gradient(180deg, #4f4a43 0 5px, #b8afa2 5px 7px, #5d5750 7px 12px) left top / 8px 49px no-repeat,
+        repeating-linear-gradient(180deg, #4f4a43 0 5px, #b8afa2 5px 7px, #5d5750 7px 12px) right top / 8px 49px no-repeat;
     filter: drop-shadow(0 4px 5px rgba(43, 27, 23, .16));
 }
 
@@ -127,11 +128,11 @@ body {
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 124px;
+    max-width: 114px;
     height: auto;
     display: block;
     object-fit: contain;
-    padding: 7px;
+    padding: 6px;
     border-radius: 5px;
     background: color-mix(in srgb, var(--bg-soft) 92%, #ffffff);
     border: 1px solid rgba(65, 38, 20, .14);
@@ -141,23 +142,49 @@ body {
 .site-header .world-cup-widget {
     position: absolute;
     top: 50%;
-    left: clamp(148px, 12.4vw, 190px);
+    left: clamp(154px, 12.6vw, 188px);
     z-index: 30;
     transform: translateY(-50%);
     font-family: var(--font-main);
 }
 
 .site-header .world-cup-trigger {
+    position: relative;
     display: inline-flex;
     align-items: center;
     gap: 9px;
     min-height: 44px;
-    padding: 6px 8px;
+    padding: 6px 20px;
     border: 0;
     background: transparent;
     color: var(--text);
     cursor: pointer;
     line-height: 1;
+}
+
+.site-header .world-cup-trigger::before,
+.site-header .world-cup-trigger::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: .48em;
+    height: 1.72em;
+    border-top: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.site-header .world-cup-trigger::before {
+    left: 0;
+    border-left: 2px solid currentColor;
+    color: #1b6852;
+}
+
+.site-header .world-cup-trigger::after {
+    right: 0;
+    border-right: 2px solid currentColor;
+    color: #c3132d;
 }
 
 .site-header .world-cup-title,
@@ -402,7 +429,7 @@ body {
     .site-header .world-cup-trigger {
         gap: 4px;
         min-height: 38px;
-        padding: 4px 6px;
+        padding: 4px 16px;
     }
 
     .site-header .world-cup-title,
@@ -421,7 +448,7 @@ body {
     .world-cup-root .world-cup-arrow {
         width: 38px;
         height: 38px;
-        font-size: 1.7rem;
+        font-size: 0;
     }
 }
 

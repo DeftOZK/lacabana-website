@@ -1640,6 +1640,12 @@ select {
 }
 
 /* Feedback page */
+.feedback-hero,
+.faq-section,
+.feedback-form-section {
+    --feedback-radius: 6px;
+}
+
 .feedback-hero {
     padding: 84px 0 54px;
     background: var(--bg);
@@ -1665,7 +1671,7 @@ select {
 details {
     padding: 0;
     overflow: hidden;
-    border-radius: var(--radius-md);
+    border-radius: var(--feedback-radius);
     background: var(--card);
     border: 1px solid var(--border);
     box-shadow: 0 12px 28px rgba(46, 27, 21, .06);
@@ -1725,7 +1731,7 @@ details:not([open]) p {
 .feedback-form {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
+    border-radius: var(--feedback-radius);
     padding: clamp(24px, 3vw, 36px);
     box-shadow: var(--shadow);
 }
@@ -1754,6 +1760,10 @@ details:not([open]) p {
     gap: 20px;
 }
 
+.feedback-form .btn {
+    border-radius: var(--feedback-radius);
+}
+
 .feedback-alerts {
     display: grid;
     gap: 10px;
@@ -1762,12 +1772,25 @@ details:not([open]) p {
 .feedback-alert {
     margin: 0;
     padding: 12px 14px;
-    border-radius: var(--radius-sm);
+    border-radius: var(--feedback-radius);
     border: 1px solid var(--border);
     background: var(--bg-soft);
     color: var(--text);
     font-weight: 800;
     line-height: 1.45;
+    max-height: 160px;
+    overflow: hidden;
+    transition: opacity .28s ease, transform .28s ease, max-height .28s ease, margin .28s ease, padding .28s ease;
+}
+
+.feedback-alert.is-dismissing {
+    max-height: 0;
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(-6px);
 }
 
 .feedback-alert p {
@@ -1806,7 +1829,7 @@ details:not([open]) p {
     width: 100%;
     padding: 14px 16px;
     border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
+    border-radius: var(--feedback-radius);
     background: #fff;
     color: var(--text);
 }
@@ -1845,7 +1868,7 @@ details:not([open]) p {
     min-height: 62px;
     padding: 12px 14px;
     border: 1px dashed var(--border);
-    border-radius: var(--radius-sm);
+    border-radius: var(--feedback-radius);
     background: var(--bg-soft);
 }
 
@@ -1873,7 +1896,7 @@ details:not([open]) p {
     padding: 0;
     flex: 0 0 auto;
     border: 0;
-    border-radius: var(--radius-sm);
+    border-radius: var(--feedback-radius);
     background: var(--primary);
     color: #fff;
     box-shadow: 0 10px 22px rgba(224, 128, 71, .24);
@@ -1937,7 +1960,7 @@ details:not([open]) p {
     max-width: 100%;
     padding: 7px 8px 7px 10px;
     border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
+    border-radius: var(--feedback-radius);
     background: #fff;
     color: var(--text);
     font-size: .86rem;

@@ -26,7 +26,7 @@ class FeedbackFormTests(TestCase):
             data={**self.valid_data(), "imagenes": [self.image()]},
         )
 
-        self.assertEqual(response.status_code, 200)
+        self.assertRedirects(response, "/comentarios/")
         self.assertEqual(len(mail.outbox), 1)
         self.assertEqual(mail.outbox[0].to, ["soporte@lacabana.test"])
         self.assertEqual(mail.outbox[0].reply_to, ["ana@example.com"])

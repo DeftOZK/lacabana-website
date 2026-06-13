@@ -1,3 +1,7 @@
+const WORLD_CUP_SWIPE_MIN_DISTANCE_PX = 48;
+const WORLD_CUP_SWIPE_AXIS_LOCK_PX = 12;
+const WORLD_CUP_SWIPE_AXIS_RATIO = 1.25;
+
 document.addEventListener("DOMContentLoaded", () => {
     const toggle = document.querySelector("[data-world-cup-toggle]");
     const root = document.querySelector("[data-world-cup-root]");
@@ -85,6 +89,11 @@ document.addEventListener("DOMContentLoaded", () => {
         setActiveSlide(activeIndex + 1);
     });
 
+    attachWorldCupSwipe(player, {
+        onSwipeLeft: () => setActiveSlide(activeIndex + 1),
+        onSwipeRight: () => setActiveSlide(activeIndex - 1),
+    });
+
     closeTargets.forEach((target) => {
         target.addEventListener("click", closePlayer);
     });
@@ -109,3 +118,70 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+function attachWorldCupSwipe(element, { onSwipeLeft, onSwipeRight }) {
+    let startX = 0;
+    let startY = 0;
+    let isTracking = false;
+    let isHorizontalSwipe = false;
+
+    const isInteractiveTarget = (target) => target.closest("button, a, input, textarea, select, label");
+
+    element.addEventListener("touchstart", (event) => {
+        if (event.touches.length !== 1 || isInteractiveTarget(event.target)) return;
+
+        const touch = event.touches[0];
+        startX = touch.clientX;
+        startY = touch.clientY;
+        isTracking = true;
+        isHorizontalSwipe = false;
+    }, { passive: true });
+
+    element.addEventListener("touchmove", (event) => {
+        if (!isTracking || event.touches.length !== 1) return;
+
+        const touch = event.touches[0];
+        const deltaX = touch.clientX - startX;
+        const deltaY = touch.clientY - startY;
+        const absX = Math.abs(deltaX);
+        const absY = Math.abs(deltaY);
+
+        if (
+            !isHorizontalSwipe &&
+            absX > WORLD_CUP_SWIPE_AXIS_LOCK_PX &&
+            absX > absY * WORLD_CUP_SWIPE_AXIS_RATIO
+        ) {
+            isHorizontalSwipe = true;
+        }
+
+        if (isHorizontalSwipe) {
+            event.preventDefault();
+        }
+    }, { passive: false });
+
+    element.addEventListener("touchend", (event) => {
+        if (!isTracking) return;
+
+        const touch = event.changedTouches[0];
+        const deltaX = touch.clientX - startX;
+        const deltaY = touch.clientY - startY;
+        const absX = Math.abs(deltaX);
+        const absY = Math.abs(deltaY);
+
+        if (absX >= WORLD_CUP_SWIPE_MIN_DISTANCE_PX && absX > absY * WORLD_CUP_SWIPE_AXIS_RATIO) {
+            if (deltaX < 0) {
+                onSwipeLeft?.();
+            } else {
+                onSwipeRight?.();
+            }
+        }
+
+        isTracking = false;
+        isHorizontalSwipe = false;
+    }, { passive: true });
+
+    element.addEventListener("touchcancel", () => {
+        isTracking = false;
+        isHorizontalSwipe = false;
+    }, { passive: true });
+}

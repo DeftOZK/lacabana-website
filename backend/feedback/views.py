@@ -1,7 +1,7 @@
 import logging
 
 from django.contrib import messages
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from .emailing import send_feedback_email
 from .forms import FeedbackForm
@@ -23,7 +23,7 @@ def feedback_home(request):
                 )
             else:
                 messages.success(request, "Gracias. Tu comentario fue enviado correctamente.")
-                form = FeedbackForm(initial={"tipo": FeedbackForm.COMMENT})
+            return redirect("feedback:home")
         else:
             messages.error(request, "Revisa los campos marcados antes de enviar tu comentario.")
     else:

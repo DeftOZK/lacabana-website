@@ -1,5 +1,8 @@
 ﻿const CAROUSEL_COOLDOWN_MS = 10000;
 const PHONE_SLIDE_ANIMATION_MS = 380;
+const SWIPE_MIN_DISTANCE_PX = 48;
+const SWIPE_AXIS_LOCK_PX = 12;
+const SWIPE_AXIS_RATIO = 1.25;
 
 document.addEventListener('DOMContentLoaded', () => {
     initPromoCarousel();
@@ -105,9 +108,84 @@ function initPromoCarousel() {
 
     carousel.addEventListener('mouseenter', stop);
     carousel.addEventListener('mouseleave', schedule);
+    attachSwipeGesture(carousel, {
+        onStart: stop,
+        onSwipeLeft: () => {
+            next();
+            schedule();
+        },
+        onSwipeRight: () => {
+            prev();
+            schedule();
+        },
+    });
 
     render();
     schedule();
+}
+
+function attachSwipeGesture(element, { onStart, onSwipeLeft, onSwipeRight }) {
+    let startX = 0;
+    let startY = 0;
+    let isTracking = false;
+    let isHorizontalSwipe = false;
+
+    const isInteractiveTarget = (target) => target.closest('button, a, input, textarea, select, label');
+
+    element.addEventListener('touchstart', (event) => {
+        if (event.touches.length !== 1 || isInteractiveTarget(event.target)) return;
+
+        const touch = event.touches[0];
+        startX = touch.clientX;
+        startY = touch.clientY;
+        isTracking = true;
+        isHorizontalSwipe = false;
+    }, { passive: true });
+
+    element.addEventListener('touchmove', (event) => {
+        if (!isTracking || event.touches.length !== 1) return;
+
+        const touch = event.touches[0];
+        const deltaX = touch.clientX - startX;
+        const deltaY = touch.clientY - startY;
+        const absX = Math.abs(deltaX);
+        const absY = Math.abs(deltaY);
+
+        if (!isHorizontalSwipe && absX > SWIPE_AXIS_LOCK_PX && absX > absY * SWIPE_AXIS_RATIO) {
+            isHorizontalSwipe = true;
+            onStart?.();
+        }
+
+        if (isHorizontalSwipe) {
+            event.preventDefault();
+        }
+    }, { passive: false });
+
+    element.addEventListener('touchend', (event) => {
+        if (!isTracking) return;
+
+        const touch = event.changedTouches[0];
+        const deltaX = touch.clientX - startX;
+        const deltaY = touch.clientY - startY;
+        const absX = Math.abs(deltaX);
+        const absY = Math.abs(deltaY);
+
+        if (absX >= SWIPE_MIN_DISTANCE_PX && absX > absY * SWIPE_AXIS_RATIO) {
+            if (deltaX < 0) {
+                onSwipeLeft?.();
+            } else {
+                onSwipeRight?.();
+            }
+        }
+
+        isTracking = false;
+        isHorizontalSwipe = false;
+    }, { passive: true });
+
+    element.addEventListener('touchcancel', () => {
+        isTracking = false;
+        isHorizontalSwipe = false;
+    }, { passive: true });
 }
 
 function initPromoInfoToggle() {
@@ -333,6 +411,12 @@ function initLocalImageCarousel() {
 
     prevBtn.addEventListener('click', () => goToSlide(activeIndex - 1));
     nextBtn.addEventListener('click', () => goToSlide(activeIndex + 1));
+    attachSwipeGesture(carousel, {
+        onStart: () => window.clearInterval(autoplayTimer),
+        onSwipeLeft: () => goToSlide(activeIndex + 1),
+        onSwipeRight: () => goToSlide(activeIndex - 1),
+    });
+
     showSlide(activeIndex);
     startAutoplay();
 }

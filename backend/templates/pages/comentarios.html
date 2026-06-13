@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comentarios | La Caba&ntilde;a</title>
-    <link rel="stylesheet" href="{% static 'css/inicio.css' %}?v=comentarios-email-form">
+    <link rel="stylesheet" href="{% static 'css/inicio.css' %}?v=comentarios-alert-timeout">
     <link rel="stylesheet" href="{% static 'css/header.css' %}?v=header-world-cup-flyer-layout">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=footer-gutter">
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=responsive-25">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=responsive-26">
 </head>
 <body>
     {% include 'partials/site_header.html' %}
@@ -149,9 +149,19 @@
             const fileStatus = document.querySelector("[data-feedback-images-status]");
             const form = document.querySelector("[data-feedback-form]");
             const submitButton = document.querySelector("[data-feedback-submit]");
+            const alerts = Array.from(document.querySelectorAll(".feedback-alert"));
             const maxFiles = 5;
             const maxFileSize = 5 * 1024 * 1024;
             let selectedFiles = [];
+
+            alerts.forEach((alert) => {
+                window.setTimeout(() => {
+                    alert.classList.add("is-dismissing");
+                    window.setTimeout(() => {
+                        alert.remove();
+                    }, 320);
+                }, 10000);
+            });
 
             if (!typeSelect || !messageInput) {
                 return;
