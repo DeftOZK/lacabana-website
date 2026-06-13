@@ -8,6 +8,7 @@ from menu import views as menu_views
 
 urlpatterns = [
     path("", menu_views.home, name="home"),
+    path("favicon.ico", RedirectView.as_view(url="/static/img/logos/favicon.ico", permanent=True)),
     path("admin/", admin.site.urls),
     path("menu/", include("menu.urls")),
     path("cuenta/", menu_views.account, name="cuenta_home"),
