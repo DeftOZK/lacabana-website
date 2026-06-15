@@ -6,10 +6,7 @@ def home(request):
 
 
 def menu_home(request):
-    try:
-        return render(request, "pages/menu.html")
-    except UnicodeDecodeError:
-        return render(request, "pages/menu_respaldo.html")
+    return render(request, "pages/menu.html")
 
 
 def products(request):
