@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | La Caba&ntilde;a</title>
+    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=header-world-cup-flyer-layout">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=footer-gutter">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=responsive-26">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/logos/favicon.ico' %}">
+    <style>
+        body {
+            margin: 0;
+            background: #fffaf1;
+            color: #22140d;
+            font-family: Arial, sans-serif;
+        }
+        .menu-fallback {
+            width: min(1120px, calc(100% - 32px));
+            margin: 48px auto;
+        }
+        .menu-fallback__hero {
+            background: #ffffff;
+            border: 1px solid rgba(80, 45, 25, 0.16);
+            border-radius: 28px;
+            padding: clamp(28px, 5vw, 56px);
+            box-shadow: 0 18px 45px rgba(52, 24, 8, 0.08);
+        }
+        .menu-fallback__label {
+            color: #9b3f1a;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin: 0 0 12px;
+        }
+        .menu-fallback h1 {
+            font-size: clamp(2.4rem, 6vw, 5rem);
+            line-height: 0.95;
+            margin: 0 0 18px;
+        }
+        .menu-fallback p {
+            max-width: 720px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #5c4638;
+        }
+        .menu-fallback__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 28px;
+        }
+        .menu-fallback__card {
+            background: #fff7e8;
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(80, 45, 25, 0.12);
+        }
+        .menu-fallback__card h2 {
+            margin: 0 0 10px;
+            font-size: 1.25rem;
+        }
+        .menu-fallback__card ul {
+            margin: 0;
+            padding-left: 18px;
+            color: #5c4638;
+            line-height: 1.7;
+        }
+        .menu-fallback__image {
+            width: 100%;
+            margin-top: 28px;
+            border-radius: 24px;
+            border: 1px solid rgba(80, 45, 25, 0.16);
+            box-shadow: 0 14px 30px rgba(52, 24, 8, 0.08);
+        }
+    </style>
+</head>
+<body>
+    {% include 'partials/site_header.html' %}
+
+    <main class="menu-fallback">
+        <section class="menu-fallback__hero">
+            <p class="menu-fallback__label">Menu digital</p>
+            <h1>Menu de La Caba&ntilde;a</h1>
+            <p>
+                Explora nuestras pizzas, pastas, ensaladas, cafe, sodas artesanales y frappes. Estamos actualizando esta seccion para que cargue correctamente en todos los navegadores.
+            </p>
+
+            <div class="menu-fallback__grid">
+                <article class="menu-fallback__card">
+                    <h2>Pizzas</h2>
+                    <ul>
+                        <li>Pepperoni</li>
+                        <li>Mexicana</li>
+                        <li>La Caba&ntilde;a</li>
+                        <li>Especialidades</li>
+                    </ul>
+                </article>
+                <article class="menu-fallback__card">
+                    <h2>Pastas y ensaladas</h2>
+                    <ul>
+                        <li>Espagueti</li>
+                        <li>Lasa&ntilde;a</li>
+                        <li>Ensalada La Caba&ntilde;a</li>
+                        <li>Ensalada del bosque</li>
+                    </ul>
+                </article>
+                <article class="menu-fallback__card">
+                    <h2>Bebidas</h2>
+                    <ul>
+                        <li>Cafe</li>
+                        <li>Soda artesanal</li>
+                        <li>Frappes</li>
+                        <li>Sabores de temporada</li>
+                    </ul>
+                </article>
+            </div>
+
+            <img class="menu-fallback__image" src="{% static 'img/menu/menu-pagina-1.jpg' %}" alt="Menu de La Caba&ntilde;a">
+        </section>
+    </main>
+
+    {% include 'partials/site_footer.html' %}
+</body>
+</html>
