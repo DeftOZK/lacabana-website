@@ -77,6 +77,12 @@
                 <form class="feedback-form" method="post" enctype="multipart/form-data" data-feedback-form novalidate>
                     {% csrf_token %}
 
+                    <div style="position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden; opacity:0;" aria-hidden="true">
+                        <label>Website
+                            <input type="text" name="website" tabindex="-1" autocomplete="off">
+                        </label>
+                    </div>
+
                     {% if messages %}
                         <div class="feedback-alerts" aria-live="polite">
                             {% for message in messages %}
