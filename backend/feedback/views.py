@@ -11,6 +11,11 @@ logger = logging.getLogger(__name__)
 
 def feedback_home(request):
     if request.method == "POST":
+        if request.POST.get("website"):
+            logger.warning("Feedback honeypot triggered")
+            messages.success(request, "Gracias. Tu comentario fue enviado correctamente.")
+            return redirect("feedback:home")
+
         form = FeedbackForm(request.POST, attachments=request.FILES.getlist("imagenes"))
         if form.is_valid():
             try:
