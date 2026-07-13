@@ -27,7 +27,7 @@ SPAM_TERMS = (
 def is_spam_feedback(cleaned_data):
     text = " ".join(
         str(cleaned_data.get(field, ""))
-        for field in ("nombre", "correo", "tipo", "mensaje")
+        for field in ("nombre", "tipo", "mensaje")
     ).lower()
 
     if URL_PATTERN.search(text):
