@@ -1615,7 +1615,9 @@ select {
 .footer-brand img {
     width: 130px;
     margin: 0 0 16px;
-    filter: brightness(0) invert(1);
+    filter: none !important;
+    mix-blend-mode: normal !important;
+    opacity: 1 !important;
 }
 
 .footer-brand p {
