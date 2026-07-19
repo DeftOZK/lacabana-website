@@ -1,22 +1,18 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="es-MX">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="{% static 'css/servicio.css' %}">
-    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=header-world-cup-flyer-layout">
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=footer-gutter">
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=responsive-26">
+{% block title %}
+Menu
+{% endblock %}
 
-</head>
-<body>
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+<link rel="stylesheet" href="{% static 'css/servicio.css' %}">
+<link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=responsive-26">
+{% endblock %}
+
+{% block content %}{% endblock %}
+
+{% block extra_js %}
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
-{% include 'partials/site_header.html' %}
-    {% include 'partials/site_footer.html' %}
-</body>
-</html>
+{% endblock %}

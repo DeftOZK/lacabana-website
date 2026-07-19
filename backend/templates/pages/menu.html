@@ -1,21 +1,30 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="es-MX">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú | La Cabaña</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="{% static 'css/menu.css' %}?v=menu-photo-ratio">
-    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=header-world-cup-flyer-layout">
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=footer-gutter">
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=responsive-26">
 
-</head>
-<body>
+{% block title %}
+Menú | La Cabaña
+{% endblock %}
+
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+<link rel="stylesheet" href="{% static 'css/menu.css' %}?v=menu-photo-ratio">
+<link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=responsive-26">
+
+{% endblock %}
+
+
+{% block extra_js %}
+
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script src="{% static 'js/menu.js' %}?v=featured-target-outline"></script>
 
-{% include 'partials/site_header.html' %}
+{% endblock %}
+
+
+{% block content %}
+
     <aside class="menu-flip-notice" data-menu-flip-notice role="status" aria-live="polite">
         <div class="menu-flip-notice__icon" aria-hidden="true">
             <svg class="menu-flip-notice__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -1317,7 +1326,4 @@
         </section>
 
     </section>
-    {% include 'partials/site_footer.html' %}
-    <script src="{% static 'js/menu.js' %}?v=featured-target-outline"></script>
-</body>
-</html>
+{% endblock %}

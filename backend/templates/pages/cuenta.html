@@ -1,19 +1,17 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="es-MX">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuenta | La Cabaña</title>
-    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=header-world-cup-flyer-layout">
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=footer-gutter">
-    <link rel="stylesheet" href="{% static 'css/cuenta.css' %}?v=account-tabs">
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=responsive-26">
-</head>
-<body>
-    {% include 'partials/site_header.html' %}
 
-    <main class="account-page">
+{% block title %}
+Cuenta | La Cabaña
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/cuenta.css' %}?v=account-tabs">
+<link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=responsive-26">
+{% endblock %}
+
+{% block content %}
+<main class="account-page">
         <section class="account-shell">
             <div class="account-card" data-account-tabs>
                 <div class="account-tabs" role="tablist" aria-label="Acceso a cuenta">
@@ -92,7 +90,8 @@
         </section>
     </main>
 
-    {% include 'partials/site_footer.html' %}
-    <script src="{% static 'js/cuenta.js' %}?v=account-tabs"></script>
-</body>
-</html>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/cuenta.js' %}?v=account-tabs"></script>
+{% endblock %}

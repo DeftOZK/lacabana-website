@@ -1,44 +1,18 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="es-MX">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio | La Cabaña</title>
-    <link rel="stylesheet" href="{% static 'css/inicio.css' %}?v=home-type-sync">
-    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=header-world-cup-flyer-layout">
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=footer-gutter">
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=responsive-26">
-    <link rel="icon" type="image/x-icon" href="{% static 'img/logos/favicon.ico' %}">
-</head>
-<body>
-    {% include 'partials/site_header.html' %}
+
+{% block title %}
+Inicio | La Cabaña
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/inicio.css' %}?v=home-type-sync">
+<link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=responsive-26">
+{% endblock %}
+
+{% block content %}
 
     <main>
-        <div class="world-cup-root" data-world-cup-root>
-            <div class="world-cup-backdrop" data-world-cup-close></div>
-            <div class="world-cup-player" id="world-cup-player" aria-hidden="true" data-world-cup-player>
-                <button class="world-cup-arrow world-cup-arrow--prev" type="button" aria-label="Imagen anterior" data-world-cup-prev>‹</button>
-                <div class="world-cup-slides">
-                    <div class="world-cup-slide is-active" data-world-cup-slide data-world-cup-layout="flyer">
-                        <img src="{% static 'img/contenido/Mundial1.jpeg' %}" alt="Promoción Mundial 2026">
-                    </div>
-                    <div class="world-cup-slide" data-world-cup-slide>
-                        <img src="{% static 'img/contenido/Mundial2.png' %}" alt="Promoción Mundial 2026">
-                    </div>
-                    <div class="world-cup-slide" data-world-cup-slide>
-                        <img src="{% static 'img/contenido/Mundial3.png' %}" alt="Promoción Mundial 2026">
-                    </div>
-                </div>
-                <button class="world-cup-arrow world-cup-arrow--next" type="button" aria-label="Imagen siguiente" data-world-cup-next>›</button>
-                <div class="world-cup-dots" aria-hidden="true">
-                    <span class="is-active" data-world-cup-dot></span>
-                    <span data-world-cup-dot></span>
-                    <span data-world-cup-dot></span>
-                </div>
-            </div>
-        </div>
-
         <section class="promo-hero">
             <div class="container">
                 <div class="promo-shell" data-carousel>
@@ -419,8 +393,4 @@
         </section>
     </main>
         
-    {% include 'partials/site_footer.html' %}
-
-    <script src="{% static 'js/inicio.js' %}?v=promo-local-swipe"></script>
-</body>
-</html>
+{% endblock %}

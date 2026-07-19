@@ -1,15 +1,13 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="es-MX">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu | La Caba&ntilde;a</title>
-    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=header-world-cup-flyer-layout">
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=footer-gutter">
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=responsive-26">
-    <link rel="icon" type="image/x-icon" href="{% static 'img/logos/favicon.ico' %}">
-    <style>
+
+{% block title %}
+Menu | La Caba&ntilde;a
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=responsive-26">
+<style>
         body {
             margin: 0;
             background: #fffaf1;
@@ -75,11 +73,10 @@
             box-shadow: 0 14px 30px rgba(52, 24, 8, 0.08);
         }
     </style>
-</head>
-<body>
-    {% include 'partials/site_header.html' %}
+{% endblock %}
 
-    <main class="menu-fallback">
+{% block content %}
+<main class="menu-fallback">
         <section class="menu-fallback__hero">
             <p class="menu-fallback__label">Menu digital</p>
             <h1>Menu de La Caba&ntilde;a</h1>
@@ -121,6 +118,4 @@
         </section>
     </main>
 
-    {% include 'partials/site_footer.html' %}
-</body>
-</html>
+{% endblock %}

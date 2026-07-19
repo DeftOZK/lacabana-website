@@ -1,20 +1,17 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="es-MX">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comentarios | La Caba&ntilde;a</title>
-    <link rel="stylesheet" href="{% static 'css/inicio.css' %}?v=comentarios-alert-timeout">
-    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=header-world-cup-flyer-layout">
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=footer-gutter">
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=responsive-26">
-    <link rel="icon" type="image/x-icon" href="{% static 'img/logos/favicon.ico' %}">
-</head>
-<body>
-    {% include 'partials/site_header.html' %}
 
-    <main>
+{% block title %}
+Comentarios | La Caba&ntilde;a
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/inicio.css' %}?v=comentarios-alert-timeout">
+<link rel="stylesheet" href="{% static 'css/responsive.css' %}?v=responsive-26">
+{% endblock %}
+
+{% block content %}
+<main>
         <section class="feedback-hero">
             <div class="container">
                 <p class="eyebrow">Atenci&oacute;n al cliente</p>
@@ -146,8 +143,10 @@
         </section>
     </main>
 
-    {% include 'partials/site_footer.html' %}
-    <script>
+{% endblock %}
+
+{% block extra_js %}
+<script>
         (() => {
             const typeSelect = document.querySelector("[data-feedback-type]");
             const messageInput = document.querySelector("[data-feedback-message]");
@@ -254,5 +253,4 @@
             });
         })();
     </script>
-</body>
-</html>
+{% endblock %}
